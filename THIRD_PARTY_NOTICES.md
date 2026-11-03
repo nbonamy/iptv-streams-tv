@@ -14,6 +14,11 @@
 - AndroidX/Media3, Kotlin/coroutines, OkHttp and Gson are build dependencies;
   their upstream licenses apply. The Gradle wrapper is from the sibling build
   tooling and is distributed under the Apache License 2.0.
+- [Nextlib 0.17.0 for Media3 1.11.1](https://github.com/anilbeesetti/nextlib)
+  supplies FFmpeg audio/video decoders under GPL-3.0; the
+  [license is included](licenses/Nextlib-GPL-3.0.txt). Its native FFmpeg components
+  retain their upstream licenses. Distributing a combined app containing this
+  library is subject to its GPL terms, including corresponding source obligations.
 - Channel artwork is referenced by the playlist's `tvg-logo` URLs. Logos remain
   attributable to their respective owners. [Coil 2.7.0](https://github.com/coil-kt/coil/tree/2.7.0)
   loads and caches artwork under the Apache License 2.0.

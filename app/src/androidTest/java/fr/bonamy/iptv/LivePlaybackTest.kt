@@ -24,6 +24,9 @@ class LivePlaybackTest {
         if (view is ViewGroup) for (index in 0 until view.childCount) findPlayer(view.getChildAt(index))?.let { return it }
         return null
     }
+    private fun streamPosition(player: ExoPlayer): Long =
+        player.currentPosition + if (player.currentTimeline.isEmpty) 0 else
+            player.currentTimeline.getWindow(player.currentMediaItemIndex, androidx.media3.common.Timeline.Window()).positionInFirstPeriodMs
     private fun waitUntil(scenario: ActivityScenario<MainActivity>, predicate: (MainActivity) -> Boolean) {
         val deadline = android.os.SystemClock.elapsedRealtime() + 60000
         while (android.os.SystemClock.elapsedRealtime() < deadline) {
@@ -75,8 +78,8 @@ class LivePlaybackTest {
             }
             android.util.Log.i("PlaybackProbe", "$channelId startupMs=${android.os.SystemClock.elapsedRealtime() - selectedAt}")
             var start = 0L
-            scenario.onActivity { start = findPlayer(it.findViewById(android.R.id.content))!!.currentPosition }
-            waitUntil(scenario) { findPlayer(it.findViewById(android.R.id.content))!!.currentPosition > start + 3000 }
+            scenario.onActivity { start = streamPosition(findPlayer(it.findViewById(android.R.id.content))!!) }
+            waitUntil(scenario) { streamPosition(findPlayer(it.findViewById(android.R.id.content))!!) > start + 3000 }
             // Refresh must complete alongside decoding within a normal TV heap.
             waitUntil(scenario) {
                 val cache = java.io.File(it.filesDir, "library.json")

@@ -22,14 +22,19 @@ import androidx.media3.common.util.Util
 import androidx.media3.datasource.DefaultDataSource
 import androidx.media3.datasource.DefaultHttpDataSource
 import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.exoplayer.DefaultRenderersFactory
+import androidx.media3.exoplayer.RenderersFactory
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import androidx.media3.exoplayer.source.MediaSource
 import androidx.media3.exoplayer.hls.HlsMediaSource
+import androidx.media3.exoplayer.hls.HlsDataSourceFactory
 import androidx.media3.exoplayer.hls.DefaultHlsExtractorFactory
 import androidx.media3.extractor.ts.DefaultTsPayloadReaderFactory
 import androidx.media3.ui.PlayerView
 import fr.bonamy.iptv.core.Channel
 import fr.bonamy.iptv.core.PlaybackRecovery
+import io.github.anilbeesetti.nextlib.media3ext.ffdecoder.FfmpegLibrary
+import io.github.anilbeesetti.nextlib.media3ext.ffdecoder.NextRenderersFactory
 
 @OptIn(markerClass = [UnstableApi::class])
 internal class PlayerScreen(
@@ -37,6 +42,7 @@ internal class PlayerScreen(
     val channel: Channel,
     private val preferences: ViewerPreferences,
     initialStream: Int,
+    private val renderersFactory: RenderersFactory? = null,
 ) : FrameLayout(activity) {
     var streamIndex = initialStream.coerceIn(channel.streams.indices)
         private set
@@ -45,6 +51,8 @@ internal class PlayerScreen(
     private var player: ExoPlayer? = null
     private var paused = false
     private var failed = false
+    private var recoverAtLiveEdge = false
+    private var useSoftwareDecoder = false
     private var picker: AlertDialog? = null
     private val video = PlayerView(context).apply {
         useController = false; isFocusable = false; setKeepContentOnPlayerReset(true)
@@ -60,7 +68,15 @@ internal class PlayerScreen(
     private val favoriteButton = context.playerAction(favoriteTitle()) { preferences.toggle(channel); favoriteButtonText() }
     private val hide = Runnable { hideControls() }
     private val stable = Runnable { recovery.reset() }
-    private val retryPlayback = Runnable { prepare() }
+    private val retryPlayback = Runnable {
+        val engine = player
+        if (recoverAtLiveEdge && engine != null) {
+            failed = false; retry.visibility = View.GONE; message.visibility = View.GONE
+            connecting.isError = false; connecting.visibility = View.VISIBLE
+            engine.seekToDefaultPosition()
+            engine.prepare(); engine.playWhenReady = !paused
+        } else prepare()
+    }
 
     init {
         setBackgroundColor(Color.BLACK); isFocusable = true; isFocusableInTouchMode = true
@@ -102,7 +118,7 @@ internal class PlayerScreen(
     private fun prepare() {
         handler.removeCallbacks(retryPlayback); handler.removeCallbacks(stable); handler.removeCallbacks(hide)
         player?.release(); player = null
-        failed = false; retry.visibility = View.GONE
+        failed = false; recoverAtLiveEdge = false; retry.visibility = View.GONE
         message.text = ""; message.visibility = View.GONE
         connecting.isError = false; connecting.visibility = View.VISIBLE
         val stream = channel.streams[streamIndex]
@@ -111,21 +127,29 @@ internal class PlayerScreen(
             .setUserAgent(stream.headers["User-Agent"] ?: "Mozilla/5.0 IPTV/0.1")
             .setDefaultRequestProperties(stream.headers)
         val sources = DefaultMediaSourceFactory(DefaultDataSource.Factory(context, http))
-        val hls = HlsMediaSource.Factory(http).setExtractorFactory(DefaultHlsExtractorFactory(
+        val segmentHeaders = stream.headers + ("User-Agent" to (stream.headers["User-Agent"] ?: "Mozilla/5.0 IPTV/0.1"))
+        val hls = HlsMediaSource.Factory(HlsDataSourceFactory { type ->
+            if (type == C.DATA_TYPE_MEDIA) ParallelMediaDataSource(http, segmentHeaders) else http.createDataSource()
+        }).setPlaylistParserFactory(LivePlaylistParserFactory()).setExtractorFactory(DefaultHlsExtractorFactory(
             DefaultTsPayloadReaderFactory.FLAG_ALLOW_NON_IDR_KEYFRAMES, true))
         val compatibleSources = object : MediaSource.Factory by sources {
             override fun createMediaSource(mediaItem: MediaItem): MediaSource =
                 if (Util.inferContentTypeForUriAndMimeType(mediaItem.localConfiguration!!.uri, mediaItem.localConfiguration!!.mimeType) == C.CONTENT_TYPE_HLS)
                     hls.createMediaSource(mediaItem) else sources.createMediaSource(mediaItem)
         }
-        player = ExoPlayer.Builder(context).setMediaSourceFactory(compatibleSources).build().also { engine ->
+        val decoders = renderersFactory ?: NextRenderersFactory(activity)
+            .setExtensionRendererMode(if (useSoftwareDecoder) DefaultRenderersFactory.EXTENSION_RENDERER_MODE_PREFER else DefaultRenderersFactory.EXTENSION_RENDERER_MODE_ON)
+            .setEnableDecoderFallback(true)
+        player = ExoPlayer.Builder(context).setRenderersFactory(decoders).setMediaSourceFactory(compatibleSources).build().also { engine ->
             video.player = engine
             engine.addListener(object : Player.Listener {
                 override fun onPlaybackStateChanged(state: Int) {
                     if (engine != player) return
                     when (state) {
-                        Player.STATE_BUFFERING -> { message.text = ""; message.visibility = View.GONE
-        connecting.isError = false; connecting.visibility = View.VISIBLE }
+                        Player.STATE_BUFFERING -> {
+                            message.text = ""; message.visibility = View.GONE
+                            connecting.isError = false; connecting.visibility = View.VISIBLE
+                        }
                         Player.STATE_READY -> {
                             message.visibility = View.GONE; connecting.visibility = View.GONE; retry.visibility = View.GONE
                             if (!paused) scheduleHide()
@@ -137,7 +161,7 @@ internal class PlayerScreen(
                     handler.removeCallbacks(stable)
                     if (isPlaying) handler.postDelayed(stable, 15000)
                 }
-                override fun onPlayerError(error: PlaybackException) { if (engine == player) failedPlayback() }
+                override fun onPlayerError(error: PlaybackException) { if (engine == player) failedPlayback(error) }
             })
             engine.setMediaItem(MediaItem.fromUri(stream.url))
             engine.prepare(); engine.playWhenReady = !paused
@@ -145,10 +169,18 @@ internal class PlayerScreen(
         updatePlayButton()
     }
 
-    private fun failedPlayback() {
+    private fun failedPlayback(error: PlaybackException? = null) {
         if (failed) return
+        recoverAtLiveEdge = error?.errorCode == PlaybackException.ERROR_CODE_BEHIND_LIVE_WINDOW
+        val codecFallback = !useSoftwareDecoder && renderersFactory == null && error?.errorCode in setOf(
+            PlaybackException.ERROR_CODE_DECODER_INIT_FAILED, PlaybackException.ERROR_CODE_DECODER_QUERY_FAILED,
+            PlaybackException.ERROR_CODE_DECODING_FAILED, PlaybackException.ERROR_CODE_DECODING_FORMAT_EXCEEDS_CAPABILITIES,
+            PlaybackException.ERROR_CODE_DECODING_FORMAT_UNSUPPORTED,
+        ) && FfmpegLibrary.isAvailable()
+        if (codecFallback) useSoftwareDecoder = true
         failed = true; handler.removeCallbacks(hide); handler.removeCallbacks(stable)
-        val delay = recovery.nextDelayMs()
+        val scheduled = recovery.nextDelayMs()
+        val delay = if (codecFallback && scheduled != null) 0L else scheduled
         connecting.isError = delay == null; connecting.visibility = View.VISIBLE
         message.setTextColor(if (delay == null) 0xffed6673.toInt() else MUTED)
         message.text = if (delay != null) "Reconnecting…" else "Channel unavailable"
@@ -172,7 +204,7 @@ internal class PlayerScreen(
         handler.removeCallbacks(hide)
         val labels = channel.streams.mapIndexed { index, stream -> "${index + 1}. ${stream.label}" }.toTypedArray()
         picker = AlertDialog.Builder(context).setTitle("Streams").setSingleChoiceItems(labels, streamIndex) { dialog, index ->
-            streamIndex = index; recovery.reset(); paused = false; dialog.dismiss(); prepare()
+            streamIndex = index; recovery.reset(); useSoftwareDecoder = false; paused = false; dialog.dismiss(); prepare()
         }.setNegativeButton("Cancel", null).create().also { it.setOnDismissListener { picker = null; scheduleHide() }; it.show() }
     }
     private fun tracks(type: Int, title: String) {

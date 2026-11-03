@@ -80,6 +80,8 @@ home tiles, Lato typography, and blue remote focus. Six-column portrait channel
 cards show source logos, with a television placeholder when artwork is unavailable.
 Movies provides the Leanback/voice/QR-assisted search flow and underline player
 menus. Shared resources are copied locally so neither sibling is a build dependency.
+Playback prefers hardware decoding and includes FFmpeg fallback for unsupported
+audio and failing device decoders, keeping viewing inside the app.
 
 A source snapshot is bundled for startup without a network connection. The fixed
 worldwide URL refreshes automatically while the app is visible and through Refresh;

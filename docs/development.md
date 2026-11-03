@@ -60,6 +60,53 @@ It also requires refresh/cache completion while video is decoding, using compact
 metadata and streaming cache writes within the normal TV heap. It is a live-source
 probe, not an availability certificate for every channel.
 
+Playback regression and sustained-source probes use the same Media3 player as
+the app:
+
+```sh
+adb -s emulator-5554 shell am instrument -w \
+  -e class fr.bonamy.iptv.ShortLiveWindowTest \
+  fr.bonamy.iptv.test/androidx.test.runner.AndroidJUnitRunner
+adb -s emulator-5554 shell am instrument -w \
+  -e class fr.bonamy.iptv.StreamStabilityTest \
+  -e channelId TF1.fr -e sampleSeconds 120 -e allowDecoderFallback true \
+  fr.bonamy.iptv.test/androidx.test.runner.AndroidJUnitRunner
+```
+
+`ShortLiveWindowTest` serves original synthetic H.264/AAC segments from a local
+HTTP origin with an eight-second sliding window and a delayed first request.
+It requires prompt startup and continuously advancing frames without player errors.
+`StreamStabilityTest` records timing, formats, decoder names, bytes, buffering and
+audio/video frame counts in private `files/playback-trace.jsonl`; it records no source URLs
+or headers. It requires rendered frames, no player errors and no frame stall of
+five seconds. `channelId`, `sampleSeconds` (15–180), `streamUrl`, `disableAudio`
+and `software` select explicit probes. Omit `software` to exercise ordinary
+hardware-first playback. `allowDecoderFallback=true` permits one decoder error
+only if FFmpeg video subsequently initializes and the picture recovers within
+ten seconds. This handoff is reported separately as `decoderRecoveryGap`;
+steady playback retains the five-second stall limit. Other errors fail the probe.
+The probe also requires selected audio to render. The Nextlib Media3 extension,
+pinned to Media3 1.11.1, supplies FFmpeg audio/video decoders in all builds.
+Hardware decoding has priority; unsupported audio uses FFmpeg automatically.
+A runtime decoder failure immediately retries the same stream with FFmpeg
+preferred, within the existing retry budget. Source selection resets decoder
+preference. Decoder failure recovery does not launch an external player.
+
+HLS media segments of 256 KiB–8 MiB use four bounded parallel HTTP ranges when
+the origin proves range support. Ranges must match the requested positions,
+total length and supplied entity validator before any bytes reach Media3.
+Unsupported or inconsistent origins use the normal streaming transport. The
+shared budget is 16 MiB and eight workers; manifests, keys, DASH and progressive
+streams retain their normal transport. Source headers and requested byte ranges
+are preserved, and cancellation closes outstanding requests. Unit tests cover
+exact bytes, concurrent requests, malformed responses, fallback and cancellation.
+
+Short sliding live windows whose default start is within the oldest segment
+start halfway through the available window. Explicit provider start offsets,
+safe defaults and long DVR windows are preserved. A behind-live-window error
+seeks within the current live window and prepares the same Media3 instance,
+using the normal bounded reconnection policy.
+
 ## Source and storage
 
 Built-in source: `https://iptv-org.github.io/iptv/index.m3u`.
