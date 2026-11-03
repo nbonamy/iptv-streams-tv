@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">IPTV television icon</title>
+  <rect width="512" height="512" fill="#2856C7"/>
+  <path d="M256 348v38M192 386h128" fill="none" stroke="#F2B632" stroke-width="26" stroke-linecap="round"/>
+  <rect x="90" y="136" width="332" height="212" rx="24" fill="#2856C7" stroke="#FFF8E8" stroke-width="26"/>
+</svg>

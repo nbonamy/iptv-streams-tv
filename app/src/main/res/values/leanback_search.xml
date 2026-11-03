@@ -1,0 +1,6 @@
+<resources>
+    <color name="lb_search_bar_text">#FFFFFFFF</color>
+    <color name="lb_search_bar_hint">#FFA8BDD8</color>
+    <color name="lb_search_bar_text_speech_mode">#FFFFFFFF</color>
+    <color name="lb_search_bar_hint_speech_mode">#FFA8BDD8</color>
+</resources>

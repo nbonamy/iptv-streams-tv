@@ -1,0 +1,12 @@
+<resources>
+    <item type="id" name="browser_menu" />
+    <item type="id" name="browser_hero" />
+    <item type="id" name="channel_logo" />
+    <item type="id" name="search_button" />
+    <item type="id" name="refresh_button" />
+    <item type="id" name="search_input" />
+    <item type="id" name="channel_grid" />
+    <item type="id" name="country_grid" />
+    <item type="id" name="browser_status" />
+    <item type="id" name="player_status" />
+</resources>

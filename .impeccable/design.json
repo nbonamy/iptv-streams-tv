@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-03T18:00:49.805876+00:00",
+  "title": "Design System: IPTV",
+  "extensions": {
+    "motion": [],
+    "shadows": [],
+    "breakpoints": [],
+    "colorMeta": {
+      "focus": {
+        "role": "primary",
+        "displayName": "TV focus blue"
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "TV navy"
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "Country tile",
+      "kind": "card",
+      "description": "Home tile geometry, with locally bundled flags for countries and a yellow star for Favorites.",
+      "html": "<div class=\"country\" tabindex=\"0\"><img alt=\"\" width=\"40\" height=\"30\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAAB4CAYAAAB1ovlvAAAABmJLR0QA/wD/AP+gvaeTAAABcklEQVR4nO3SMQ0CARREwQ8G8HAmkIMASpTQ0CHoRJwGCgSACZKXHDMKdpN3mLl/Zme27bIuy+lc7/il9+O5vq63XX2amTnWA/hvAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUgIkJUBSAiQlQFICJCVAUl9MKgrfXOdVZAAAAABJRU5ErkJggg==\"><span>France</span></div>",
+      "css": ".country{box-sizing:border-box;width:172px;height:94px;background:#12171e;border:2px solid transparent;border-radius:7px;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:Lato,sans-serif}.country img{object-fit:contain;margin-bottom:10px}.country span{font-size:13px}.country:focus{outline:none;border-color:#3498da;background:#121b26}"
+    }
+  ],
+  "narrative": {
+    "overview": "Native Android TV in the Movies and Sports visual family.",
+    "keyCharacteristics": [
+      "Compact header",
+      "Tile navigation",
+      "Local country flags",
+      "Yellow Favorite star",
+      "Lato",
+      "QR-assisted search"
+    ],
+    "dos": [
+      "Reuse sibling native resources and focus behavior."
+    ],
+    "donts": [
+      "Do not replace country browsing with a modal picker."
+    ]
+  }
+}

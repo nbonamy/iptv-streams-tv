@@ -1,0 +1,201 @@
+{
+  "countries": {
+    "FR": {
+      "source": {
+        "url": "https://en.wikipedia.org/wiki/List_of_television_stations_in_France",
+        "revision": "1379065605",
+        "table": "EPG No. / Channel",
+        "retrievedOn": "2026-11-03"
+      },
+      "channels": [
+        {
+          "number": 1,
+          "name": "TF1",
+          "ids": [
+            "TF1.fr"
+          ]
+        },
+        {
+          "number": 2,
+          "name": "France 2",
+          "ids": [
+            "France2.fr"
+          ]
+        },
+        {
+          "number": 3,
+          "name": "France 3",
+          "ids": [
+            "France3.fr"
+          ]
+        },
+        {
+          "number": 4,
+          "name": "France 4",
+          "ids": [
+            "France4.fr"
+          ]
+        },
+        {
+          "number": 5,
+          "name": "France 5",
+          "ids": [
+            "France5.fr"
+          ]
+        },
+        {
+          "number": 6,
+          "name": "M6",
+          "ids": [
+            "M6.fr"
+          ]
+        },
+        {
+          "number": 7,
+          "name": "Arte",
+          "ids": [
+            "arte.fr"
+          ]
+        },
+        {
+          "number": 8,
+          "name": "LCP",
+          "ids": [
+            "LCP.fr"
+          ]
+        },
+        {
+          "number": 9,
+          "name": "W9",
+          "ids": [
+            "W9.fr"
+          ]
+        },
+        {
+          "number": 10,
+          "name": "TMC",
+          "ids": [
+            "TMC.fr"
+          ]
+        },
+        {
+          "number": 11,
+          "name": "TFX",
+          "ids": [
+            "TFX.fr"
+          ]
+        },
+        {
+          "number": 12,
+          "name": "Gulli",
+          "ids": [
+            "Gulli.fr"
+          ]
+        },
+        {
+          "number": 13,
+          "name": "BFM TV",
+          "ids": [
+            "BFMTV.fr"
+          ]
+        },
+        {
+          "number": 14,
+          "name": "CNews",
+          "ids": [
+            "CNews.fr"
+          ]
+        },
+        {
+          "number": 15,
+          "name": "LCI",
+          "ids": [
+            "LCI.fr"
+          ]
+        },
+        {
+          "number": 16,
+          "name": "France Info",
+          "ids": [
+            "Franceinfo.fr"
+          ]
+        },
+        {
+          "number": 17,
+          "name": "CStar",
+          "ids": [
+            "CStar.fr"
+          ]
+        },
+        {
+          "number": 18,
+          "name": "T18",
+          "ids": [
+            "T18.fr"
+          ]
+        },
+        {
+          "number": 19,
+          "name": "Novo 19",
+          "ids": [
+            "NOVO19.fr"
+          ]
+        },
+        {
+          "number": 20,
+          "name": "TF1 Séries Films",
+          "ids": [
+            "TF1SeriesFilms.fr"
+          ]
+        },
+        {
+          "number": 21,
+          "name": "L'Équipe",
+          "ids": [
+            "LEquipe.fr"
+          ]
+        },
+        {
+          "number": 22,
+          "name": "6ter",
+          "ids": [
+            "6ter.fr"
+          ]
+        },
+        {
+          "number": 23,
+          "name": "RMC Story",
+          "ids": [
+            "RMCStory.fr"
+          ]
+        },
+        {
+          "number": 24,
+          "name": "RMC Découverte",
+          "ids": [
+            "RMCDecouverte.fr"
+          ]
+        },
+        {
+          "number": 25,
+          "name": "RMC Life",
+          "ids": [
+            "RMCLife.fr"
+          ]
+        },
+        {
+          "number": 26,
+          "name": "Paris Première",
+          "ids": [
+            "ParisPremiere.fr"
+          ]
+        },
+        {
+          "number": 52,
+          "name": "France 2 UHD",
+          "ids": []
+        }
+      ]
+    }
+  }
+}
