@@ -17,6 +17,9 @@ internal class ChannelAdapter(
     private val options: (Channel) -> Unit,
     private val focused: (String) -> Unit,
 ) : RecyclerView.Adapter<ChannelAdapter.Holder>() {
+    var guideAvailable = false
+    var openGuide: () -> Unit = {}
+    var guideFocused: () -> Unit = {}
     var channels = emptyList<Channel>()
     var favorites = emptySet<String>()
     private var showCountries = false
@@ -53,9 +56,19 @@ internal class ChannelAdapter(
         return Holder(card, name, detail, flag, logo)
     }
 
-    override fun getItemCount() = channels.size
+    override fun getItemCount() = channels.size + if (guideAvailable) 1 else 0
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        val channel = channels[position]
+        if (guideAvailable && position == 0) {
+            holder.name.text = "TV guide"
+            holder.logo.setImageResource(R.drawable.ic_tv_guide)
+            holder.detail.visibility = View.GONE; holder.flag.visibility = View.GONE
+            holder.card.contentDescription = "TV guide"
+            holder.card.setOnClickListener { openGuide() }
+            holder.card.setOnLongClickListener(null)
+            holder.card.setOnFocusChangeListener { _, focused -> if (focused) guideFocused() }
+            return
+        }
+        val channel = channels[position - if (guideAvailable) 1 else 0]
         holder.name.text = channel.name
         holder.logo.load(channel.logoUrl) {
             size(holder.card.context.dp(112), holder.card.context.dp(112))
@@ -80,9 +93,9 @@ internal class ChannelAdapter(
         holder.logo.setImageResource(R.drawable.ic_channel_placeholder)
         super.onViewRecycled(holder)
     }
-    fun replace(items: List<Channel>, ids: List<String>, countries: Boolean = false) {
+    fun replace(items: List<Channel>, ids: List<String>, countries: Boolean = false, guide: Boolean = false) {
         val favoriteIds = ids.toSet()
-        if (channels === items && favorites == favoriteIds && showCountries == countries) return
-        channels = items; favorites = favoriteIds; showCountries = countries; notifyDataSetChanged()
+        if (channels === items && favorites == favoriteIds && showCountries == countries && guideAvailable == guide) return
+        guideAvailable = guide; channels = items; favorites = favoriteIds; showCountries = countries; notifyDataSetChanged()
     }
 }

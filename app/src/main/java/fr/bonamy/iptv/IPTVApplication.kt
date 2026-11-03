@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 
 class IPTVApplication : Application(), ImageLoaderFactory {
     internal val libraryStore by lazy { LibraryStore(this) }
+    internal val guideStore by lazy { GuideStore(this) }
     override fun onCreate() {
         super.onCreate()
         // Prepare artwork infrastructure off the UI thread before the first country opens.

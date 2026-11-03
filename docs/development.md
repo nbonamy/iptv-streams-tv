@@ -145,7 +145,7 @@ HTTP and HTTPS streams are supported through Media3, including HLS, DASH and
 progressive media recognized by its source factory. Cleartext is enabled because
 the chosen public playlist contains HTTP streams. Unsupported URL schemes are
 not playable. Stream headers are limited to the source's user agent, referrer and
-origin. No DRM, catch-up, EPG, recording, multiview, or source credentials UI is added.
+origin. No DRM, catch-up, worldwide EPG, recording, multiview, or source credentials UI is added.
 
 ## Country channel order
 
@@ -247,3 +247,31 @@ Lato and Nunito license files are included. Country flags are from flag-icons v7
 bundled locally. `python3 tools/update-flags.py` regenerates the pinned SVG/PNG
 assets and native resource map. The in-app television artwork is the
 same asset used by Sports LiveTV. Neither sibling is modified or required to build.
+
+## France TV guide
+
+The first France tile loads `https://xmltvfr.fr/xmltv/xmltv_tnt.xml` on demand.
+Core parses bounded XMLTV with external entities disabled and explicit legacy-ID
+aliases. Only channels matched to France's catalog enter the grid, in lineup order.
+The app atomically caches validated XML for an hour and retains the last valid
+schedule after refresh failures. Refresh in the guide reloads only its schedule.
+All program selections play the current live stream, including future listings.
+
+`TvGuideTest` covers offsets, entities, malformed programs and identity matching.
+`GuideStoreTest` checks cache reuse and failed-refresh recovery. Run `GuideTest` on
+the selected TV emulator for the first tile, remote movement, recreation, program
+selection and Back/focus restoration. It supplies a generated schedule through the
+real on-device cache; it does not assert live stream availability.
+
+```sh
+adb -s emulator-5554 shell am instrument -w \
+  -e class fr.bonamy.iptv.GuideTest \
+  fr.bonamy.iptv.test/androidx.test.runner.AndroidJUnitRunner
+# Explicit live XMLTV fetch and native grid acceptance:
+adb -s emulator-5554 shell am instrument -w \
+  -e class fr.bonamy.iptv.LiveGuideTest \
+  fr.bonamy.iptv.test/androidx.test.runner.AndroidJUnitRunner
+```
+
+`LiveGuideTest` requires a fresh feed and captures the rendered native grid to
+private `files/live-guide.png` on the selected emulator.

@@ -82,13 +82,14 @@ class BrowsingTest {
                 org.junit.Assert.assertEquals(6, (grid.layoutManager as androidx.recyclerview.widget.GridLayoutManager).spanCount)
                 val channels = (grid.adapter as ChannelAdapter).channels
                 org.junit.Assert.assertEquals(listOf("TF1.fr", "France2.fr", "France3.fr"), channels.take(3).map { channel -> channel.id })
-                val holder = grid.findViewHolderForAdapterPosition(0) as ChannelAdapter.Holder
+                org.junit.Assert.assertEquals("TV guide", (grid.findViewHolderForAdapterPosition(0) as ChannelAdapter.Holder).name.text.toString())
+                val holder = grid.findViewHolderForAdapterPosition(1) as ChannelAdapter.Holder
                 org.junit.Assert.assertTrue("Channel cards should be portrait", holder.card.height > holder.card.width)
                 val logo = IntArray(2); val name = IntArray(2)
                 holder.logo.getLocationOnScreen(logo); holder.name.getLocationOnScreen(name)
                 org.junit.Assert.assertTrue("Name belongs below the logo", name[1] >= logo[1] + holder.logo.height)
             }
-            onView(withId(R.id.channel_grid)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, longClick()))
+            onView(withId(R.id.channel_grid)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, longClick()))
             onView(withText("Country")).check(androidx.test.espresso.assertion.ViewAssertions.doesNotExist())
             onView(withText("Sports category")).check(androidx.test.espresso.assertion.ViewAssertions.doesNotExist())
             onView(withText("Add to favorites")).perform(click())

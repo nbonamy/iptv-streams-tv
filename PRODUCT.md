@@ -94,7 +94,12 @@ connection. Startup and browsing use the saved local catalog. Refresh explicitly
 downloads the fixed worldwide source, validates it, and replaces the persistent
 cache atomically. Country/category metadata joins iptv-org channel IDs.
 
-Movies and series are outside the first version. XMLTV/now-next, catch-up,
+France has a first-position **TV guide** tile powered by
+`https://xmltvfr.fr/xmltv/xmltv_tnt.xml`. Its time-aligned grid uses Paris time;
+selecting any program opens that channel live. Earlier, Now and Later browse the
+schedule. The guide retains a validated local copy for connection failures.
+
+Movies and series are outside the first version. Worldwide XMLTV, catch-up,
 recording, multiview, time-shifting, and background sync
 remain possible later decisions, not committed initial scope. User-supplied
 playlist/account setup is outside the product direction. Validate playback before making

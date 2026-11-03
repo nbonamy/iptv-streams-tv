@@ -62,6 +62,11 @@ class MainActivity : ComponentActivity() {
     private val positions = mutableMapOf<Section, String>()
     private var updateJob: Job? = null
     private var filterJob: Job? = null
+    private var guideScreen: GuideScreen? = null
+    private var guideJob: Job? = null
+    private var guideTileFocused = false
+    private var restoreGuide = false
+    private var guideState: Bundle? = null
     private var playerScreen: PlayerScreen? = null
     private var restorePlayback: String? = null
     private var restoreStream = 0
@@ -74,6 +79,8 @@ class MainActivity : ComponentActivity() {
         section = savedInstanceState?.getString("section")?.let { runCatching { Section.valueOf(it) }.getOrNull() } ?: Section.ALL
         country = savedInstanceState?.getString("country")
         selectedChannel = savedInstanceState?.getString("channel")
+        restoreGuide = savedInstanceState?.getBoolean("guideOpen") ?: false
+        guideState = savedInstanceState?.getBundle("guideState")
         restorePlayback = savedInstanceState?.getString("playing")
         restoreStream = savedInstanceState?.getInt("stream") ?: 0
         countryMode = savedInstanceState?.getBoolean("countryMode") ?: true
@@ -153,7 +160,9 @@ class MainActivity : ComponentActivity() {
         searchPanel.addView(remoteSearch.shortcut, LinearLayout.LayoutParams(-2, -2).apply { marginStart = dp(20) })
         body.addView(searchPanel, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(12) })
         val content = FrameLayout(this)
-        adapter = ChannelAdapter(::play, ::channelOptions) { selectedChannel = it; positions[section] = it }
+        adapter = ChannelAdapter(::play, ::channelOptions) { guideTileFocused = false; selectedChannel = it; positions[section] = it }
+        adapter.openGuide = ::openGuide
+        adapter.guideFocused = { guideTileFocused = true }
         grid = RecyclerView(this).apply {
             id = R.id.channel_grid; layoutManager = GridLayoutManager(this@MainActivity, 6)
             adapter = this@MainActivity.adapter; itemAnimator = null
@@ -182,6 +191,7 @@ class MainActivity : ComponentActivity() {
                 val screen = playerScreen
                 when {
                     screen != null -> if (!screen.back()) closePlayer()
+                    guideScreen != null -> closeGuide()
                     searchPanel.visibility == View.VISIBLE -> closeSearch()
                     !countryMode -> showHome()
                     else -> { isEnabled = false; onBackPressedDispatcher.onBackPressed(); isEnabled = true }
@@ -198,6 +208,7 @@ class MainActivity : ComponentActivity() {
                     applyLibrary(loaded)
                     render(!countryMode || selectedChannel != null)
                 }
+                if (restoreGuide) { openGuide(); restoreGuide = false }
                 restorePlayback?.let { id -> catalog.byId[id]?.let { play(it, restoreStream) } }
                 restorePlayback = null
                 lifecycleScope.launch(Dispatchers.IO) { runCatching { store.persistIfNeeded() } }
@@ -264,7 +275,7 @@ class MainActivity : ComponentActivity() {
 
     private fun displayChannels(items: List<Channel>, favorites: List<String>, searching: Boolean, focus: Boolean, query: String) {
         val hadGridFocus = grid.hasFocus()
-        adapter.replace(items, favorites, countries = searching)
+        adapter.replace(items, favorites, countries = searching, guide = !searching && section == Section.FRANCE)
         empty.removeAllViews()
         empty.visibility = if (items.isEmpty()) View.VISIBLE else View.GONE
         grid.visibility = if (items.isEmpty()) View.GONE else View.VISIBLE
@@ -286,13 +297,14 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun focusChannel() {
-        val position = adapter.channels.indexOfFirst { it.id == selectedChannel }.coerceAtLeast(0)
+        val position = if (adapter.guideAvailable && (guideTileFocused || selectedChannel == null)) 0 else adapter.channels.indexOfFirst { it.id == selectedChannel }.coerceAtLeast(0) + if (adapter.guideAvailable) 1 else 0
         grid.post {
+            if (guideScreen != null || playerScreen != null || !browser.isShown) return@post
             val visible = grid.findViewHolderForAdapterPosition(position)?.itemView
             if (visible != null) visible.requestFocusFromTouch()
             else {
                 grid.scrollToPosition(position)
-                grid.post { grid.findViewHolderForAdapterPosition(position)?.itemView?.requestFocusFromTouch() ?: grid.requestFocus() }
+                grid.post { if (guideScreen == null && playerScreen == null && browser.isShown) grid.findViewHolderForAdapterPosition(position)?.itemView?.requestFocusFromTouch() ?: grid.requestFocus() }
             }
         }
     }
@@ -364,6 +376,27 @@ class MainActivity : ComponentActivity() {
             .setNegativeButton("Cancel", null).show()
     }
 
+    private fun openGuide() {
+        if (guideScreen != null) return
+        browser.visibility = View.GONE
+        guideScreen = GuideScreen(this, ::play, ::closeGuide) { loadGuide(true) }.also { it.restoreState(guideState); guideState = null; root.addView(it, FrameLayout.LayoutParams(-1, -1)) }
+        loadGuide()
+    }
+    private fun loadGuide(force: Boolean = false) {
+        guideJob?.cancel()
+        guideScreen?.loading()
+        guideJob = lifecycleScope.launch {
+            try {
+                val result = runInterruptible(Dispatchers.IO) { (application as IPTVApplication).guideStore.load(force) }
+                guideScreen?.show(result, catalog.browse(Section.FRANCE))
+            } catch (error: CancellationException) { throw error }
+            catch (_: Exception) { guideScreen?.failed() }
+        }
+    }
+    private fun closeGuide() {
+        guideJob?.cancel(); guideScreen?.let(root::removeView); guideScreen = null
+        browser.visibility = View.VISIBLE; guideTileFocused = true; render(true)
+    }
     private fun play(channel: Channel) = play(channel, 0)
     private fun play(channel: Channel, stream: Int) {
         if (channel.streams.isEmpty()) {
@@ -374,11 +407,13 @@ class MainActivity : ComponentActivity() {
         selectedChannel = channel.id
         playerScreen?.release()
         browser.visibility = View.GONE
+        guideScreen?.visibility = View.GONE
         playerScreen = PlayerScreen(this, channel, preferences, stream).also { root.addView(it, FrameLayout.LayoutParams(-1, -1)); it.start() }
     }
     private fun closePlayer() {
         playerScreen?.let { it.release(); root.removeView(it) }; playerScreen = null
-        browser.visibility = View.VISIBLE; render(true)
+        if (guideScreen != null) { guideScreen?.visibility = View.VISIBLE; guideScreen?.restoreFocus() }
+        else { browser.visibility = View.VISIBLE; render(true) }
     }
     // This overrides the public platform key hook; AndroidX's inherited annotation
     // incorrectly marks the bridge restricted. TV controls need interception before focus dispatch.
@@ -395,6 +430,8 @@ class MainActivity : ComponentActivity() {
     override fun onStop() { updateJob?.cancel(); remoteSearch.stop(); playerScreen?.stop(); super.onStop() }
     override fun onDestroy() { browserMenu?.dismiss(); playerScreen?.release(); super.onDestroy() }
     override fun onSaveInstanceState(outState: Bundle) {
+        outState.putBoolean("guideOpen", guideScreen != null)
+        guideScreen?.let { outState.putBundle("guideState", it.saveState()) }
         outState.putBoolean("searchOriginHome", searchOriginHome); outState.putString("searchOriginCountry", searchOriginCountry)
         outState.putString("searchOrigin", searchOrigin.name)
         outState.putString("homeFocus", countryFocus ?: "ALL"); outState.putBoolean("countryMode", countryMode); outState.putString("section", section.name); outState.putString("country", country)

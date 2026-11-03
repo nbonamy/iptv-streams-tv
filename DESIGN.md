@@ -109,3 +109,13 @@ not a blue filled button.
 - Don't replace the compact header with an oversized app-name banner.
 - Don't turn country browsing into a long modal picker.
 - Don't add explanatory subtitles where the layout already provides context.
+
+## France TV guide
+
+France's first portrait tile opens the TV guide. Keep all channel cards afterward
+in their configured order. The guide uses a compact breadcrumb, a Paris-time
+three-hour ruler, fixed channel labels and proportional program cells. Earlier,
+Now and Later page the timeline; the grid scrolls vertically with the remote.
+Current programs use a muted blue surface; focused programs retain the shared
+blue outline. A two-line detail area shows the focused title and description.
+Select opens the live channel; Back restores the guide position and focus.
