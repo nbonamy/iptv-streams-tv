@@ -1,12 +1,13 @@
 package fr.bonamy.iptv.core
 
 /** Immutable browsing data, prepared once when a local catalog loads or Refresh succeeds. */
-class CatalogIndex(val channels: List<Channel>, order: CountryChannelOrder = CountryChannelOrder.EMPTY) {
-    val byId = channels.associateBy { it.id }
-    private val byCountry = channels.groupBy { it.country ?: "ZZ" }.mapValues { (code, items) -> order.sort(items, code) }
+class CatalogIndex(channels: List<Channel>, order: CountryChannelOrder = CountryChannelOrder.EMPTY) {
+    val channels = channels.map(StreamOrder::prefer).let { if (it == channels) channels else it }
+    val byId = this.channels.associateBy { it.id }
+    private val byCountry = this.channels.groupBy { it.country ?: "ZZ" }.mapValues { (code, items) -> order.sort(items, code) }
     val countries: Set<String> = byCountry.keys
-    private val sports = channels.filter { "sports" in it.categories }
-    private val searchRows = channels.map { it to Catalog.folded(Catalog.searchableText(it)) }
+    private val sports = this.channels.filter { "sports" in it.categories }
+    private val searchRows = this.channels.map { it to Catalog.folded(Catalog.searchableText(it)) }
 
     fun country(code: String): List<Channel> = byCountry[code].orEmpty()
     fun browse(section: Section, country: String? = null): List<Channel> = when (section) {

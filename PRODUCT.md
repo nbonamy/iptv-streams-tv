@@ -50,17 +50,25 @@ national DTT lineup in the [French television station list](https://en.wikipedia
 Listed channels appear first in broadcast-number order; other channels remain
 available alphabetically afterward. Only channels present in the selected source
 appear. Country views without a lineup and global search retain alphabetical
-order. USA uses the captured Xfinity Chicago lineup for
-matched channel identities; remaining US channels follow alphabetically. Repeated
-SD/HD slots use the lowest channel number. This policy does not add channels or
-change their streams. Favorites always retain the viewer's manual order.
+order. USA uses a curated, continuous grid ordered mainstream, news, movies,
+TV shows, music, factual/lifestyle, sports and kids. CBS, NBC, ABC, Fox and PBS lead
+the mainstream networks. Groups control sort order only: there are no headings,
+dividers or separate rows. Explicit provider-ID placements lead each group and
+resolve broad or mixed source tags; remaining members sort alphabetically.
+Unclassified channels follow at the end. Missing channels are never added, and
+ordering does not select a different affiliate or stream. Favorites always retain
+the viewer's manual order. Spanish-only US channels are skipped in the country
+grid except sports. Unknown and multilingual channels remain; global search and
+existing Favorites still include channels omitted from that country view.
 UK uses the main England Freeview/DTT lineup. Regional alternatives remain
 available after the matched lineup; this does not select a region-specific stream
 or merge separate timeshift channels.
 
 M3U metadata may be incomplete or inconsistent. Preserve provider names and groups;
 use explicit country/category metadata where available.
-Keep unknown-country and uncategorized channels accessible. Missing metadata must
+Keep unknown-country and uncategorized channels accessible. Prefer higher-resolution
+sources within a channel using supplied quality metadata, with HD before SD. Keep
+equal-quality alternatives stable and respect explicit source selection. Missing metadata must
 not silently exclude a channel from global search. Do not fabricate a programme
 guide or sports schedule when the source does not supply one.
 

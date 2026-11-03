@@ -150,7 +150,7 @@ origin. No DRM, catch-up, worldwide EPG, recording, multiview, or source credent
 ## Country channel order
 
 `app/src/main/assets/channel-order.json` supplies optional lineups keyed by
-country code. Each entry contains source provenance and a `channels` array:
+country code. Numbered entries contain source provenance and a `channels` array:
 
 ```json
 {"number": 1, "name": "TF1", "ids": ["TF1.fr"], "aliases": []}
@@ -178,22 +178,35 @@ Wikipedia tables whose first two columns identify channel number and name;
 `--number-column` and `--name-column` select their headers. Runtime refresh updates
 the playlist and metadata, leaving bundled lineup policy unchanged.
 
-USA uses the Xfinity Chicago lineup captured from the existing Safari page on
-November 3, 2026. `tools/lineups/xfinity-chicago.json` retains only the provider,
-market and numbered channel rows. `xfinity-chicago-matches.json` supplies explicit
-identity matches for provider labels that differ from the source metadata.
-Local call signs are not mapped to every affiliate of their national network.
-Only verified US identities enter the runtime rules; unmatched channels remain
-available alphabetically. Repeated SD/HD slots use the lowest number, and `+`
-remains significant in exact-name matching. Rebuild the rules with:
+USA uses an editorial grouping policy in the same asset. Its ordered `groups`
+array defines mainstream, news, movies, shows, music, factual, sports and kids.
+Each group has a stable `key`, an optional ordered `ids` list and optional
+`categories`. These groups affect sorting only; the UI remains one continuous
+grid. Exact IDs take precedence over genre tags, so Discovery stays factual and
+USA Network stays with TV shows. Known networks lead each group; uncatalogued
+IDs never create channels. All remaining group members retain alphabetical order,
+and unmatched channels follow after kids.
+
+`categoryPriority` resolves overlapping genres independently of display order:
+kids, sports, news, music, factual, movies, shows, mainstream. For example,
+PBS Kids remains in kids despite its education tag. Explicit IDs override this
+precedence. Duplicate group keys, IDs or unknown priority keys are rejected.
+Numbered policies and grouped policies are mutually exclusive. Both policies
+preserve Favorites, global search and the available stream choices.
+
+The US policy's `excludedIds` is derived from provider feed-language metadata;
+`retainCategories: ["sports"]` keeps Spanish sports. Explicit language overrides
+cover known Spanish networks whose feeds contain conflicting language tags.
+Unknown or multilingual channels remain visible. Exclusions apply only to country
+browsing; search and Favorites retain the complete library. Regenerate with:
 
 ```sh
-python3 tools/import-numbered-lineup.py --country US \
-  --lineup tools/lineups/xfinity-chicago.json \
-  --matches tools/lineups/xfinity-chicago-matches.json
-python3 -m unittest discover -s tools/tests
-make check
+python3 tools/update-lineup-language-filter.py --country US --language spa \
+  --overrides tools/lineups/us-language-overrides.json --retain-category sports
 ```
+
+The sanitized Xfinity Chicago snapshot remains in `tools/lineups` as reference
+data for the generic numbered-lineup importer; it is not the active US policy.
 
 UK uses the current TV sections of Wikipedia's DTT list with the main England
 numbering and first network variant at shared slots (ITV1 rather than STV).
@@ -214,13 +227,25 @@ python3 tools/import-numbered-lineup.py --country GB \
 make check
 ```
 
-Lineup validation on November 3, 2026: `make check` passed 47 Kotlin unit tests,
-10 Python importer tests, lint and the debug build. Browsing, catalog performance
-and search passed four instrumentation tests on `Android_TV_1080p_API_31`.
-After installation on the Sony BRAVIA, the native UI hierarchy confirmed USA's
-first row as ESPN, TLN Media Chicago, HSN, CAN TV19, CAN TV21 and FX; UK's first row
-was BBC One, BBC Two, Channel 4, Channel 5, ITV2 and BBC Four. These checks validate
-browsing order, not stream availability.
+## Stream preference
+
+`StreamOrder` sorts a channel's alternatives by declared resolution, highest first.
+Numeric labels such as 1080p/720p and UHD/FHD/HD/SD tokens are recognized. The M3U
+variant suffix is used when the display label has no quality; its derived height
+is retained in prepared catalogs. Equal-quality alternatives preserve playlist
+order. Unknown quality follows declared quality. The order reflects source labels,
+not a runtime bandwidth or availability probe.
+
+The parser sorts new catalogs; `CatalogIndex` also applies the policy to existing
+prepared caches using their saved labels, without reparsing or downloading the
+M3U. Already ordered channel instances are retained. Playback and the Source menu
+use the same list; choosing SD stays selected during playback and recreation.
+
+`StreamPreferenceTest` checks the native Source menu, selecting SD and retaining
+that choice when the player screen is recreated. Validation on November 3, 2026:
+`make check` passed 60 Kotlin unit tests, 12 importer tests, lint and the debug
+build. The dedicated `IPTV_Lineup_Check_API_31` emulator passed seven browsing,
+performance, search, source-preference, guide and short-live-window tests.
 
 ## Channel artwork
 

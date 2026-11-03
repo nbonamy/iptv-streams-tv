@@ -33,9 +33,12 @@ Search covers the worldwide library. **Back** returns to the selected tile.
 
 France uses the [metropolitan national DTT lineup](https://en.wikipedia.org/wiki/List_of_television_stations_in_France).
 Other countries use alphabetical order unless a country lineup is configured.
-USA follows the [Xfinity Chicago lineup](https://www.xfinity.com/support/local-channel-lineup)
-for matched channels, followed by the rest alphabetically. Duplicate SD/HD slots
-use the lowest channel number. This ordering does not add channels or change streams.
+USA uses one continuous lineup: **mainstream → news → movies → TV shows → music →
+factual → sports → kids**. Familiar networks lead each group, followed by other
+channels alphabetically. Unclassified channels remain available at the end.
+Spanish-language channels are skipped in the US grid except sports; they remain
+available through global search and existing Favorites. This ordering does not
+add channels or change streams.
 UK follows the [England Freeview/DTT lineup](https://en.wikipedia.org/wiki/List_of_DTT_channels_in_the_United_Kingdom),
 with regional alternatives and other unlisted UK channels available afterward.
 Favorites always keep your manual order.
@@ -43,6 +46,9 @@ Favorites always keep your manual order.
 Choose **Search** to type on the TV, use the microphone, or scan the QR code with
 a phone on the same network. Enter a channel name to see matches, with country
 flags for context. The search screen stays empty until you enter a query.
+
+HD sources appear before SD when the playlist supplies quality labels. You can
+still choose any available stream from **Source**.
 
 During playback, use the top menus for subtitles, quality, audio, source, and
 favorites. The bottom control pauses/resumes. **Back** hides controls, then returns

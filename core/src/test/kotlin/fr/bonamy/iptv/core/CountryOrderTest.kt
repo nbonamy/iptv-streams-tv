@@ -33,23 +33,74 @@ class CountryOrderTest {
         val items = listOf(channel("plus", "AMC+", "US"), channel("amc", "AMC", "US"))
         assertEquals(listOf("amc", "plus"), order.sort(items, "US").map { it.id })
     }
-    @Test fun `US Chicago lineup ranks available identities and preserves unlisted and favorite channels`() {
+    @Test fun `US curated lineup keeps mainstream first and preserves unlisted and favorite channels`() {
         val json = javaClass.getResourceAsStream("/channel-order.json")!!.bufferedReader().use { it.readText() }
         val order = CountryChannelOrder.parse(json)
         val items = listOf(channel("other", "AAA Independent", "US"), channel("CNN.us", "CNN", "US"),
             channel("FX.us", "FX", "US"), channel("ESPN2.us", "ESPN 2", "US"), channel("ESPN.us", "ESPN", "US"))
-        assertEquals(listOf("ESPN.us", "FX.us", "ESPN2.us", "CNN.us", "other"), order.sort(items, "US").map { it.id })
+        assertEquals(listOf("CNN.us", "FX.us", "ESPN.us", "ESPN2.us", "other"), order.sort(items, "US").map { it.id })
         assertEquals(items.toSet(), order.sort(items, "US").toSet())
         assertEquals(listOf("CNN.us", "ESPN.us"), Catalog.browse(items, Section.FAVORITES,
             listOf("CNN.us", "ESPN.us"), order = order).map { it.id })
     }
-    @Test fun `bundled US channels follow the captured Xfinity lineup rather than alphabetical order`() {
+    @Test fun `bundled US channels follow curated groups rather than cable channel numbers`() {
         fun resource(name: String) = javaClass.getResourceAsStream("/$name")!!.bufferedReader().use { it.readText() }
         val channels = Catalog.parse(resource("worldwide.m3u"), Catalog.metadata(resource("channels.json")))
         val index = CatalogIndex(channels, CountryChannelOrder.parse(resource("channel-order.json")))
-        assertEquals(listOf("ESPN.us", "TLNMediaChicago.us", "HSN.us", "CANTV19.us", "CANTV21.us", "FX.us"),
+        assertEquals(listOf("CBS.us", "NBC.us", "ABC.us", "Fox.us", "PBS.us", "CNN.us"),
             index.country("US").take(6).map { it.id })
-        assertEquals(channels.filter { it.country == "US" }.toSet(), index.country("US").toSet())
+        val policy = com.google.gson.JsonParser.parseString(resource("channel-order.json")).asJsonObject.getAsJsonObject("countries").getAsJsonObject("US")
+        val excluded = policy.getAsJsonArray("excludedIds").map { it.asString }.toSet()
+        assertEquals(channels.filter { it.country == "US" && (it.id !in excluded || "sports" in it.categories) }.toSet(), index.country("US").toSet())
+        assertFalse(index.country("US").any { it.id == "Univision.us" })
+        assertTrue(index.country("US").any { it.id == "ESPNDeportes.us" })
+        assertTrue(index.search("Univision").any { it.id == "Univision.us" })
+    }
+    @Test fun `group categories are continuous with explicit placement and specific genre precedence`() {
+        val order = CountryChannelOrder.parse("""{"countries":{"US":{
+            "categoryPriority":["kids","sports","news","factual","movies","shows"],
+            "groups":[
+                {"key":"mainstream","ids":["cbs"]},
+                {"key":"news","categories":["news"]},
+                {"key":"movies","categories":["movies"]},
+                {"key":"shows","ids":["usa"],"categories":["series","entertainment"]},
+                {"key":"factual","ids":["discovery"],"categories":["documentary","education"]},
+                {"key":"sports","categories":["sports"]},
+                {"key":"kids","categories":["kids"]}
+            ]}}}""")
+        fun item(id: String, vararg categories: String) = Channel(id, id, "US", categories.toList(), emptyList())
+        val items = listOf(item("unknown"), item("kids", "movies", "education", "kids"),
+            item("sports", "news", "sports"), item("usa", "movies", "series", "sports"),
+            item("discovery", "entertainment"), item("movie", "movies", "series"),
+            item("news", "news"), item("show", "series"), item("cbs", "general"))
+        assertEquals(listOf("cbs", "news", "movie", "usa", "show", "discovery", "sports", "kids", "unknown"),
+            order.sort(items, "US").map { it.id })
+        assertEquals(items, order.sort(items, "CA"))
+        assertEquals(listOf("kids", "cbs"), Catalog.browse(items, Section.FAVORITES,
+            listOf("kids", "cbs"), order = order).map { it.id })
+    }
+    @Test fun `US factual overrides and all eight groups retain their display order`() {
+        fun resource(name: String) = javaClass.getResourceAsStream("/$name")!!.bufferedReader().use { it.readText() }
+        val order = CountryChannelOrder.parse(resource("channel-order.json"))
+        val metadata = Catalog.metadata(resource("channels.json"))
+        val expected = listOf("CBS.us", "CNN.us", "HBO.us", "USANetwork.us", "AdultSwimRickandMorty.us", "MTV.us", "DiscoveryChannel.us", "ESPN.us", "PBSKids.us")
+        val items = expected.reversed().map { id ->
+            val row = metadata.getValue(id)
+            Channel(id, row.name, row.country, row.categories, emptyList())
+        }
+        assertEquals(expected, order.sort(items, "US").map { it.id })
+    }
+    @Test fun `language exclusions affect only country browsing and retain sports and unknown channels`() {
+        val order = CountryChannelOrder.parse("""{"countries":{"US":{
+            "channels":[],"excludedIds":["spanish","sports"],"retainCategories":["sports"]
+        }}}""")
+        val items = listOf(channel("spanish", "Spanish", "US"),
+            channel("sports", "Sports", "US").copy(categories = listOf("sports")),
+            channel("unknown", "Unknown", "US"))
+        assertEquals(listOf("sports", "unknown"), order.sort(items, "US").map { it.id })
+        assertEquals(items, order.sort(items, "CA"))
+        assertEquals(items, CatalogIndex(items, order).search("US"))
+        assertEquals(listOf("spanish"), Catalog.browse(items, Section.FAVORITES, listOf("spanish"), order = order).map { it.id })
     }
     @Test fun `UK England lineup keeps core services first and regional alternatives afterward`() {
         val json = javaClass.getResourceAsStream("/channel-order.json")!!.bufferedReader().use { it.readText() }

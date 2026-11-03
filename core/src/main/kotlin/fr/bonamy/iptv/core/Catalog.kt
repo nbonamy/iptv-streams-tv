@@ -11,7 +11,7 @@ import java.text.Normalizer
 import java.util.Locale
 
 data class Metadata(val id: String, val name: String, val country: String, val categories: List<String>)
-data class Stream(val url: String, val label: String, val headers: Map<String, String> = emptyMap())
+data class Stream(val url: String, val label: String, val headers: Map<String, String> = emptyMap(), val qualityHeight: Int = 0)
 data class Channel(val id: String, val name: String, val country: String?, val categories: List<String>, val streams: List<Stream>, val logoUrl: String? = null)
 enum class Section(val title: String) { FAVORITES("Favorites"), FRANCE("France"), USA("USA"), SPORTS("Sports"), ALL("All channels") }
 
@@ -95,7 +95,7 @@ object Catalog {
                         val info = metadata[providerId]
                         val categories = (info?.categories.orEmpty() + attributes["group-title"].orEmpty().split(';').map { it.trim().lowercase(Locale.ROOT) }).filter { it.isNotBlank() }.distinct()
                         val existing = channels[id]
-                        val stream = Stream(url, name!!, headers.toMap())
+                        val stream = Stream(url, name!!, headers.toMap(), StreamOrder.resolution(name!!, attributes["tvg-id"].orEmpty().substringAfter('@', "")))
                         channels[id] = Channel(id, info?.name?.ifBlank { null } ?: name!!,
                             info?.country?.ifBlank { null }, (existing?.categories.orEmpty() + categories).distinct(),
                             (existing?.streams.orEmpty() + stream).distinctBy { it.url to it.headers },
@@ -110,7 +110,7 @@ object Catalog {
         }
         require(channels.isNotEmpty()) { "Playlist contains no supported channels" }
         // Compute Unicode sort keys once, not on every comparison in the sort.
-        return channels.values.map { it to folded(it.name) }.sortedWith(compareBy({ it.second }, { it.first.id })).map { it.first }
+        return channels.values.map { StreamOrder.prefer(it) }.map { it to folded(it.name) }.sortedWith(compareBy({ it.second }, { it.first.id })).map { it.first }
     }
 
     fun browse(channels: List<Channel>, section: Section, favorites: List<String> = emptyList(), query: String = "", country: String? = null, order: CountryChannelOrder = CountryChannelOrder.EMPTY): List<Channel> {

@@ -116,8 +116,11 @@ class BrowsingTest {
             awaitGrid(scenario) { list -> list.all { it.country == "US" } }
             scenario.onActivity {
                 val ids = (it.findViewById<RecyclerView>(R.id.channel_grid).adapter as ChannelAdapter).channels.map { channel -> channel.id }
-                if ("ESPN.us" in ids) org.junit.Assert.assertEquals("ESPN.us", ids.first())
-                if ("FX.us" in ids && "CNN.us" in ids) org.junit.Assert.assertTrue(ids.indexOf("FX.us") < ids.indexOf("CNN.us"))
+                val mainstream = listOf("CBS.us", "NBC.us", "ABC.us", "Fox.us", "PBS.us", "TheCW.us", "Univision.us", "Telemundo.us", "UniMas.us").filter { id -> id in ids }
+                org.junit.Assert.assertEquals(mainstream, ids.take(mainstream.size))
+                org.junit.Assert.assertFalse(ids.contains("Univision.us"))
+                org.junit.Assert.assertTrue(ids.contains("ESPNDeportes.us"))
+                if ("FX.us" in ids && "CNN.us" in ids) org.junit.Assert.assertTrue(ids.indexOf("CNN.us") < ids.indexOf("FX.us"))
             }
             androidx.test.espresso.Espresso.pressBack(); home(scenario)
             tile(3)
