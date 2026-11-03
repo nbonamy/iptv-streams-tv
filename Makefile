@@ -4,6 +4,7 @@ export JAVA_HOME ANDROID_HOME
 
 .PHONY: check build install run
 check:
+	python3 -m unittest discover -s tools/tests
 	./gradlew :core:test :app:testDebugUnitTest :app:lintDebug :app:assembleDebug --console=plain
 build:
 	./gradlew :app:assembleDebug --console=plain

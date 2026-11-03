@@ -49,8 +49,14 @@ Countries can supply a numbered channel lineup. France follows the metropolitan
 national DTT lineup in the [French television station list](https://en.wikipedia.org/wiki/List_of_television_stations_in_France).
 Listed channels appear first in broadcast-number order; other channels remain
 available alphabetically afterward. Only channels present in the selected source
-appear. Other countries and global search retain alphabetical order until a
-country lineup is supplied. Favorites always retain the viewer's manual order.
+appear. Country views without a lineup and global search retain alphabetical
+order. USA uses the captured Xfinity Chicago lineup for
+matched channel identities; remaining US channels follow alphabetically. Repeated
+SD/HD slots use the lowest channel number. This policy does not add channels or
+change their streams. Favorites always retain the viewer's manual order.
+UK uses the main England Freeview/DTT lineup. Regional alternatives remain
+available after the matched lineup; this does not select a region-specific stream
+or merge separate timeshift channels.
 
 M3U metadata may be incomplete or inconsistent. Preserve provider names and groups;
 use explicit country/category metadata where available.

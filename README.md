@@ -33,6 +33,11 @@ Search covers the worldwide library. **Back** returns to the selected tile.
 
 France uses the [metropolitan national DTT lineup](https://en.wikipedia.org/wiki/List_of_television_stations_in_France).
 Other countries use alphabetical order unless a country lineup is configured.
+USA follows the [Xfinity Chicago lineup](https://www.xfinity.com/support/local-channel-lineup)
+for matched channels, followed by the rest alphabetically. Duplicate SD/HD slots
+use the lowest channel number. This ordering does not add channels or change streams.
+UK follows the [England Freeview/DTT lineup](https://en.wikipedia.org/wiki/List_of_DTT_channels_in_the_United_Kingdom),
+with regional alternatives and other unlisted UK channels available afterward.
 Favorites always keep your manual order.
 
 Choose **Search** to type on the TV, use the microphone, or scan the QR code with
@@ -49,7 +54,8 @@ Focus the **IPTV / section** header and press **OK** to open the menu.
 
 ## Build
 
-Requires JDK 17 and Android SDK 36. Runs on Android TV 8.0 or later.
+Requires JDK 17 and Android SDK 36; checks and lineup tools also use Python 3.9+.
+Runs on Android TV 8.0 or later.
 
 ```sh
 git clone git@github.com:nbonamy/iptv-streams-tv.git

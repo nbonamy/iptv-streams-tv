@@ -178,6 +178,50 @@ Wikipedia tables whose first two columns identify channel number and name;
 `--number-column` and `--name-column` select their headers. Runtime refresh updates
 the playlist and metadata, leaving bundled lineup policy unchanged.
 
+USA uses the Xfinity Chicago lineup captured from the existing Safari page on
+November 3, 2026. `tools/lineups/xfinity-chicago.json` retains only the provider,
+market and numbered channel rows. `xfinity-chicago-matches.json` supplies explicit
+identity matches for provider labels that differ from the source metadata.
+Local call signs are not mapped to every affiliate of their national network.
+Only verified US identities enter the runtime rules; unmatched channels remain
+available alphabetically. Repeated SD/HD slots use the lowest number, and `+`
+remains significant in exact-name matching. Rebuild the rules with:
+
+```sh
+python3 tools/import-numbered-lineup.py --country US \
+  --lineup tools/lineups/xfinity-chicago.json \
+  --matches tools/lineups/xfinity-chicago-matches.json
+python3 -m unittest discover -s tools/tests
+make check
+```
+
+UK uses the current TV sections of Wikipedia's DTT list with the main England
+numbering and first network variant at shared slots (ITV1 rather than STV).
+Regional-only entries remain available after the ranked lineup. Metadata's `UK`
+country code is reconciled to the app's `GB` code. HD/SD variants use the lowest
+matched number; `+1` timeshifts remain distinct. Radio and historical tables are
+not imported. Capture and rebuild the GB rules with:
+
+```sh
+python3 tools/update-country-order.py --country GB \
+  --url https://en.wikipedia.org/wiki/List_of_DTT_channels_in_the_United_Kingdom \
+  --capture tools/lineups/freeview-england.json --region Eng --primary-variant \
+  --section 'General Entertainment' --section High-definition --section "Children's" \
+  --section News --section 'Streamed channels' --section Interactive --section Adult
+python3 tools/import-numbered-lineup.py --country GB \
+  --lineup tools/lineups/freeview-england.json \
+  --matches tools/lineups/freeview-england-matches.json
+make check
+```
+
+Lineup validation on November 3, 2026: `make check` passed 47 Kotlin unit tests,
+10 Python importer tests, lint and the debug build. Browsing, catalog performance
+and search passed four instrumentation tests on `Android_TV_1080p_API_31`.
+After installation on the Sony BRAVIA, the native UI hierarchy confirmed USA's
+first row as ESPN, TLN Media Chicago, HSN, CAN TV19, CAN TV21 and FX; UK's first row
+was BBC One, BBC Two, Channel 4, Channel 5, ITV2 and BBC Four. These checks validate
+browsing order, not stream availability.
+
 ## Channel artwork
 
 The M3U parser preserves the first valid HTTP(S) `tvg-logo` URL for each channel.

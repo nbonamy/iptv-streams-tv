@@ -1,0 +1,831 @@
+{
+  "source": {
+    "url": "https://en.wikipedia.org/wiki/List_of_DTT_channels_in_the_United_Kingdom",
+    "revision": "1383411451",
+    "baseline": "Eng",
+    "sections": [
+      "General Entertainment",
+      "High-definition",
+      "Children's",
+      "News",
+      "Streamed channels",
+      "Interactive",
+      "Adult"
+    ],
+    "primaryVariant": true,
+    "retrievedOn": "2026-11-03"
+  },
+  "channels": [
+    {
+      "number": 1,
+      "name": "BBC One",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 2,
+      "name": "BBC Two",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 3,
+      "name": "ITV1",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 4,
+      "name": "Channel 4",
+      "section": "General Entertainment",
+      "scope": "Eng, Scot & NI"
+    },
+    {
+      "number": 5,
+      "name": "5",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 6,
+      "name": "ITV2",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 7,
+      "name": "Local TV",
+      "section": "General Entertainment",
+      "scope": "Eng & NI"
+    },
+    {
+      "number": 8,
+      "name": "Local TV",
+      "section": "General Entertainment",
+      "scope": "parts of Eng, Scot & Wales"
+    },
+    {
+      "number": 9,
+      "name": "BBC Four",
+      "section": "General Entertainment",
+      "scope": "Eng, Wales & NI"
+    },
+    {
+      "number": 10,
+      "name": "ITV3",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 11,
+      "name": "Sky Mix",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 12,
+      "name": "TLC",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 13,
+      "name": "E4",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 14,
+      "name": "Film4",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 15,
+      "name": "Channel 4 +1",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 16,
+      "name": "QVC",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 17,
+      "name": "Quest",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 18,
+      "name": "More4",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 19,
+      "name": "U&Dave",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 20,
+      "name": "U&Drama",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 21,
+      "name": "5USA",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 22,
+      "name": "TJC",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 23,
+      "name": "BBC Three HD",
+      "section": "General Entertainment",
+      "scope": "Eng, CI & NI"
+    },
+    {
+      "number": 25,
+      "name": "U&W",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 26,
+      "name": "ITV4",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 27,
+      "name": "U&Yesterday",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 28,
+      "name": "ITV Quiz",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 29,
+      "name": "ITV2 +1",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 30,
+      "name": "E4 +1",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 31,
+      "name": "E4 Extra",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 32,
+      "name": "5Star",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 33,
+      "name": "5Drama",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 34,
+      "name": "Great! TV",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 35,
+      "name": "ITV1 +1",
+      "section": "General Entertainment",
+      "scope": "except CI"
+    },
+    {
+      "number": 36,
+      "name": "Sky Arts",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 37,
+      "name": "QVC2",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 38,
+      "name": "5 +1",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 39,
+      "name": "DMAX",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 40,
+      "name": "Quest Red",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 41,
+      "name": "Legend",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 42,
+      "name": "Great! Action",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 43,
+      "name": "Food Network",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 44,
+      "name": "Really",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 45,
+      "name": "Gemporia",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 46,
+      "name": "5Action",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 47,
+      "name": "Film4 +1",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 48,
+      "name": "Challenge",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 49,
+      "name": "4seven",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 50,
+      "name": "Great! Mystery",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 51,
+      "name": "Ideal World",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 52,
+      "name": "Great! Christmas",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 56,
+      "name": "That's TV (UK)",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 57,
+      "name": "U&Eden",
+      "section": "General Entertainment",
+      "scope": "limited"
+    },
+    {
+      "number": 58,
+      "name": "ITV3 +1",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 59,
+      "name": "ITV4 +1",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 60,
+      "name": "U&Drama +1",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 61,
+      "name": "Great! TV +1",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 62,
+      "name": "Great! Player",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 63,
+      "name": "Lucky Cat TV",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 64,
+      "name": "Blaze",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 65,
+      "name": "That's TV 2",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 66,
+      "name": "TBN UK",
+      "section": "General Entertainment",
+      "scope": "limited"
+    },
+    {
+      "number": 67,
+      "name": "True Crime",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 68,
+      "name": "True Crime Xtra",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 69,
+      "name": "Legend Xtra",
+      "section": "General Entertainment",
+      "scope": "limited"
+    },
+    {
+      "number": 70,
+      "name": "Quest +1",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 71,
+      "name": "your TV",
+      "section": "General Entertainment",
+      "scope": "limited"
+    },
+    {
+      "number": 72,
+      "name": "Jewellery Maker",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 73,
+      "name": "HobbyMaker",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 74,
+      "name": "U&DaveJaVu",
+      "section": "General Entertainment",
+      "scope": "limited"
+    },
+    {
+      "number": 75,
+      "name": "your Xmas",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 76,
+      "name": "your Oldies",
+      "section": "General Entertainment",
+      "scope": "limited"
+    },
+    {
+      "number": 77,
+      "name": "your 80s",
+      "section": "General Entertainment",
+      "scope": "limited"
+    },
+    {
+      "number": 78,
+      "name": "your Rock",
+      "section": "General Entertainment",
+      "scope": "limited"
+    },
+    {
+      "number": 81,
+      "name": "Rewind TV",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 82,
+      "name": "Talking Pictures TV",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 83,
+      "name": "Together TV",
+      "section": "General Entertainment",
+      "scope": "Eng, Scot & NI"
+    },
+    {
+      "number": 84,
+      "name": "PBS America",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 89,
+      "name": "Shop on TV",
+      "section": "General Entertainment",
+      "scope": "Eng, Scot & NI"
+    },
+    {
+      "number": 90,
+      "name": "Together TV +1",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 91,
+      "name": "WildEarth",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 92,
+      "name": "Blaze +1",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 93,
+      "name": "That's Classics",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 94,
+      "name": "SonLife",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 95,
+      "name": "High Street TV",
+      "section": "General Entertainment",
+      "scope": "limited"
+    },
+    {
+      "number": 96,
+      "name": "Must Have Ideas",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 97,
+      "name": "Shop Unlimited",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 98,
+      "name": "wedotv Movies UK",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 99,
+      "name": "TLC +1",
+      "section": "General Entertainment",
+      "scope": "limited"
+    },
+    {
+      "number": 100,
+      "name": "Freeview",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 613,
+      "name": "BBC Three (SD)",
+      "section": "General Entertainment",
+      "scope": "Eng, CI & NI"
+    },
+    {
+      "number": 795,
+      "name": "Great! TV",
+      "section": "General Entertainment"
+    },
+    {
+      "number": 101,
+      "name": "BBC One HD",
+      "section": "High-definition"
+    },
+    {
+      "number": 102,
+      "name": "BBC Two HD",
+      "section": "High-definition"
+    },
+    {
+      "number": 103,
+      "name": "ITV1 HD",
+      "section": "High-definition",
+      "scope": "except CI"
+    },
+    {
+      "number": 104,
+      "name": "Channel 4 HD",
+      "section": "High-definition",
+      "scope": "Eng, Scot & NI"
+    },
+    {
+      "number": 105,
+      "name": "5 HD",
+      "section": "High-definition"
+    },
+    {
+      "number": 106,
+      "name": "BBC Four HD",
+      "section": "High-definition"
+    },
+    {
+      "number": 107,
+      "name": "BBC Three HD",
+      "section": "High-definition",
+      "scope": "Eng, CI & NI"
+    },
+    {
+      "number": 201,
+      "name": "CBBC",
+      "section": "Children's"
+    },
+    {
+      "number": 202,
+      "name": "CBeebies",
+      "section": "Children's"
+    },
+    {
+      "number": 203,
+      "name": "CBBC HD",
+      "section": "Children's"
+    },
+    {
+      "number": 204,
+      "name": "CBeebies HD",
+      "section": "Children's"
+    },
+    {
+      "number": 205,
+      "name": "Pop",
+      "section": "Children's"
+    },
+    {
+      "number": 206,
+      "name": "Tiny Pop",
+      "section": "Children's"
+    },
+    {
+      "number": 207,
+      "name": "Pop Up",
+      "section": "Children's"
+    },
+    {
+      "number": 208,
+      "name": "Ketchup TV",
+      "section": "Children's"
+    },
+    {
+      "number": 209,
+      "name": "Ketchup Too",
+      "section": "Children's"
+    },
+    {
+      "number": 210,
+      "name": "Cartoon Classics",
+      "section": "Children's",
+      "scope": "limited"
+    },
+    {
+      "number": 231,
+      "name": "BBC News",
+      "section": "News"
+    },
+    {
+      "number": 232,
+      "name": "BBC Parliament",
+      "section": "News"
+    },
+    {
+      "number": 233,
+      "name": "Sky News",
+      "section": "News"
+    },
+    {
+      "number": 236,
+      "name": "GB News",
+      "section": "News"
+    },
+    {
+      "number": 251,
+      "name": "Al Jazeera English",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 252,
+      "name": "Al Jazeera Arabic",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 253,
+      "name": "Trailblazer Television",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 254,
+      "name": "On Demand 365",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 255,
+      "name": "France 24",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 256,
+      "name": "Odyssey TV",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 257,
+      "name": "Euronews",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 259,
+      "name": "MBC",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 260,
+      "name": "Asharq News",
+      "section": "Streamed channels",
+      "scope": "limited"
+    },
+    {
+      "number": 261,
+      "name": "Al Arabiya",
+      "section": "Streamed channels",
+      "scope": "limited"
+    },
+    {
+      "number": 263,
+      "name": "SonLife",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 264,
+      "name": "Alaraby Network",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 265,
+      "name": "ROK",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 266,
+      "name": "Revelation",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 268,
+      "name": "It Is Written TV",
+      "section": "Streamed channels",
+      "scope": "limited"
+    },
+    {
+      "number": 269,
+      "name": "New Media TV",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 270,
+      "name": "Together TV IP",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 271,
+      "name": "Channelbox",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 272,
+      "name": "NHK World",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 273,
+      "name": "Newsmax",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 274,
+      "name": "Amazing Facts TV",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 275,
+      "name": "wedotv",
+      "section": "Streamed channels",
+      "scope": "limited"
+    },
+    {
+      "number": 276,
+      "name": "CNA Originals",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 278,
+      "name": "Nosey",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 279,
+      "name": "Purpose Media",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 283,
+      "name": "Global Arabic+",
+      "section": "Streamed channels",
+      "scope": "limited"
+    },
+    {
+      "number": 284,
+      "name": "GIGS",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 287,
+      "name": "Nolly Africa",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 288,
+      "name": "OUTflix Proud",
+      "section": "Streamed channels",
+      "scope": "limited"
+    },
+    {
+      "number": 289,
+      "name": "MBC Group",
+      "section": "Streamed channels",
+      "scope": "limited"
+    },
+    {
+      "number": 290,
+      "name": "Music & Memories",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 291,
+      "name": "Outdoor Channel",
+      "section": "Streamed channels"
+    },
+    {
+      "number": 292,
+      "name": "Faith TV",
+      "section": "Streamed channels",
+      "scope": "limited"
+    },
+    {
+      "number": 601,
+      "name": "BBC RB 1",
+      "section": "Interactive"
+    },
+    {
+      "number": 670,
+      "name": "Adult Section",
+      "section": "Adult"
+    },
+    {
+      "number": 671,
+      "name": "Xpanded TV",
+      "section": "Adult"
+    },
+    {
+      "number": 673,
+      "name": "SmileTV3",
+      "section": "Adult"
+    },
+    {
+      "number": 674,
+      "name": "Babestation",
+      "section": "Adult"
+    },
+    {
+      "number": 695,
+      "name": "Adult 1",
+      "section": "Adult"
+    },
+    {
+      "number": 696,
+      "name": "Adult 2",
+      "section": "Adult"
+    },
+    {
+      "number": 697,
+      "name": "Adult 3",
+      "section": "Adult"
+    },
+    {
+      "number": 698,
+      "name": "Adult 4",
+      "section": "Adult"
+    },
+    {
+      "number": 699,
+      "name": "Adult Section",
+      "section": "Adult"
+    }
+  ]
+}

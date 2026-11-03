@@ -26,6 +26,14 @@
   [List of television stations in France, revision 1379065605](https://en.wikipedia.org/w/index.php?title=List_of_television_stations_in_France&oldid=1379065605),
   national DTT table for metropolitan France, retrieved November 3, 2026.
   Wikipedia text is available under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+- US channel-number facts come from the [Xfinity local channel lineup](https://www.xfinity.com/support/local-channel-lineup),
+  Chicago market, captured November 3, 2026. The retained snapshot contains only
+  channel numbers and names, with no subscriber name, street address or account data.
+- UK channel-number facts come from Wikipedia contributors,
+  [List of DTT channels in the United Kingdom, revision 1383411451](https://en.wikipedia.org/w/index.php?title=List_of_DTT_channels_in_the_United_Kingdom&oldid=1383411451),
+  current TV tables using the England baseline, retrieved November 3, 2026.
+  Wikipedia text is available under CC BY-SA 4.0. Radio and historical tables
+  are excluded from this lineup.
 
 - Country flags: [flag-icons v7.6.0](https://github.com/lipis/flag-icons/tree/v7.6.0),
   MIT license, [included license](licenses/flag-icons-MIT.txt). Original SVGs are

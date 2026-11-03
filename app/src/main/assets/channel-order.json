@@ -196,6 +196,3193 @@
           "ids": []
         }
       ]
+    },
+    "US": {
+      "source": {
+        "url": "https://www.xfinity.com/support/local-channel-lineup",
+        "provider": "Xfinity",
+        "market": "Chicago, Illinois",
+        "sort": "Channel Number: Ascending",
+        "retrievedOn": "2026-11-03",
+        "sourceRows": 1474,
+        "duplicatePolicy": "lowest channel number per identity"
+      },
+      "channels": [
+        {
+          "number": 3,
+          "name": "ESPN",
+          "ids": [
+            "ESPN.us"
+          ],
+          "aliases": [
+            "ESPN HD"
+          ]
+        },
+        {
+          "number": 9,
+          "name": "WGN (Chicago)",
+          "ids": [
+            "WGNTV91.us"
+          ],
+          "aliases": [
+            "WGN-TV 9.1",
+            "WGN-DT"
+          ]
+        },
+        {
+          "number": 13,
+          "name": "WCIU",
+          "ids": [
+            "WCIUTV261.us"
+          ],
+          "aliases": [
+            "WCIU-TV 26.1",
+            "WCIU-DT"
+          ]
+        },
+        {
+          "number": 14,
+          "name": "Total Living Network",
+          "ids": [
+            "TLNMediaChicago.us"
+          ],
+          "aliases": [
+            "TLN Media Chicago"
+          ]
+        },
+        {
+          "number": 16,
+          "name": "Home Shopping Network",
+          "ids": [
+            "HSN.us"
+          ],
+          "aliases": [
+            "HSN",
+            "HSN HD"
+          ]
+        },
+        {
+          "number": 18,
+          "name": "WJYS",
+          "ids": [
+            "WJYS621.us"
+          ],
+          "aliases": [
+            "WJYS 62.1"
+          ]
+        },
+        {
+          "number": 19,
+          "name": "Can TV 19 Chicago",
+          "ids": [
+            "CANTV19.us"
+          ],
+          "aliases": [
+            "CAN TV19"
+          ]
+        },
+        {
+          "number": 21,
+          "name": "Can TV 21 Chicago",
+          "ids": [
+            "CANTV21.us"
+          ],
+          "aliases": [
+            "CAN TV21"
+          ]
+        },
+        {
+          "number": 24,
+          "name": "FX",
+          "ids": [
+            "FX.us"
+          ],
+          "aliases": [
+            "FX HD"
+          ]
+        },
+        {
+          "number": 30,
+          "name": "ESPN2",
+          "ids": [
+            "ESPN2.us"
+          ],
+          "aliases": [
+            "ESPN 2",
+            "ESPN2 HD"
+          ]
+        },
+        {
+          "number": 32,
+          "name": "TNT",
+          "ids": [
+            "TNT.us"
+          ],
+          "aliases": [
+            "TNT HD"
+          ]
+        },
+        {
+          "number": 33,
+          "name": "TBS",
+          "ids": [
+            "TBS.us"
+          ],
+          "aliases": [
+            "TBS HD"
+          ]
+        },
+        {
+          "number": 34,
+          "name": "Paramount Network",
+          "ids": [
+            "ParamountNetwork.us"
+          ],
+          "aliases": [
+            "Paramount Network HD"
+          ]
+        },
+        {
+          "number": 35,
+          "name": "Jewelry Television",
+          "ids": [
+            "JewelryTV.us"
+          ],
+          "aliases": [
+            "Jewelry TV",
+            "Jewelry Television HD"
+          ]
+        },
+        {
+          "number": 36,
+          "name": "Can TV 36 Chicago",
+          "ids": [
+            "CANTV36.us"
+          ],
+          "aliases": [
+            "CAN TV36"
+          ]
+        },
+        {
+          "number": 37,
+          "name": "CHSN SD",
+          "ids": [
+            "ChicagoSportsNetwork.us"
+          ],
+          "aliases": [
+            "CHSN",
+            "Chicago Sports Network"
+          ]
+        },
+        {
+          "number": 39,
+          "name": "USA Network",
+          "ids": [
+            "USANetwork.us"
+          ],
+          "aliases": [
+            "USA Network HD"
+          ]
+        },
+        {
+          "number": 40,
+          "name": "Freeform",
+          "ids": [
+            "Freeform.us"
+          ],
+          "aliases": [
+            "Freeform HD"
+          ]
+        },
+        {
+          "number": 41,
+          "name": "Lifetime",
+          "ids": [
+            "Lifetime.us"
+          ],
+          "aliases": [
+            "Lifetime HD"
+          ]
+        },
+        {
+          "number": 43,
+          "name": "AMC",
+          "ids": [
+            "AMC.us"
+          ],
+          "aliases": [
+            "AMC HD"
+          ]
+        },
+        {
+          "number": 44,
+          "name": "Bravo",
+          "ids": [
+            "Bravo.us"
+          ],
+          "aliases": [
+            "Bravo HD"
+          ]
+        },
+        {
+          "number": 45,
+          "name": "Animal Planet",
+          "ids": [
+            "AnimalPlanet.us"
+          ],
+          "aliases": [
+            "Animal Planet HD"
+          ]
+        },
+        {
+          "number": 46,
+          "name": "Discovery Channel",
+          "ids": [
+            "DiscoveryChannel.us"
+          ],
+          "aliases": [
+            "Discovery Channel HD"
+          ]
+        },
+        {
+          "number": 49,
+          "name": "City Hall TV",
+          "ids": [
+            "CityHallTV.us"
+          ]
+        },
+        {
+          "number": 52,
+          "name": "Big Ten Network Chicago",
+          "ids": [
+            "BigTenNetwork.us"
+          ],
+          "aliases": [
+            "Big Ten Network",
+            "Big Ten Network Chicago HD",
+            "Big Ten Network HD"
+          ]
+        },
+        {
+          "number": 54,
+          "name": "Nickelodeon",
+          "ids": [
+            "Nickelodeon.us"
+          ],
+          "aliases": [
+            "Nickelodeon HD"
+          ]
+        },
+        {
+          "number": 55,
+          "name": "Disney Channel",
+          "ids": [
+            "DisneyChannel.us"
+          ],
+          "aliases": [
+            "Disney Channel HD"
+          ]
+        },
+        {
+          "number": 56,
+          "name": "Cartoon Network",
+          "ids": [
+            "CartoonNetwork.us"
+          ],
+          "aliases": [
+            "Cartoon Network HD"
+          ]
+        },
+        {
+          "number": 57,
+          "name": "Cable News Network",
+          "ids": [
+            "CNN.us"
+          ],
+          "aliases": [
+            "CNN",
+            "CNN HD"
+          ]
+        },
+        {
+          "number": 58,
+          "name": "CNBC",
+          "ids": [
+            "CNBC.us"
+          ],
+          "aliases": [
+            "CNBC HD"
+          ]
+        },
+        {
+          "number": 59,
+          "name": "MS NOW",
+          "ids": [
+            "MSNOW.us"
+          ],
+          "aliases": [
+            "MS NOW HD"
+          ]
+        },
+        {
+          "number": 60,
+          "name": "Fox News Channel",
+          "ids": [
+            "FoxNewsChannel.us"
+          ],
+          "aliases": [
+            "Fox News Channel HD"
+          ]
+        },
+        {
+          "number": 61,
+          "name": "HLN",
+          "ids": [
+            "HLN.us"
+          ],
+          "aliases": [
+            "HLN HD"
+          ]
+        },
+        {
+          "number": 62,
+          "name": "Bloomberg Business Television",
+          "ids": [
+            "BloombergTV.us"
+          ],
+          "aliases": [
+            "Bloomberg TV",
+            "Bloomberg HD",
+            "Bloomberg"
+          ]
+        },
+        {
+          "number": 63,
+          "name": "Home & Garden Television",
+          "ids": [
+            "HGTV.us"
+          ],
+          "aliases": [
+            "HGTV",
+            "Home & Garden Television HD"
+          ]
+        },
+        {
+          "number": 64,
+          "name": "A&E",
+          "ids": [
+            "AE.us"
+          ]
+        },
+        {
+          "number": 65,
+          "name": "History",
+          "ids": [
+            "History.us"
+          ],
+          "aliases": [
+            "History HD"
+          ]
+        },
+        {
+          "number": 66,
+          "name": "Oxygen True Crime",
+          "ids": [
+            "OxygenTrueCrime.us"
+          ],
+          "aliases": [
+            "Oxygen True Crime HD"
+          ]
+        },
+        {
+          "number": 69,
+          "name": "TLC",
+          "ids": [
+            "TLC.us"
+          ],
+          "aliases": [
+            "TLC HD (US)"
+          ]
+        },
+        {
+          "number": 70,
+          "name": "Food Network",
+          "ids": [
+            "FoodNetwork.us"
+          ],
+          "aliases": [
+            "Food Network HD"
+          ]
+        },
+        {
+          "number": 71,
+          "name": "E! Entertainment Television",
+          "ids": [
+            "E.us"
+          ],
+          "aliases": [
+            "E!",
+            "E! Entertainment Television HD"
+          ]
+        },
+        {
+          "number": 72,
+          "name": "Comedy Central",
+          "ids": [
+            "ComedyCentral.us"
+          ],
+          "aliases": [
+            "Comedy Central HD"
+          ]
+        },
+        {
+          "number": 73,
+          "name": "Golf Channel",
+          "ids": [
+            "GolfChannel.us"
+          ],
+          "aliases": [
+            "Golf Channel HD"
+          ]
+        },
+        {
+          "number": 74,
+          "name": "VH1",
+          "ids": [
+            "VH1.us"
+          ],
+          "aliases": [
+            "VH1 HD"
+          ]
+        },
+        {
+          "number": 75,
+          "name": "BET",
+          "ids": [
+            "BET.us"
+          ],
+          "aliases": [
+            "BET HD"
+          ]
+        },
+        {
+          "number": 76,
+          "name": "MTV - Music Television",
+          "ids": [
+            "MTV.us"
+          ],
+          "aliases": [
+            "MTV",
+            "MTV - Music Television HD"
+          ]
+        },
+        {
+          "number": 77,
+          "name": "QVC2",
+          "ids": [
+            "QVC2.us"
+          ],
+          "aliases": [
+            "QVC2 HD"
+          ]
+        },
+        {
+          "number": 78,
+          "name": "Galavision Cable Network",
+          "ids": [
+            "Galavision.us"
+          ],
+          "aliases": [
+            "Galavision",
+            "Galavision Cable Network HD"
+          ]
+        },
+        {
+          "number": 81,
+          "name": "QVC3",
+          "ids": [
+            "QVC3.us"
+          ],
+          "aliases": [
+            "QVC3 HD"
+          ]
+        },
+        {
+          "number": 83,
+          "name": "The Travel Channel",
+          "ids": [
+            "TravelChannel.us"
+          ],
+          "aliases": [
+            "Travel Channel",
+            "The Travel Channel HD"
+          ]
+        },
+        {
+          "number": 84,
+          "name": "Streaming Marquee Sports",
+          "ids": [
+            "MarqueeSportsNetwork.us"
+          ],
+          "aliases": [
+            "Marquee Sports Network",
+            "Marquee Sports Network (Inner Market)"
+          ]
+        },
+        {
+          "number": 85,
+          "name": "HSN2",
+          "ids": [
+            "HSN2.us"
+          ],
+          "aliases": [
+            "HSN2 HD"
+          ]
+        },
+        {
+          "number": 95,
+          "name": "QVC",
+          "ids": [
+            "QVC.us"
+          ],
+          "aliases": [
+            "QVC HD"
+          ]
+        },
+        {
+          "number": 96,
+          "name": "POP",
+          "ids": [
+            "Pop.us"
+          ],
+          "aliases": [
+            "Pop",
+            "POP HD"
+          ]
+        },
+        {
+          "number": 98,
+          "name": "CSPAN",
+          "ids": [
+            "CSPAN.us"
+          ],
+          "aliases": [
+            "C-SPAN",
+            "CSPAN HD"
+          ]
+        },
+        {
+          "number": 99,
+          "name": "The Weather Channel",
+          "ids": [
+            "TheWeatherChannel.us"
+          ],
+          "aliases": [
+            "The Weather Channel HD"
+          ]
+        },
+        {
+          "number": 104,
+          "name": "CSPAN2",
+          "ids": [
+            "CSPAN2.us"
+          ],
+          "aliases": [
+            "C-SPAN 2",
+            "CSPAN2 HD"
+          ]
+        },
+        {
+          "number": 105,
+          "name": "CSPAN3",
+          "ids": [
+            "CSPAN3.us"
+          ],
+          "aliases": [
+            "C-SPAN 3",
+            "CSPAN3 HD"
+          ]
+        },
+        {
+          "number": 106,
+          "name": "Fox Business",
+          "ids": [
+            "FoxBusinessNetwork.us"
+          ],
+          "aliases": [
+            "Fox Business Network",
+            "Fox Business HD"
+          ]
+        },
+        {
+          "number": 108,
+          "name": "National Geographic Wild",
+          "ids": [
+            "NationalGeographicWild.us"
+          ],
+          "aliases": [
+            "National Geographic Wild HD"
+          ]
+        },
+        {
+          "number": 119,
+          "name": "Eternal Word Television Network",
+          "ids": [
+            "EWTN.us"
+          ],
+          "aliases": [
+            "EWTN",
+            "Eternal Word Television Network HD"
+          ]
+        },
+        {
+          "number": 120,
+          "name": "Nick Jr",
+          "ids": [
+            "NickJr.us"
+          ],
+          "aliases": [
+            "Nick Jr.",
+            "Nick Jr HD"
+          ]
+        },
+        {
+          "number": 121,
+          "name": "Magnolia Network",
+          "ids": [
+            "MagnoliaNetwork.us"
+          ],
+          "aliases": [
+            "Magnolia Network HD"
+          ]
+        },
+        {
+          "number": 122,
+          "name": "Disney XD",
+          "ids": [
+            "DisneyXD.us"
+          ],
+          "aliases": [
+            "Disney XD HD"
+          ]
+        },
+        {
+          "number": 124,
+          "name": "Cooking Channel",
+          "ids": [
+            "CookingChannel.us"
+          ],
+          "aliases": [
+            "Cooking Channel HD"
+          ]
+        },
+        {
+          "number": 125,
+          "name": "Disney Junior",
+          "ids": [
+            "DisneyJunior.us"
+          ],
+          "aliases": [
+            "Disney Junior HD"
+          ]
+        },
+        {
+          "number": 126,
+          "name": "Nicktoons",
+          "ids": [
+            "Nicktoons.us"
+          ],
+          "aliases": [
+            "Nicktoons HD"
+          ]
+        },
+        {
+          "number": 129,
+          "name": "BabyFirst TV",
+          "ids": [
+            "BabyFirst.us"
+          ],
+          "aliases": [
+            "BabyFirst"
+          ]
+        },
+        {
+          "number": 130,
+          "name": "Discovery Family Channel",
+          "ids": [
+            "DiscoveryFamily.us"
+          ],
+          "aliases": [
+            "Discovery Family",
+            "Discovery Family Channel HD"
+          ]
+        },
+        {
+          "number": 131,
+          "name": "Hallmark Channel",
+          "ids": [
+            "HallmarkChannel.us"
+          ],
+          "aliases": [
+            "Hallmark Channel HD"
+          ]
+        },
+        {
+          "number": 133,
+          "name": "The Africa Channel",
+          "ids": [
+            "TheAfricaChannel.us"
+          ],
+          "aliases": [
+            "The Africa Channel HD"
+          ]
+        },
+        {
+          "number": 135,
+          "name": "MTV2: Music Television",
+          "ids": [
+            "MTV2.us"
+          ],
+          "aliases": [
+            "MTV2",
+            "MTV2: Music Television HD"
+          ]
+        },
+        {
+          "number": 141,
+          "name": "Tr3s: MTV, Musica y Mas",
+          "ids": [
+            "MTVTr3s.us"
+          ],
+          "aliases": [
+            "MTV Tr3s"
+          ]
+        },
+        {
+          "number": 142,
+          "name": "BET Jams",
+          "ids": [
+            "BETJams.us"
+          ]
+        },
+        {
+          "number": 143,
+          "name": "Logo",
+          "ids": [
+            "Logo.us"
+          ],
+          "aliases": [
+            "Logo HD"
+          ]
+        },
+        {
+          "number": 145,
+          "name": "Destination America",
+          "ids": [
+            "DestinationAmerica.us"
+          ],
+          "aliases": [
+            "Destination America HD"
+          ]
+        },
+        {
+          "number": 146,
+          "name": "CMT",
+          "ids": [
+            "CMT.us"
+          ],
+          "aliases": [
+            "CMT HD"
+          ]
+        },
+        {
+          "number": 150,
+          "name": "Ovation",
+          "ids": [
+            "Ovation.us"
+          ],
+          "aliases": [
+            "Ovation HD"
+          ]
+        },
+        {
+          "number": 153,
+          "name": "Smithsonian Network",
+          "ids": [
+            "SmithsonianChannel.us"
+          ],
+          "aliases": [
+            "Smithsonian Channel"
+          ]
+        },
+        {
+          "number": 160,
+          "name": "SYFY",
+          "ids": [
+            "SYFY.us"
+          ],
+          "aliases": [
+            "Syfy HD",
+            "Syfy"
+          ]
+        },
+        {
+          "number": 161,
+          "name": "Game Show Network",
+          "ids": [
+            "GameShowNetwork.us"
+          ],
+          "aliases": [
+            "Game Show Network HD"
+          ]
+        },
+        {
+          "number": 162,
+          "name": "BBC America",
+          "ids": [
+            "BBCAmerica.us"
+          ],
+          "aliases": [
+            "BBC America HD"
+          ]
+        },
+        {
+          "number": 163,
+          "name": "TV Land",
+          "ids": [
+            "TVLand.us"
+          ],
+          "aliases": [
+            "TV Land HD"
+          ]
+        },
+        {
+          "number": 165,
+          "name": "truTV",
+          "ids": [
+            "truTV.us"
+          ],
+          "aliases": [
+            "truTV HD"
+          ]
+        },
+        {
+          "number": 168,
+          "name": "NFL Network",
+          "ids": [
+            "NFLNetwork.us"
+          ],
+          "aliases": [
+            "NFL Network HD"
+          ]
+        },
+        {
+          "number": 170,
+          "name": "AMC+",
+          "ids": [
+            "AMCPlus.us"
+          ]
+        },
+        {
+          "number": 172,
+          "name": "TV ONE",
+          "ids": [
+            "TVOne.us"
+          ],
+          "aliases": [
+            "TV One",
+            "TV ONE HD"
+          ]
+        },
+        {
+          "number": 185,
+          "name": "Paramount+ with Showtime HD",
+          "ids": [
+            "Showtime.us"
+          ],
+          "aliases": [
+            "Paramount+ with Showtime",
+            "Showtime"
+          ]
+        },
+        {
+          "number": 186,
+          "name": "HBO East",
+          "ids": [
+            "HBO.us"
+          ],
+          "aliases": [
+            "HBO"
+          ]
+        },
+        {
+          "number": 195,
+          "name": "Cinemax HD",
+          "ids": [
+            "Cinemax.us"
+          ],
+          "aliases": [
+            "Cinemax"
+          ]
+        },
+        {
+          "number": 196,
+          "name": "Starz HD",
+          "ids": [
+            "Starz.us"
+          ],
+          "aliases": [
+            "Starz"
+          ]
+        },
+        {
+          "number": 205,
+          "name": "DISCOVERY TURBO HD",
+          "ids": [
+            "DiscoveryTurbo.us"
+          ],
+          "aliases": [
+            "DISCOVERY TURBO",
+            "Discovery Turbo"
+          ]
+        },
+        {
+          "number": 206,
+          "name": "National Geographic HD",
+          "ids": [
+            "NationalGeographic.us"
+          ],
+          "aliases": [
+            "National Geographic"
+          ]
+        },
+        {
+          "number": 209,
+          "name": "MTVLIVE",
+          "ids": [
+            "MTVLive.us"
+          ],
+          "aliases": [
+            "MTV Live"
+          ]
+        },
+        {
+          "number": 215,
+          "name": "Teen Nick",
+          "ids": [
+            "TeenNick.us"
+          ],
+          "aliases": [
+            "TeenNick",
+            "Teen Nick HD"
+          ]
+        },
+        {
+          "number": 220,
+          "name": "Oprah Winfrey Network",
+          "ids": [
+            "OWN.us"
+          ],
+          "aliases": [
+            "OWN",
+            "Oprah Winfrey Network HD"
+          ]
+        },
+        {
+          "number": 223,
+          "name": "NewsNation",
+          "ids": [
+            "NewsNation.us"
+          ],
+          "aliases": [
+            "NewsNation SD"
+          ]
+        },
+        {
+          "number": 227,
+          "name": "Hallmark Mystery HD",
+          "ids": [
+            "HallmarkMystery.us"
+          ],
+          "aliases": [
+            "Hallmark Mystery"
+          ]
+        },
+        {
+          "number": 229,
+          "name": "LMN HD",
+          "ids": [
+            "LifetimeMovies.us"
+          ],
+          "aliases": [
+            "LMN",
+            "Lifetime Movies"
+          ]
+        },
+        {
+          "number": 230,
+          "name": "WCIU-DT2",
+          "ids": [
+            "WCIUTV262.us"
+          ],
+          "aliases": [
+            "WCIU-TV 26.2",
+            "WCIU-DT2 (SD Feed)"
+          ]
+        },
+        {
+          "number": 231,
+          "name": "ESPNEWS HD",
+          "ids": [
+            "ESPNews.us"
+          ],
+          "aliases": [
+            "ESPNEWS",
+            "ESPNews"
+          ]
+        },
+        {
+          "number": 233,
+          "name": "MLB Network HD",
+          "ids": [
+            "MLBNetwork.us"
+          ],
+          "aliases": [
+            "MLB Network"
+          ]
+        },
+        {
+          "number": 234,
+          "name": "NHL Network HD",
+          "ids": [
+            "NHLNetwork.us"
+          ],
+          "aliases": [
+            "NHL Network"
+          ]
+        },
+        {
+          "number": 235,
+          "name": "NBA TV HD",
+          "ids": [
+            "NBATV.us"
+          ],
+          "aliases": [
+            "NBA TV"
+          ]
+        },
+        {
+          "number": 236,
+          "name": "Tennis Channel HD",
+          "ids": [
+            "TennisChannel.us"
+          ],
+          "aliases": [
+            "Tennis Channel"
+          ]
+        },
+        {
+          "number": 252,
+          "name": "The Sportsman Channel HD",
+          "ids": [
+            "SportsmanChannel.us"
+          ],
+          "aliases": [
+            "The Sportsman Channel",
+            "Sportsman Channel"
+          ]
+        },
+        {
+          "number": 253,
+          "name": "ESPNU HD",
+          "ids": [
+            "ESPNU.us"
+          ],
+          "aliases": [
+            "ESPNU"
+          ]
+        },
+        {
+          "number": 254,
+          "name": "NFL RedZone HD",
+          "ids": [
+            "NFLRedZone.us"
+          ],
+          "aliases": [
+            "NFL RedZone"
+          ]
+        },
+        {
+          "number": 263,
+          "name": "Starz Encore HD",
+          "ids": [
+            "StarzEncore.us"
+          ],
+          "aliases": [
+            "Starz Encore"
+          ]
+        },
+        {
+          "number": 271,
+          "name": "Investigation Discovery",
+          "ids": [
+            "InvestigationDiscovery.us"
+          ],
+          "aliases": [
+            "Investigation Discovery HD"
+          ]
+        },
+        {
+          "number": 272,
+          "name": "Science",
+          "ids": [
+            "Science.us"
+          ]
+        },
+        {
+          "number": 274,
+          "name": "American Heroes Channel",
+          "ids": [
+            "AmericanHeroesChannel.us"
+          ],
+          "aliases": [
+            "American Heroes Channel HD"
+          ]
+        },
+        {
+          "number": 275,
+          "name": "FYI",
+          "ids": [
+            "FYI.us"
+          ]
+        },
+        {
+          "number": 280,
+          "name": "IFC HD",
+          "ids": [
+            "IFC.us"
+          ],
+          "aliases": [
+            "IFC"
+          ]
+        },
+        {
+          "number": 281,
+          "name": "WE tv HD",
+          "ids": [
+            "WeTV.us"
+          ],
+          "aliases": [
+            "WE tv",
+            "We TV"
+          ]
+        },
+        {
+          "number": 299,
+          "name": "UPtv HD",
+          "ids": [
+            "UpTV.us"
+          ],
+          "aliases": [
+            "UPtv",
+            "Up TV"
+          ]
+        },
+        {
+          "number": 300,
+          "name": "HBO Hits",
+          "ids": [
+            "HBOHits.us"
+          ]
+        },
+        {
+          "number": 303,
+          "name": "HBO Drama",
+          "ids": [
+            "HBODrama.us"
+          ]
+        },
+        {
+          "number": 304,
+          "name": "HBO Movies",
+          "ids": [
+            "HBOMovies.us"
+          ]
+        },
+        {
+          "number": 305,
+          "name": "HBO Latino HD",
+          "ids": [
+            "HBOLatino.us"
+          ],
+          "aliases": [
+            "HBO Latino"
+          ]
+        },
+        {
+          "number": 309,
+          "name": "ReelzChannel HD",
+          "ids": [
+            "Reelz.us"
+          ],
+          "aliases": [
+            "ReelzChannel",
+            "Reelz"
+          ]
+        },
+        {
+          "number": 314,
+          "name": "The Movie Channel HD",
+          "ids": [
+            "TheMovieChannel.us"
+          ],
+          "aliases": [
+            "The Movie Channel"
+          ]
+        },
+        {
+          "number": 319,
+          "name": "Turner Classic Movies HD",
+          "ids": [
+            "TCM.us"
+          ],
+          "aliases": [
+            "Turner Classic Movies",
+            "TCM"
+          ]
+        },
+        {
+          "number": 325,
+          "name": "Crime & Investigation Network HD",
+          "ids": [
+            "CrimePlusInvestigation.us"
+          ],
+          "aliases": [
+            "Crime & Investigation Network",
+            "Crime + Investigation"
+          ]
+        },
+        {
+          "number": 329,
+          "name": "Fox Deportes HD",
+          "ids": [
+            "FoxDeportes.us"
+          ],
+          "aliases": [
+            "Fox Deportes"
+          ]
+        },
+        {
+          "number": 330,
+          "name": "Outdoor Channel HD",
+          "ids": [
+            "OutdoorChannel.us"
+          ],
+          "aliases": [
+            "Outdoor Channel"
+          ]
+        },
+        {
+          "number": 332,
+          "name": "TUDN",
+          "ids": [
+            "TUDN.us"
+          ]
+        },
+        {
+          "number": 335,
+          "name": "ESPN Deportes HD",
+          "ids": [
+            "ESPNDeportes.us"
+          ],
+          "aliases": [
+            "ESPN Deportes"
+          ]
+        },
+        {
+          "number": 336,
+          "name": "SEC Network HD",
+          "ids": [
+            "SECNetwork.us"
+          ],
+          "aliases": [
+            "SEC Network"
+          ]
+        },
+        {
+          "number": 337,
+          "name": "FXX HD",
+          "ids": [
+            "FXX.us"
+          ],
+          "aliases": [
+            "FXX"
+          ]
+        },
+        {
+          "number": 383,
+          "name": "TBN Inspire (SD Feed)",
+          "ids": [
+            "TBNInspire.us"
+          ],
+          "aliases": [
+            "TBN Inspire"
+          ]
+        },
+        {
+          "number": 407,
+          "name": "FanDuel Racing",
+          "ids": [
+            "FanDuelRacing.us"
+          ]
+        },
+        {
+          "number": 420,
+          "name": "ACC Network",
+          "ids": [
+            "ACCNetwork.us"
+          ]
+        },
+        {
+          "number": 471,
+          "name": "CMT Music",
+          "ids": [
+            "CMTMusic.us"
+          ]
+        },
+        {
+          "number": 472,
+          "name": "Nick Music",
+          "ids": [
+            "NickMusic.us"
+          ],
+          "aliases": [
+            "NickMusic"
+          ]
+        },
+        {
+          "number": 473,
+          "name": "MTV Classic",
+          "ids": [
+            "MTVClassic.us"
+          ]
+        },
+        {
+          "number": 474,
+          "name": "BET Soul",
+          "ids": [
+            "BETSoul.us"
+          ]
+        },
+        {
+          "number": 481,
+          "name": "BET Her",
+          "ids": [
+            "BETHer.us"
+          ],
+          "aliases": [
+            "BET Her HD"
+          ]
+        },
+        {
+          "number": 484,
+          "name": "Great American Family",
+          "ids": [
+            "GreatAmericanFamily.us"
+          ],
+          "aliases": [
+            "Great American Family HD"
+          ]
+        },
+        {
+          "number": 486,
+          "name": "The Word Network",
+          "ids": [
+            "TheWordNetwork.us"
+          ]
+        },
+        {
+          "number": 488,
+          "name": "Impact Network (SD Feed)",
+          "ids": [
+            "ImpactNetwork.us"
+          ],
+          "aliases": [
+            "Impact Network"
+          ]
+        },
+        {
+          "number": 491,
+          "name": "Cleo TV",
+          "ids": [
+            "CleoTV.us"
+          ],
+          "aliases": [
+            "Cleo TV HD"
+          ]
+        },
+        {
+          "number": 505,
+          "name": "SundanceTV",
+          "ids": [
+            "SundanceTV.us"
+          ],
+          "aliases": [
+            "Sundance TV",
+            "SundanceTV HD"
+          ]
+        },
+        {
+          "number": 506,
+          "name": "FXM",
+          "ids": [
+            "FXM.us"
+          ]
+        },
+        {
+          "number": 509,
+          "name": "Hallmark Family SD",
+          "ids": [
+            "HallmarkFamily.us"
+          ],
+          "aliases": [
+            "Hallmark Family"
+          ]
+        },
+        {
+          "number": 519,
+          "name": "ScreenPix SD",
+          "ids": [
+            "ScreenPix.us"
+          ],
+          "aliases": [
+            "ScreenPix"
+          ]
+        },
+        {
+          "number": 520,
+          "name": "ScreenPix Action SD",
+          "ids": [
+            "ScreenPixAction.us"
+          ],
+          "aliases": [
+            "ScreenPix Action"
+          ]
+        },
+        {
+          "number": 521,
+          "name": "ScreenPix Voices SD",
+          "ids": [
+            "ScreenPixVoices.us"
+          ],
+          "aliases": [
+            "ScreenPix Voices"
+          ]
+        },
+        {
+          "number": 522,
+          "name": "ScreenPix Westerns",
+          "ids": [
+            "ScreenPixWesterns.us"
+          ]
+        },
+        {
+          "number": 523,
+          "name": "Starz Encore Westerns SD",
+          "ids": [
+            "StarzEncoreWesterns.us"
+          ],
+          "aliases": [
+            "Starz Encore Westerns"
+          ]
+        },
+        {
+          "number": 527,
+          "name": "Starz Encore Black",
+          "ids": [
+            "StarzEncoreBlack.us"
+          ],
+          "aliases": [
+            "Starz Encore Black HD"
+          ]
+        },
+        {
+          "number": 529,
+          "name": "Starz Encore Action",
+          "ids": [
+            "StarzEncoreAction.us"
+          ],
+          "aliases": [
+            "Starz Encore Action HD"
+          ]
+        },
+        {
+          "number": 535,
+          "name": "MGM+ HD",
+          "ids": [
+            "MGMPlus.us"
+          ],
+          "aliases": [
+            "MGM+"
+          ]
+        },
+        {
+          "number": 537,
+          "name": "MGM+ Hits",
+          "ids": [
+            "MGMPlusHits.us"
+          ],
+          "aliases": [
+            "MGM+ Hits HD"
+          ]
+        },
+        {
+          "number": 538,
+          "name": "MGM+ Marquee",
+          "ids": [
+            "MGMPlusMarquee.us"
+          ],
+          "aliases": [
+            "MGM+ Marquee HD"
+          ]
+        },
+        {
+          "number": 539,
+          "name": "MGM+ Drive-In",
+          "ids": [
+            "MGMPlusDriveIn.us"
+          ],
+          "aliases": [
+            "MGM+ Drive-In HD"
+          ]
+        },
+        {
+          "number": 559,
+          "name": "HBO Comedy",
+          "ids": [
+            "HBOComedy.us"
+          ],
+          "aliases": [
+            "HBO Comedy HD"
+          ]
+        },
+        {
+          "number": 564,
+          "name": "Cinemax Hits",
+          "ids": [
+            "CinemaxHits.us"
+          ]
+        },
+        {
+          "number": 577,
+          "name": "SHO 2",
+          "ids": [
+            "Showtime2.us"
+          ],
+          "aliases": [
+            "Showtime 2",
+            "SHO 2 HD"
+          ]
+        },
+        {
+          "number": 579,
+          "name": "Showtime Showcase",
+          "ids": [
+            "ShowtimeShowcase.us"
+          ],
+          "aliases": [
+            "Showtime Showcase HD"
+          ]
+        },
+        {
+          "number": 581,
+          "name": "Showtime Extreme",
+          "ids": [
+            "ShowtimeExtreme.us"
+          ],
+          "aliases": [
+            "Showtime Extreme HD"
+          ]
+        },
+        {
+          "number": 583,
+          "name": "Showtime Next",
+          "ids": [
+            "ShowtimeNext.us"
+          ],
+          "aliases": [
+            "Showtime Next HD"
+          ]
+        },
+        {
+          "number": 584,
+          "name": "Showtime Familyzone",
+          "ids": [
+            "ShowtimeFamilyZone.us"
+          ],
+          "aliases": [
+            "Showtime Family Zone"
+          ]
+        },
+        {
+          "number": 585,
+          "name": "Showtime Women",
+          "ids": [
+            "ShowtimeWomen.us"
+          ],
+          "aliases": [
+            "Showtime Women HD"
+          ]
+        },
+        {
+          "number": 586,
+          "name": "Flix",
+          "ids": [
+            "Flix.us"
+          ],
+          "aliases": [
+            "Flix HD"
+          ]
+        },
+        {
+          "number": 600,
+          "name": "ViendoMovies",
+          "ids": [
+            "ViendoMovies.us"
+          ],
+          "aliases": [
+            "ViendoMovies HD"
+          ]
+        },
+        {
+          "number": 601,
+          "name": "Discovery en Español",
+          "ids": [
+            "DiscoveryenEspanol.us"
+          ],
+          "aliases": [
+            "Discovery en Espanol"
+          ]
+        },
+        {
+          "number": 604,
+          "name": "Cine Latino US",
+          "ids": [
+            "CineLatino.us"
+          ],
+          "aliases": [
+            "Cine Latino",
+            "Cine Latino US HD"
+          ]
+        },
+        {
+          "number": 608,
+          "name": "CNN en Español",
+          "ids": [
+            "CNNenEspanol.us"
+          ],
+          "aliases": [
+            "CNN en Espanol"
+          ]
+        },
+        {
+          "number": 628,
+          "name": "Canal Sur",
+          "ids": [
+            "CanalSUR.us"
+          ],
+          "aliases": [
+            "Canal SUR"
+          ]
+        },
+        {
+          "number": 632,
+          "name": "CentroAméricaTV",
+          "ids": [
+            "CentroamericaTV.us"
+          ],
+          "aliases": [
+            "Centroamerica TV",
+            "CentroAméricaTV (HD Feed)"
+          ]
+        },
+        {
+          "number": 642,
+          "name": "Vme Kids (SD Feed)",
+          "ids": [
+            "VmeKids.us"
+          ],
+          "aliases": [
+            "Vme Kids"
+          ]
+        },
+        {
+          "number": 644,
+          "name": "Televisión Dominicana",
+          "ids": [
+            "TelevisionDominicana.us"
+          ],
+          "aliases": [
+            "Television Dominicana",
+            "Televisión Dominicana (HD Feed)"
+          ]
+        },
+        {
+          "number": 649,
+          "name": "HITN",
+          "ids": [
+            "HITN.us"
+          ],
+          "aliases": [
+            "HITN HD"
+          ]
+        },
+        {
+          "number": 686,
+          "name": "Jewish Life TV (SD Feed)",
+          "ids": [
+            "JewishLifeTV.us"
+          ],
+          "aliases": [
+            "Jewish Life TV"
+          ]
+        },
+        {
+          "number": 705,
+          "name": "Music Choice Hip-Hop and R&B",
+          "ids": [
+            "MusicChoiceHipHopandRB.us"
+          ]
+        },
+        {
+          "number": 707,
+          "name": "Music Choice Hip-Hop Classics",
+          "ids": [
+            "MusicChoiceHipHopClassics.us"
+          ]
+        },
+        {
+          "number": 709,
+          "name": "Music Choice R&B Classics",
+          "ids": [
+            "MusicChoiceRBClassics.us"
+          ]
+        },
+        {
+          "number": 711,
+          "name": "Music Choice Gospel",
+          "ids": [
+            "MusicChoiceGospel.us"
+          ]
+        },
+        {
+          "number": 712,
+          "name": "Music Choice Contemporary Christian",
+          "ids": [
+            "MusicChoiceContemporaryChristian.us"
+          ]
+        },
+        {
+          "number": 713,
+          "name": "Music Choice Rock",
+          "ids": [
+            "MusicChoiceRock.us"
+          ]
+        },
+        {
+          "number": 716,
+          "name": "Music Choice Adult Alternative",
+          "ids": [
+            "MusicChoiceAdultAlternative.us"
+          ]
+        },
+        {
+          "number": 718,
+          "name": "Music Choice Classic Rock",
+          "ids": [
+            "MusicChoiceClassicRock.us"
+          ]
+        },
+        {
+          "number": 719,
+          "name": "Music Choice Soft Rock",
+          "ids": [
+            "MusicChoiceSoftRock.us"
+          ]
+        },
+        {
+          "number": 721,
+          "name": "Music Choice Pop Hits",
+          "ids": [
+            "MusicChoicePopHits.us"
+          ]
+        },
+        {
+          "number": 723,
+          "name": "Music Choice Tropicales",
+          "ids": [
+            "MusicChoiceTropicales.us"
+          ]
+        },
+        {
+          "number": 726,
+          "name": "Music Choice '90s",
+          "ids": [
+            "MusicChoice90s.us"
+          ],
+          "aliases": [
+            "Music Choice 90s"
+          ]
+        },
+        {
+          "number": 727,
+          "name": "Music Choice '80s",
+          "ids": [
+            "MusicChoice80s.us"
+          ],
+          "aliases": [
+            "Music Choice 80s"
+          ]
+        },
+        {
+          "number": 728,
+          "name": "Music Choice '70s",
+          "ids": [
+            "MusicChoice70s.us"
+          ],
+          "aliases": [
+            "Music Choice 70s"
+          ]
+        },
+        {
+          "number": 730,
+          "name": "Music Choice Solid Gold Oldies",
+          "ids": [
+            "MusicChoiceSolidGoldOldies.us"
+          ]
+        },
+        {
+          "number": 731,
+          "name": "Music Choice Pop & Country",
+          "ids": [
+            "MusicChoicePopCountry.us"
+          ],
+          "aliases": [
+            "Music Choice Pop Country"
+          ]
+        },
+        {
+          "number": 732,
+          "name": "Music Choice Today's Country",
+          "ids": [
+            "MusicChoiceTodaysCountry.us"
+          ],
+          "aliases": [
+            "Music Choice Todays Country"
+          ]
+        },
+        {
+          "number": 734,
+          "name": "Music Choice Classic Country",
+          "ids": [
+            "MusicChoiceClassicCountry.us"
+          ]
+        },
+        {
+          "number": 741,
+          "name": "Music Choice Light Classical",
+          "ids": [
+            "MusicChoiceLightClassical.us"
+          ]
+        },
+        {
+          "number": 742,
+          "name": "Music Choice Classical Masterpieces",
+          "ids": [
+            "MusicChoiceClassicalMasterpieces.us"
+          ]
+        },
+        {
+          "number": 743,
+          "name": "Music Choice Soundscapes",
+          "ids": [
+            "MusicChoiceSoundscapes.us"
+          ]
+        },
+        {
+          "number": 744,
+          "name": "Music Choice Smooth Jazz",
+          "ids": [
+            "MusicChoiceSmoothJazz.us"
+          ]
+        },
+        {
+          "number": 745,
+          "name": "Music Choice Jazz",
+          "ids": [
+            "MusicChoiceJazz.us"
+          ]
+        },
+        {
+          "number": 746,
+          "name": "Music Choice Blues",
+          "ids": [
+            "MusicChoiceBlues.us"
+          ]
+        },
+        {
+          "number": 747,
+          "name": "Music Choice Singers & Swing",
+          "ids": [
+            "MusicChoiceSingersSwing.us"
+          ]
+        },
+        {
+          "number": 748,
+          "name": "Music Choice Easy Listening",
+          "ids": [
+            "MusicChoiceEasyListening.us"
+          ]
+        },
+        {
+          "number": 750,
+          "name": "Music Choice Sounds of the Seasons",
+          "ids": [
+            "MusicChoiceSoundsofTheSeasons.us"
+          ],
+          "aliases": [
+            "Music Choice Sounds of The Seasons"
+          ]
+        },
+        {
+          "number": 1084,
+          "name": "Shop LC",
+          "ids": [
+            "ShopLC.us"
+          ]
+        },
+        {
+          "number": 1108,
+          "name": "FOX Weather",
+          "ids": [
+            "FoxWeather.us"
+          ],
+          "aliases": [
+            "Fox Weather"
+          ]
+        },
+        {
+          "number": 1115,
+          "name": "Newsmax TV HD",
+          "ids": [
+            "NewsmaxTV.us"
+          ],
+          "aliases": [
+            "Newsmax TV"
+          ]
+        },
+        {
+          "number": 1238,
+          "name": "Pursuit Channel HD",
+          "ids": [
+            "PursuitChannel.us"
+          ],
+          "aliases": [
+            "Pursuit Channel"
+          ]
+        },
+        {
+          "number": 1246,
+          "name": "FanDuel TV",
+          "ids": [
+            "FanDuelTV.us"
+          ]
+        },
+        {
+          "number": 1431,
+          "name": "INSP HD",
+          "ids": [
+            "INSP.us"
+          ],
+          "aliases": [
+            "INSP"
+          ]
+        },
+        {
+          "number": 1437,
+          "name": "Comedy.TV HD",
+          "ids": [
+            "ComedyTV.us"
+          ],
+          "aliases": [
+            "Comedy.TV"
+          ]
+        },
+        {
+          "number": 1483,
+          "name": "Recipe TV HD",
+          "ids": [
+            "RecipeTV.us"
+          ],
+          "aliases": [
+            "Recipe TV",
+            "Recipe.TV"
+          ]
+        },
+        {
+          "number": 1613,
+          "name": "AXS TV",
+          "ids": [
+            "AXSTV.us"
+          ]
+        },
+        {
+          "number": 1623,
+          "name": "AFRO",
+          "ids": [
+            "Afro.us"
+          ],
+          "aliases": [
+            "Afro"
+          ]
+        },
+        {
+          "number": 1627,
+          "name": "ASPiRE HD",
+          "ids": [
+            "Aspire.us"
+          ],
+          "aliases": [
+            "ASPiRE",
+            "Aspire"
+          ]
+        },
+        {
+          "number": 1637,
+          "name": "Revolt HD",
+          "ids": [
+            "Revolt.us"
+          ],
+          "aliases": [
+            "Revolt"
+          ]
+        },
+        {
+          "number": 1721,
+          "name": "Primo TV HD",
+          "ids": [
+            "PrimoTV.us"
+          ],
+          "aliases": [
+            "Primo TV"
+          ]
+        },
+        {
+          "number": 1736,
+          "name": "MeTV Toons",
+          "ids": [
+            "MeTVToons.us"
+          ]
+        },
+        {
+          "number": 1766,
+          "name": "FX Movie Channel HD",
+          "ids": [
+            "FXMovieChannel.us"
+          ],
+          "aliases": [
+            "FX Movie Channel"
+          ]
+        },
+        {
+          "number": 1824,
+          "name": "Cinemax Action",
+          "ids": [
+            "CinemaxAction.us"
+          ]
+        },
+        {
+          "number": 1830,
+          "name": "Cinemax Classics",
+          "ids": [
+            "CinemaxClassics.us"
+          ]
+        },
+        {
+          "number": 3102,
+          "name": "TV Asia HD",
+          "ids": [
+            "TVAsia.us"
+          ],
+          "aliases": [
+            "TV Asia"
+          ]
+        },
+        {
+          "number": 3230,
+          "name": "Impact TV Network",
+          "ids": [
+            "ImpactTVNetwork.us"
+          ]
+        },
+        {
+          "number": 3335,
+          "name": "Discovery Familia HD",
+          "ids": [
+            "DiscoveryFamilia.us"
+          ],
+          "aliases": [
+            "Discovery Familia"
+          ]
+        },
+        {
+          "number": 11315,
+          "name": "Big Ten Network Overflow 2 HD",
+          "ids": [
+            "BigTenNetworkOverflow2.us"
+          ],
+          "aliases": [
+            "Big Ten Network Overflow 2"
+          ]
+        },
+        {
+          "number": 11631,
+          "name": "BET GOSPEL SD",
+          "ids": [
+            "BETGospel.us"
+          ],
+          "aliases": [
+            "BET GOSPEL",
+            "BET Gospel"
+          ]
+        },
+        {
+          "number": 11632,
+          "name": "BET Hip Hop",
+          "ids": [
+            "BETHipHop.us"
+          ],
+          "aliases": [
+            "BET Hip-Hop"
+          ]
+        },
+        {
+          "number": 11844,
+          "name": "SHO x BET HD",
+          "ids": [
+            "ShoxBet.us"
+          ],
+          "aliases": [
+            "SHO x BET",
+            "Sho x Bet"
+          ]
+        },
+        {
+          "number": 14005,
+          "name": "NBC News NOW",
+          "ids": [
+            "NBCNewsNOW.us"
+          ]
+        },
+        {
+          "number": 14014,
+          "name": "LiveNOW from FOX",
+          "ids": [
+            "LiveNOWfromFOX.us"
+          ]
+        },
+        {
+          "number": 14016,
+          "name": "TODAY All Day",
+          "ids": [
+            "TODAYAllDay.us"
+          ]
+        },
+        {
+          "number": 14017,
+          "name": "ABC News Live",
+          "ids": [
+            "ABCNewsLive.us"
+          ]
+        },
+        {
+          "number": 14020,
+          "name": "AccuWeather NOW",
+          "ids": [
+            "AccuWeatherNOW.us"
+          ]
+        },
+        {
+          "number": 14045,
+          "name": "Circle Country",
+          "ids": [
+            "CircleCountry.us"
+          ]
+        },
+        {
+          "number": 14063,
+          "name": "Xumo Free Westerns",
+          "ids": [
+            "XumoFreeWesterns.us"
+          ]
+        },
+        {
+          "number": 14068,
+          "name": "NBC Sports NOW",
+          "ids": [
+            "NBCSportsNOW.us"
+          ]
+        },
+        {
+          "number": 14071,
+          "name": "PGA Tour",
+          "ids": [
+            "PGATour.us"
+          ]
+        },
+        {
+          "number": 14083,
+          "name": "World Poker Tour",
+          "ids": [
+            "WorldPokerTour.us"
+          ]
+        },
+        {
+          "number": 14086,
+          "name": "Pickleball TV",
+          "ids": [
+            "PickleballTV.us"
+          ]
+        },
+        {
+          "number": 14087,
+          "name": "Unbeaten",
+          "ids": [
+            "Unbeaten.us"
+          ]
+        },
+        {
+          "number": 14089,
+          "name": "Willow Sports",
+          "ids": [
+            "WillowSports.us"
+          ]
+        },
+        {
+          "number": 14093,
+          "name": "NASCAR Channel",
+          "ids": [
+            "NASCARChannel.us"
+          ]
+        },
+        {
+          "number": 14097,
+          "name": "SportsGrid",
+          "ids": [
+            "SportsGrid.us"
+          ]
+        },
+        {
+          "number": 14117,
+          "name": "The Conners",
+          "ids": [
+            "TheConners.us"
+          ]
+        },
+        {
+          "number": 14118,
+          "name": "Game Show Central",
+          "ids": [
+            "GameShowCentral.us"
+          ]
+        },
+        {
+          "number": 14119,
+          "name": "The Price is Right: The Barker Era",
+          "ids": [
+            "ThePriceIsRightTheBarkerEra.us"
+          ],
+          "aliases": [
+            "The Price Is Right: The Barker Era"
+          ]
+        },
+        {
+          "number": 14121,
+          "name": "Deal Or No Deal",
+          "ids": [
+            "DealorNoDeal.us"
+          ],
+          "aliases": [
+            "Deal or No Deal"
+          ]
+        },
+        {
+          "number": 14123,
+          "name": "Comedy Dynamics",
+          "ids": [
+            "ComedyDynamics.us"
+          ]
+        },
+        {
+          "number": 14131,
+          "name": "Moviesphere",
+          "ids": [
+            "MovieSphere.us"
+          ],
+          "aliases": [
+            "MovieSphere"
+          ]
+        },
+        {
+          "number": 14132,
+          "name": "OuterSphere",
+          "ids": [
+            "OuterSphere.us"
+          ]
+        },
+        {
+          "number": 14139,
+          "name": "Are We There Yet?",
+          "ids": [
+            "AreWeThereYet.us"
+          ]
+        },
+        {
+          "number": 14145,
+          "name": "E! Keeping Up",
+          "ids": [
+            "EKeepingUp.us"
+          ]
+        },
+        {
+          "number": 14150,
+          "name": "NBC Comedy Vault",
+          "ids": [
+            "NBCComedyVault.us"
+          ]
+        },
+        {
+          "number": 14151,
+          "name": "SNL Vault",
+          "ids": [
+            "SNLVault.us"
+          ]
+        },
+        {
+          "number": 14173,
+          "name": "Baywatch",
+          "ids": [
+            "Baywatch.us"
+          ]
+        },
+        {
+          "number": 14179,
+          "name": "Universal Crime",
+          "ids": [
+            "UniversalCrime.us"
+          ]
+        },
+        {
+          "number": 14180,
+          "name": "Unsolved Mysteries",
+          "ids": [
+            "UnsolvedMysteries.us"
+          ]
+        },
+        {
+          "number": 14181,
+          "name": "Forensic Files",
+          "ids": [
+            "ForensicFiles.us"
+          ]
+        },
+        {
+          "number": 14183,
+          "name": "Documentary+",
+          "ids": [
+            "DocumentaryPlus.us"
+          ]
+        },
+        {
+          "number": 14186,
+          "name": "Court TV",
+          "ids": [
+            "CourtTV.us"
+          ]
+        },
+        {
+          "number": 14193,
+          "name": "American Ninja Warrior",
+          "ids": [
+            "AmericanNinjaWarrior.us"
+          ]
+        },
+        {
+          "number": 14203,
+          "name": "America's Test Kitchen",
+          "ids": [
+            "AmericasTestKitchen.us"
+          ]
+        },
+        {
+          "number": 14207,
+          "name": "Extreme Jobs",
+          "ids": [
+            "ExtremeJobs.us"
+          ]
+        },
+        {
+          "number": 14226,
+          "name": "Ebony TV by Lionsgate",
+          "ids": [
+            "EbonyTVbyLionsgate.us"
+          ]
+        },
+        {
+          "number": 14227,
+          "name": "Bounce XL",
+          "ids": [
+            "BounceXL.us"
+          ]
+        },
+        {
+          "number": 14251,
+          "name": "At Home with Family HandyMan",
+          "ids": [
+            "AtHomewithFamilyHandyman.us"
+          ],
+          "aliases": [
+            "At Home with Family Handyman"
+          ]
+        },
+        {
+          "number": 14253,
+          "name": "Tastemade",
+          "ids": [
+            "Tastemade.us"
+          ]
+        },
+        {
+          "number": 14254,
+          "name": "Tastemade Travel",
+          "ids": [
+            "TastemadeTravel.us"
+          ]
+        },
+        {
+          "number": 14258,
+          "name": "Mythbusters",
+          "ids": [
+            "Mythbusters.us"
+          ]
+        },
+        {
+          "number": 14263,
+          "name": "Lawless",
+          "ids": [
+            "Lawless.us"
+          ]
+        },
+        {
+          "number": 14264,
+          "name": "Nash Bridges",
+          "ids": [
+            "NashBridges.us"
+          ]
+        },
+        {
+          "number": 14271,
+          "name": "Dog Whisperer",
+          "ids": [
+            "DogWhisperer.us"
+          ]
+        },
+        {
+          "number": 14274,
+          "name": "PBS Nature",
+          "ids": [
+            "PBSNature.us"
+          ]
+        },
+        {
+          "number": 14276,
+          "name": "PBS Travel",
+          "ids": [
+            "PBSTravel.us"
+          ]
+        },
+        {
+          "number": 14277,
+          "name": "PBS Antiques Roadshow",
+          "ids": [
+            "PBSAntiquesRoadshow.us"
+          ]
+        },
+        {
+          "number": 14481,
+          "name": "News 12 New York",
+          "ids": [
+            "News12NewYork.us"
+          ],
+          "aliases": [
+            "News12 New York"
+          ]
+        },
+        {
+          "number": 14650,
+          "name": "Estrella TV",
+          "ids": [
+            "EstrellaTV.us"
+          ]
+        },
+        {
+          "number": 14655,
+          "name": "Estrella News",
+          "ids": [
+            "EstrellaNews.us"
+          ]
+        },
+        {
+          "number": 14657,
+          "name": "Comercio TV",
+          "ids": [
+            "ComercioTV.us"
+          ]
+        },
+        {
+          "number": 14721,
+          "name": "América TeVe",
+          "ids": [
+            "AmericaTeVe.us"
+          ],
+          "aliases": [
+            "America TeVe"
+          ]
+        }
+      ]
+    },
+    "GB": {
+      "source": {
+        "url": "https://en.wikipedia.org/wiki/List_of_DTT_channels_in_the_United_Kingdom",
+        "revision": "1383411451",
+        "baseline": "Eng",
+        "sections": [
+          "General Entertainment",
+          "High-definition",
+          "Children's",
+          "News",
+          "Streamed channels",
+          "Interactive",
+          "Adult"
+        ],
+        "primaryVariant": true,
+        "retrievedOn": "2026-11-03",
+        "sourceRows": 156,
+        "duplicatePolicy": "lowest channel number per identity"
+      },
+      "channels": [
+        {
+          "number": 1,
+          "name": "BBC One",
+          "ids": [
+            "BBCOne.uk"
+          ],
+          "aliases": [
+            "BBC One HD"
+          ]
+        },
+        {
+          "number": 2,
+          "name": "BBC Two",
+          "ids": [
+            "BBCTwo.uk"
+          ],
+          "aliases": [
+            "BBC Two HD"
+          ]
+        },
+        {
+          "number": 3,
+          "name": "ITV1",
+          "ids": [
+            "ITV1.uk"
+          ],
+          "aliases": [
+            "ITV1 HD"
+          ]
+        },
+        {
+          "number": 4,
+          "name": "Channel 4",
+          "ids": [
+            "Channel4.uk"
+          ],
+          "aliases": [
+            "Channel 4 HD"
+          ]
+        },
+        {
+          "number": 5,
+          "name": "5",
+          "ids": [
+            "Channel5.uk"
+          ],
+          "aliases": [
+            "Channel 5",
+            "5 HD"
+          ]
+        },
+        {
+          "number": 6,
+          "name": "ITV2",
+          "ids": [
+            "ITV2.uk"
+          ]
+        },
+        {
+          "number": 9,
+          "name": "BBC Four",
+          "ids": [
+            "BBCFour.uk"
+          ],
+          "aliases": [
+            "BBC Four HD"
+          ]
+        },
+        {
+          "number": 10,
+          "name": "ITV3",
+          "ids": [
+            "ITV3.uk"
+          ]
+        },
+        {
+          "number": 11,
+          "name": "Sky Mix",
+          "ids": [
+            "SkyMix.uk"
+          ]
+        },
+        {
+          "number": 12,
+          "name": "TLC",
+          "ids": [
+            "TLC.uk"
+          ]
+        },
+        {
+          "number": 13,
+          "name": "E4",
+          "ids": [
+            "E4.uk"
+          ]
+        },
+        {
+          "number": 14,
+          "name": "Film4",
+          "ids": [
+            "Film4.uk"
+          ]
+        },
+        {
+          "number": 16,
+          "name": "QVC",
+          "ids": [
+            "QVC.uk"
+          ]
+        },
+        {
+          "number": 17,
+          "name": "Quest",
+          "ids": [
+            "Quest.uk"
+          ]
+        },
+        {
+          "number": 18,
+          "name": "More4",
+          "ids": [
+            "More4.uk"
+          ]
+        },
+        {
+          "number": 19,
+          "name": "U&Dave",
+          "ids": [
+            "UDave.uk"
+          ]
+        },
+        {
+          "number": 20,
+          "name": "U&Drama",
+          "ids": [
+            "UDrama.uk"
+          ]
+        },
+        {
+          "number": 21,
+          "name": "5USA",
+          "ids": [
+            "5USA.uk"
+          ]
+        },
+        {
+          "number": 22,
+          "name": "TJC",
+          "ids": [
+            "TJC.uk"
+          ]
+        },
+        {
+          "number": 23,
+          "name": "BBC Three HD",
+          "ids": [
+            "BBCThree.uk"
+          ],
+          "aliases": [
+            "BBC Three",
+            "BBC Three (SD)"
+          ]
+        },
+        {
+          "number": 25,
+          "name": "U&W",
+          "ids": [
+            "UW.uk"
+          ]
+        },
+        {
+          "number": 26,
+          "name": "ITV4",
+          "ids": [
+            "ITV4.uk"
+          ]
+        },
+        {
+          "number": 27,
+          "name": "U&Yesterday",
+          "ids": [
+            "UYesterday.uk"
+          ]
+        },
+        {
+          "number": 28,
+          "name": "ITV Quiz",
+          "ids": [
+            "ITVQuiz.uk"
+          ]
+        },
+        {
+          "number": 31,
+          "name": "E4 Extra",
+          "ids": [
+            "E4Extra.uk"
+          ]
+        },
+        {
+          "number": 32,
+          "name": "5Star",
+          "ids": [
+            "5STAR.uk"
+          ],
+          "aliases": [
+            "5STAR"
+          ]
+        },
+        {
+          "number": 34,
+          "name": "Great! TV",
+          "ids": [
+            "GREATtv.uk"
+          ],
+          "aliases": [
+            "GREAT! tv"
+          ]
+        },
+        {
+          "number": 36,
+          "name": "Sky Arts",
+          "ids": [
+            "SkyArts.uk"
+          ]
+        },
+        {
+          "number": 37,
+          "name": "QVC2",
+          "ids": [
+            "QVC2.uk"
+          ]
+        },
+        {
+          "number": 39,
+          "name": "DMAX",
+          "ids": [
+            "DMAX.uk"
+          ]
+        },
+        {
+          "number": 40,
+          "name": "Quest Red",
+          "ids": [
+            "QuestRed.uk"
+          ]
+        },
+        {
+          "number": 41,
+          "name": "Legend",
+          "ids": [
+            "Legend.uk"
+          ]
+        },
+        {
+          "number": 42,
+          "name": "Great! Action",
+          "ids": [
+            "GREATaction.uk"
+          ],
+          "aliases": [
+            "GREAT! action"
+          ]
+        },
+        {
+          "number": 43,
+          "name": "Food Network",
+          "ids": [
+            "FoodNetwork.uk"
+          ]
+        },
+        {
+          "number": 44,
+          "name": "Really",
+          "ids": [
+            "Really.uk"
+          ]
+        },
+        {
+          "number": 45,
+          "name": "Gemporia",
+          "ids": [
+            "Gemporia.uk"
+          ]
+        },
+        {
+          "number": 46,
+          "name": "5Action",
+          "ids": [
+            "5Action.uk"
+          ]
+        },
+        {
+          "number": 48,
+          "name": "Challenge",
+          "ids": [
+            "Challenge.uk"
+          ]
+        },
+        {
+          "number": 49,
+          "name": "4seven",
+          "ids": [
+            "4seven.uk"
+          ]
+        },
+        {
+          "number": 50,
+          "name": "Great! Mystery",
+          "ids": [
+            "GREATmystery.uk"
+          ],
+          "aliases": [
+            "GREAT! mystery"
+          ]
+        },
+        {
+          "number": 51,
+          "name": "Ideal World",
+          "ids": [
+            "IdealWorldTV.uk"
+          ],
+          "aliases": [
+            "Ideal World TV"
+          ]
+        },
+        {
+          "number": 52,
+          "name": "Great! Christmas",
+          "ids": [
+            "GREATromance.uk"
+          ],
+          "aliases": [
+            "GREAT! romance"
+          ]
+        },
+        {
+          "number": 56,
+          "name": "That's TV (UK)",
+          "ids": [
+            "ThatsTV.uk"
+          ],
+          "aliases": [
+            "That's TV"
+          ]
+        },
+        {
+          "number": 57,
+          "name": "U&Eden",
+          "ids": [
+            "UEden.uk"
+          ]
+        },
+        {
+          "number": 64,
+          "name": "Blaze",
+          "ids": [
+            "Blaze.uk"
+          ]
+        },
+        {
+          "number": 65,
+          "name": "That's TV 2",
+          "ids": [
+            "ThatsTV2.uk"
+          ]
+        },
+        {
+          "number": 66,
+          "name": "TBN UK",
+          "ids": [
+            "TBNUK.uk"
+          ]
+        },
+        {
+          "number": 67,
+          "name": "True Crime",
+          "ids": [
+            "TrueCrime.uk"
+          ]
+        },
+        {
+          "number": 68,
+          "name": "True Crime Xtra",
+          "ids": [
+            "TrueCrimeXtra.uk"
+          ]
+        },
+        {
+          "number": 69,
+          "name": "Legend Xtra",
+          "ids": [
+            "HorrorXtra.uk"
+          ],
+          "aliases": [
+            "HorrorXtra"
+          ]
+        },
+        {
+          "number": 72,
+          "name": "Jewellery Maker",
+          "ids": [
+            "JewelleryMaker.uk"
+          ]
+        },
+        {
+          "number": 73,
+          "name": "HobbyMaker",
+          "ids": [
+            "HobbyMaker.uk"
+          ],
+          "aliases": [
+            "Hobby Maker"
+          ]
+        },
+        {
+          "number": 74,
+          "name": "U&DaveJaVu",
+          "ids": [
+            "UDaveJaVu.uk"
+          ]
+        },
+        {
+          "number": 81,
+          "name": "Rewind TV",
+          "ids": [
+            "RewindTV.uk"
+          ]
+        },
+        {
+          "number": 82,
+          "name": "Talking Pictures TV",
+          "ids": [
+            "TalkingPicturesTV.uk"
+          ]
+        },
+        {
+          "number": 83,
+          "name": "Together TV",
+          "ids": [
+            "TogetherTV.uk"
+          ]
+        },
+        {
+          "number": 84,
+          "name": "PBS America",
+          "ids": [
+            "PBSAmerica.uk"
+          ]
+        },
+        {
+          "number": 93,
+          "name": "That's Classics",
+          "ids": [
+            "ThatsClassics.uk"
+          ]
+        },
+        {
+          "number": 96,
+          "name": "Must Have Ideas",
+          "ids": [
+            "MustHaveIdeas.uk"
+          ]
+        },
+        {
+          "number": 201,
+          "name": "CBBC",
+          "ids": [
+            "CBBC.uk"
+          ],
+          "aliases": [
+            "CBBC HD"
+          ]
+        },
+        {
+          "number": 202,
+          "name": "CBeebies",
+          "ids": [
+            "CBeebies.uk"
+          ],
+          "aliases": [
+            "CBeebies HD"
+          ]
+        },
+        {
+          "number": 205,
+          "name": "Pop",
+          "ids": [
+            "Pop.uk"
+          ]
+        },
+        {
+          "number": 206,
+          "name": "Tiny Pop",
+          "ids": [
+            "TinyPop.uk"
+          ]
+        },
+        {
+          "number": 207,
+          "name": "Pop Up",
+          "ids": [
+            "PopUp.uk"
+          ]
+        },
+        {
+          "number": 231,
+          "name": "BBC News",
+          "ids": [
+            "BBCNews.uk"
+          ]
+        },
+        {
+          "number": 232,
+          "name": "BBC Parliament",
+          "ids": [
+            "BBCParliament.uk"
+          ]
+        },
+        {
+          "number": 233,
+          "name": "Sky News",
+          "ids": [
+            "SkyNews.uk"
+          ]
+        },
+        {
+          "number": 236,
+          "name": "GB News",
+          "ids": [
+            "GBNews.uk"
+          ]
+        },
+        {
+          "number": 259,
+          "name": "MBC",
+          "ids": [
+            "MBC.uk"
+          ]
+        },
+        {
+          "number": 265,
+          "name": "ROK",
+          "ids": [
+            "ROK.uk"
+          ]
+        },
+        {
+          "number": 266,
+          "name": "Revelation",
+          "ids": [
+            "RevelationTV.uk"
+          ],
+          "aliases": [
+            "Revelation TV"
+          ]
+        },
+        {
+          "number": 269,
+          "name": "New Media TV",
+          "ids": [
+            "NewMediaTV.uk"
+          ]
+        },
+        {
+          "number": 287,
+          "name": "Nolly Africa",
+          "ids": [
+            "NollyAfrica.uk"
+          ]
+        },
+        {
+          "number": 290,
+          "name": "Music & Memories",
+          "ids": [
+            "MusicMemories.uk"
+          ]
+        },
+        {
+          "number": 601,
+          "name": "BBC RB 1",
+          "ids": [
+            "BBCRedButton1.uk"
+          ],
+          "aliases": [
+            "BBC Red Button 1"
+          ]
+        },
+        {
+          "number": 671,
+          "name": "Xpanded TV",
+          "ids": [
+            "XpandedTV.uk"
+          ]
+        },
+        {
+          "number": 674,
+          "name": "Babestation",
+          "ids": [
+            "Babestation.uk"
+          ]
+        }
+      ]
     }
   }
 }

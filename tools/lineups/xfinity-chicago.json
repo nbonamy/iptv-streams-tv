@@ -1,0 +1,5907 @@
+{
+  "source": {
+    "url": "https://www.xfinity.com/support/local-channel-lineup",
+    "provider": "Xfinity",
+    "market": "Chicago, Illinois",
+    "sort": "Channel Number: Ascending",
+    "retrievedOn": "2026-11-03"
+  },
+  "channels": [
+    {
+      "number": 2,
+      "name": "WBBM"
+    },
+    {
+      "number": 3,
+      "name": "ESPN"
+    },
+    {
+      "number": 4,
+      "name": "WSNS"
+    },
+    {
+      "number": 5,
+      "name": "WMAQ"
+    },
+    {
+      "number": 6,
+      "name": "WGBO"
+    },
+    {
+      "number": 7,
+      "name": "WLS"
+    },
+    {
+      "number": 8,
+      "name": "WPWR"
+    },
+    {
+      "number": 9,
+      "name": "WGN (Chicago)"
+    },
+    {
+      "number": 11,
+      "name": "WTTW"
+    },
+    {
+      "number": 12,
+      "name": "WFLD"
+    },
+    {
+      "number": 13,
+      "name": "WCIU"
+    },
+    {
+      "number": 14,
+      "name": "Total Living Network"
+    },
+    {
+      "number": 15,
+      "name": "WXFT"
+    },
+    {
+      "number": 16,
+      "name": "Home Shopping Network"
+    },
+    {
+      "number": 17,
+      "name": "WYIN"
+    },
+    {
+      "number": 18,
+      "name": "WJYS"
+    },
+    {
+      "number": 19,
+      "name": "Can TV 19 Chicago"
+    },
+    {
+      "number": 20,
+      "name": "WTVK"
+    },
+    {
+      "number": 21,
+      "name": "Can TV 21 Chicago"
+    },
+    {
+      "number": 22,
+      "name": "Cook County Access TV"
+    },
+    {
+      "number": 23,
+      "name": "Windy City TV"
+    },
+    {
+      "number": 24,
+      "name": "FX"
+    },
+    {
+      "number": 25,
+      "name": "Cable25"
+    },
+    {
+      "number": 27,
+      "name": "FYI Chicago-Nonprofit Services"
+    },
+    {
+      "number": 30,
+      "name": "ESPN2"
+    },
+    {
+      "number": 32,
+      "name": "TNT"
+    },
+    {
+      "number": 33,
+      "name": "TBS"
+    },
+    {
+      "number": 34,
+      "name": "Paramount Network"
+    },
+    {
+      "number": 35,
+      "name": "Jewelry Television"
+    },
+    {
+      "number": 36,
+      "name": "Can TV 36 Chicago"
+    },
+    {
+      "number": 37,
+      "name": "CHSN SD"
+    },
+    {
+      "number": 38,
+      "name": "WCPX"
+    },
+    {
+      "number": 39,
+      "name": "USA Network"
+    },
+    {
+      "number": 40,
+      "name": "Freeform"
+    },
+    {
+      "number": 41,
+      "name": "Lifetime"
+    },
+    {
+      "number": 42,
+      "name": "Chicago Community Bulletin Board"
+    },
+    {
+      "number": 43,
+      "name": "AMC"
+    },
+    {
+      "number": 44,
+      "name": "Bravo"
+    },
+    {
+      "number": 45,
+      "name": "Animal Planet"
+    },
+    {
+      "number": 46,
+      "name": "Discovery Channel"
+    },
+    {
+      "number": 49,
+      "name": "City Hall TV"
+    },
+    {
+      "number": 52,
+      "name": "Big Ten Network Chicago"
+    },
+    {
+      "number": 54,
+      "name": "Nickelodeon"
+    },
+    {
+      "number": 55,
+      "name": "Disney Channel"
+    },
+    {
+      "number": 56,
+      "name": "Cartoon Network"
+    },
+    {
+      "number": 57,
+      "name": "Cable News Network"
+    },
+    {
+      "number": 58,
+      "name": "CNBC"
+    },
+    {
+      "number": 59,
+      "name": "MS NOW"
+    },
+    {
+      "number": 60,
+      "name": "Fox News Channel"
+    },
+    {
+      "number": 61,
+      "name": "HLN"
+    },
+    {
+      "number": 62,
+      "name": "Bloomberg Business Television"
+    },
+    {
+      "number": 63,
+      "name": "Home & Garden Television"
+    },
+    {
+      "number": 64,
+      "name": "A&E"
+    },
+    {
+      "number": 65,
+      "name": "History"
+    },
+    {
+      "number": 66,
+      "name": "Oxygen True Crime"
+    },
+    {
+      "number": 69,
+      "name": "TLC"
+    },
+    {
+      "number": 70,
+      "name": "Food Network"
+    },
+    {
+      "number": 71,
+      "name": "E! Entertainment Television"
+    },
+    {
+      "number": 72,
+      "name": "Comedy Central"
+    },
+    {
+      "number": 73,
+      "name": "Golf Channel"
+    },
+    {
+      "number": 74,
+      "name": "VH1"
+    },
+    {
+      "number": 75,
+      "name": "BET"
+    },
+    {
+      "number": 76,
+      "name": "MTV - Music Television"
+    },
+    {
+      "number": 77,
+      "name": "QVC2"
+    },
+    {
+      "number": 78,
+      "name": "Galavision Cable Network"
+    },
+    {
+      "number": 81,
+      "name": "QVC3"
+    },
+    {
+      "number": 83,
+      "name": "The Travel Channel"
+    },
+    {
+      "number": 84,
+      "name": "Streaming Marquee Sports"
+    },
+    {
+      "number": 85,
+      "name": "HSN2"
+    },
+    {
+      "number": 95,
+      "name": "QVC"
+    },
+    {
+      "number": 96,
+      "name": "POP"
+    },
+    {
+      "number": 98,
+      "name": "CSPAN"
+    },
+    {
+      "number": 99,
+      "name": "The Weather Channel"
+    },
+    {
+      "number": 104,
+      "name": "CSPAN2"
+    },
+    {
+      "number": 105,
+      "name": "CSPAN3"
+    },
+    {
+      "number": 106,
+      "name": "Fox Business"
+    },
+    {
+      "number": 108,
+      "name": "National Geographic Wild"
+    },
+    {
+      "number": 109,
+      "name": "CHSN PLUS SD"
+    },
+    {
+      "number": 111,
+      "name": "GEMS"
+    },
+    {
+      "number": 113,
+      "name": "Shop Now TV"
+    },
+    {
+      "number": 115,
+      "name": "Leased Access 115"
+    },
+    {
+      "number": 119,
+      "name": "Eternal Word Television Network"
+    },
+    {
+      "number": 120,
+      "name": "Nick Jr"
+    },
+    {
+      "number": 121,
+      "name": "Magnolia Network"
+    },
+    {
+      "number": 122,
+      "name": "Disney XD"
+    },
+    {
+      "number": 124,
+      "name": "Cooking Channel"
+    },
+    {
+      "number": 125,
+      "name": "Disney Junior"
+    },
+    {
+      "number": 126,
+      "name": "Nicktoons"
+    },
+    {
+      "number": 129,
+      "name": "BabyFirst TV"
+    },
+    {
+      "number": 130,
+      "name": "Discovery Family Channel"
+    },
+    {
+      "number": 131,
+      "name": "Hallmark Channel"
+    },
+    {
+      "number": 132,
+      "name": "Nick Too East"
+    },
+    {
+      "number": 133,
+      "name": "The Africa Channel"
+    },
+    {
+      "number": 135,
+      "name": "MTV2: Music Television"
+    },
+    {
+      "number": 138,
+      "name": "Total Living Network"
+    },
+    {
+      "number": 141,
+      "name": "Tr3s: MTV, Musica y Mas"
+    },
+    {
+      "number": 142,
+      "name": "BET Jams"
+    },
+    {
+      "number": 143,
+      "name": "Logo"
+    },
+    {
+      "number": 145,
+      "name": "Destination America"
+    },
+    {
+      "number": 146,
+      "name": "CMT"
+    },
+    {
+      "number": 150,
+      "name": "Ovation"
+    },
+    {
+      "number": 153,
+      "name": "Smithsonian Network"
+    },
+    {
+      "number": 154,
+      "name": "BBC News (North America)"
+    },
+    {
+      "number": 159,
+      "name": "Jewelry Television"
+    },
+    {
+      "number": 160,
+      "name": "SYFY"
+    },
+    {
+      "number": 161,
+      "name": "Game Show Network"
+    },
+    {
+      "number": 162,
+      "name": "BBC America"
+    },
+    {
+      "number": 163,
+      "name": "TV Land"
+    },
+    {
+      "number": 165,
+      "name": "truTV"
+    },
+    {
+      "number": 168,
+      "name": "NFL Network"
+    },
+    {
+      "number": 169,
+      "name": "NFL Network HD"
+    },
+    {
+      "number": 170,
+      "name": "AMC+"
+    },
+    {
+      "number": 171,
+      "name": "AMC HD"
+    },
+    {
+      "number": 172,
+      "name": "TV ONE"
+    },
+    {
+      "number": 173,
+      "name": "ESPN HD"
+    },
+    {
+      "number": 175,
+      "name": "History HD"
+    },
+    {
+      "number": 176,
+      "name": "TLC HD (US)"
+    },
+    {
+      "number": 177,
+      "name": "Syfy HD"
+    },
+    {
+      "number": 179,
+      "name": "Home & Garden Television HD"
+    },
+    {
+      "number": 180,
+      "name": "QVC HD"
+    },
+    {
+      "number": 181,
+      "name": "Food Network HD"
+    },
+    {
+      "number": 182,
+      "name": "WGBO-DT"
+    },
+    {
+      "number": 183,
+      "name": "WCIU-DT"
+    },
+    {
+      "number": 184,
+      "name": "WPWR-DT"
+    },
+    {
+      "number": 185,
+      "name": "Paramount+ with Showtime HD"
+    },
+    {
+      "number": 186,
+      "name": "HBO East"
+    },
+    {
+      "number": 187,
+      "name": "WLS-DT"
+    },
+    {
+      "number": 188,
+      "name": "WMAQ-DT"
+    },
+    {
+      "number": 189,
+      "name": "WBBM-DT"
+    },
+    {
+      "number": 190,
+      "name": "WFLD-DT"
+    },
+    {
+      "number": 191,
+      "name": "WTTW-DT"
+    },
+    {
+      "number": 192,
+      "name": "WGN-DT"
+    },
+    {
+      "number": 193,
+      "name": "WSNS-DT"
+    },
+    {
+      "number": 194,
+      "name": "WXFT-DT"
+    },
+    {
+      "number": 195,
+      "name": "Cinemax HD"
+    },
+    {
+      "number": 196,
+      "name": "Starz HD"
+    },
+    {
+      "number": 197,
+      "name": "Disney Channel HD"
+    },
+    {
+      "number": 198,
+      "name": "Freeform HD"
+    },
+    {
+      "number": 199,
+      "name": "Golf Channel HD"
+    },
+    {
+      "number": 200,
+      "name": "CHSN"
+    },
+    {
+      "number": 201,
+      "name": "CHSN Plus"
+    },
+    {
+      "number": 202,
+      "name": "Marquee Sports Network (Inner Market)"
+    },
+    {
+      "number": 203,
+      "name": "ESPN2 HD"
+    },
+    {
+      "number": 204,
+      "name": "TNT HD"
+    },
+    {
+      "number": 205,
+      "name": "DISCOVERY TURBO HD"
+    },
+    {
+      "number": 206,
+      "name": "National Geographic HD"
+    },
+    {
+      "number": 208,
+      "name": "A&E HD East"
+    },
+    {
+      "number": 209,
+      "name": "MTVLIVE"
+    },
+    {
+      "number": 212,
+      "name": "Science Channel HD"
+    },
+    {
+      "number": 215,
+      "name": "Teen Nick"
+    },
+    {
+      "number": 216,
+      "name": "CNN HD"
+    },
+    {
+      "number": 217,
+      "name": "WLS-DT2"
+    },
+    {
+      "number": 218,
+      "name": "Discovery Channel HD"
+    },
+    {
+      "number": 219,
+      "name": "TBS HD"
+    },
+    {
+      "number": 220,
+      "name": "Oprah Winfrey Network"
+    },
+    {
+      "number": 221,
+      "name": "USA Network HD"
+    },
+    {
+      "number": 222,
+      "name": "Discovery Life Channel"
+    },
+    {
+      "number": 223,
+      "name": "NewsNation"
+    },
+    {
+      "number": 224,
+      "name": "Animal Planet HD"
+    },
+    {
+      "number": 225,
+      "name": "Nickelodeon HD"
+    },
+    {
+      "number": 226,
+      "name": "Cartoon Network HD"
+    },
+    {
+      "number": 227,
+      "name": "Hallmark Mystery HD"
+    },
+    {
+      "number": 228,
+      "name": "Lifetime HD"
+    },
+    {
+      "number": 229,
+      "name": "LMN HD"
+    },
+    {
+      "number": 230,
+      "name": "WCIU-DT2"
+    },
+    {
+      "number": 231,
+      "name": "ESPNEWS HD"
+    },
+    {
+      "number": 232,
+      "name": "CBS Sports Network HD"
+    },
+    {
+      "number": 233,
+      "name": "MLB Network HD"
+    },
+    {
+      "number": 234,
+      "name": "NHL Network HD"
+    },
+    {
+      "number": 235,
+      "name": "NBA TV HD"
+    },
+    {
+      "number": 236,
+      "name": "Tennis Channel HD"
+    },
+    {
+      "number": 237,
+      "name": "FS1 HD"
+    },
+    {
+      "number": 238,
+      "name": "WCPX-DT"
+    },
+    {
+      "number": 239,
+      "name": "WYIN-DT"
+    },
+    {
+      "number": 242,
+      "name": "Discovery Family Channel HD"
+    },
+    {
+      "number": 243,
+      "name": "Eternal Word Television Network HD"
+    },
+    {
+      "number": 244,
+      "name": "CSPAN HD"
+    },
+    {
+      "number": 245,
+      "name": "Ovation HD"
+    },
+    {
+      "number": 249,
+      "name": "Magnolia Network HD"
+    },
+    {
+      "number": 250,
+      "name": "Cooking Channel HD"
+    },
+    {
+      "number": 251,
+      "name": "National Geographic Wild HD"
+    },
+    {
+      "number": 252,
+      "name": "The Sportsman Channel HD"
+    },
+    {
+      "number": 253,
+      "name": "ESPNU HD"
+    },
+    {
+      "number": 254,
+      "name": "NFL RedZone HD"
+    },
+    {
+      "number": 255,
+      "name": "Big Ten Network Chicago"
+    },
+    {
+      "number": 256,
+      "name": "Big Ten Network Chicago HD"
+    },
+    {
+      "number": 261,
+      "name": "Destination America HD"
+    },
+    {
+      "number": 262,
+      "name": "E! Entertainment Television HD"
+    },
+    {
+      "number": 263,
+      "name": "Starz Encore HD"
+    },
+    {
+      "number": 264,
+      "name": "Fox Business HD"
+    },
+    {
+      "number": 265,
+      "name": "Fox News Channel HD"
+    },
+    {
+      "number": 266,
+      "name": "CNBC HD"
+    },
+    {
+      "number": 267,
+      "name": "FX HD"
+    },
+    {
+      "number": 268,
+      "name": "Bloomberg HD"
+    },
+    {
+      "number": 269,
+      "name": "FYI Channel HD"
+    },
+    {
+      "number": 270,
+      "name": "The Weather Channel HD"
+    },
+    {
+      "number": 271,
+      "name": "Investigation Discovery"
+    },
+    {
+      "number": 272,
+      "name": "Science"
+    },
+    {
+      "number": 273,
+      "name": "National Geographic USA"
+    },
+    {
+      "number": 274,
+      "name": "American Heroes Channel"
+    },
+    {
+      "number": 275,
+      "name": "FYI"
+    },
+    {
+      "number": 276,
+      "name": "Vice"
+    },
+    {
+      "number": 277,
+      "name": "Oprah Winfrey Network HD"
+    },
+    {
+      "number": 278,
+      "name": "Bravo HD"
+    },
+    {
+      "number": 280,
+      "name": "IFC HD"
+    },
+    {
+      "number": 281,
+      "name": "WE tv HD"
+    },
+    {
+      "number": 283,
+      "name": "Disney XD HD"
+    },
+    {
+      "number": 286,
+      "name": "Game Show Network HD"
+    },
+    {
+      "number": 288,
+      "name": "QVC2 HD"
+    },
+    {
+      "number": 289,
+      "name": "TV ONE HD"
+    },
+    {
+      "number": 290,
+      "name": "Paramount Network HD"
+    },
+    {
+      "number": 293,
+      "name": "The Travel Channel HD"
+    },
+    {
+      "number": 294,
+      "name": "Comedy Central HD"
+    },
+    {
+      "number": 295,
+      "name": "BET HD"
+    },
+    {
+      "number": 296,
+      "name": "MTV - Music Television HD"
+    },
+    {
+      "number": 297,
+      "name": "VH1 HD"
+    },
+    {
+      "number": 298,
+      "name": "CMT HD"
+    },
+    {
+      "number": 299,
+      "name": "UPtv HD"
+    },
+    {
+      "number": 300,
+      "name": "HBO Hits"
+    },
+    {
+      "number": 303,
+      "name": "HBO Drama"
+    },
+    {
+      "number": 304,
+      "name": "HBO Movies"
+    },
+    {
+      "number": 305,
+      "name": "HBO Latino HD"
+    },
+    {
+      "number": 309,
+      "name": "ReelzChannel HD"
+    },
+    {
+      "number": 314,
+      "name": "The Movie Channel HD"
+    },
+    {
+      "number": 315,
+      "name": "Oxygen True Crime HD"
+    },
+    {
+      "number": 316,
+      "name": "QVC3 HD"
+    },
+    {
+      "number": 317,
+      "name": "MS NOW HD"
+    },
+    {
+      "number": 318,
+      "name": "HLN HD"
+    },
+    {
+      "number": 319,
+      "name": "Turner Classic Movies HD"
+    },
+    {
+      "number": 320,
+      "name": "truTV HD"
+    },
+    {
+      "number": 321,
+      "name": "Hallmark Channel HD"
+    },
+    {
+      "number": 322,
+      "name": "HSN HD"
+    },
+    {
+      "number": 323,
+      "name": "Vice HD"
+    },
+    {
+      "number": 324,
+      "name": "Investigation Discovery HD"
+    },
+    {
+      "number": 325,
+      "name": "Crime & Investigation Network HD"
+    },
+    {
+      "number": 326,
+      "name": "BBC America HD"
+    },
+    {
+      "number": 328,
+      "name": "FS2 HD"
+    },
+    {
+      "number": 329,
+      "name": "Fox Deportes HD"
+    },
+    {
+      "number": 330,
+      "name": "Outdoor Channel HD"
+    },
+    {
+      "number": 331,
+      "name": "Galavision Cable Network HD"
+    },
+    {
+      "number": 332,
+      "name": "TUDN"
+    },
+    {
+      "number": 333,
+      "name": "UNIVERSO HD"
+    },
+    {
+      "number": 335,
+      "name": "ESPN Deportes HD"
+    },
+    {
+      "number": 336,
+      "name": "SEC Network HD"
+    },
+    {
+      "number": 337,
+      "name": "FXX HD"
+    },
+    {
+      "number": 338,
+      "name": "WBBM-DT2"
+    },
+    {
+      "number": 339,
+      "name": "WBBM-DT3"
+    },
+    {
+      "number": 341,
+      "name": "WMAQ-DT2"
+    },
+    {
+      "number": 342,
+      "name": "WMAQ-DT5"
+    },
+    {
+      "number": 352,
+      "name": "WGN-DT4"
+    },
+    {
+      "number": 353,
+      "name": "WGN-DT2"
+    },
+    {
+      "number": 354,
+      "name": "WGN-DT3"
+    },
+    {
+      "number": 355,
+      "name": "WCPX-DT2"
+    },
+    {
+      "number": 357,
+      "name": "WCIU-DT3"
+    },
+    {
+      "number": 358,
+      "name": "WCIU-DT4"
+    },
+    {
+      "number": 359,
+      "name": "WCIU-DT6"
+    },
+    {
+      "number": 360,
+      "name": "WCIU-DT2 (SD Feed)"
+    },
+    {
+      "number": 361,
+      "name": "WCIU-DT5"
+    },
+    {
+      "number": 363,
+      "name": "WFLD-DT2"
+    },
+    {
+      "number": 364,
+      "name": "WFLD-DT3"
+    },
+    {
+      "number": 365,
+      "name": "WFLD-DT4"
+    },
+    {
+      "number": 367,
+      "name": "WTTW-DT2 (HD Feed)"
+    },
+    {
+      "number": 368,
+      "name": "WTTW-DT4"
+    },
+    {
+      "number": 369,
+      "name": "WTTW-DT3"
+    },
+    {
+      "number": 370,
+      "name": "WTTW-DT2"
+    },
+    {
+      "number": 377,
+      "name": "WYIN-DT2"
+    },
+    {
+      "number": 380,
+      "name": "WWTO"
+    },
+    {
+      "number": 383,
+      "name": "TBN Inspire (SD Feed)"
+    },
+    {
+      "number": 384,
+      "name": "WWTO-DT2"
+    },
+    {
+      "number": 389,
+      "name": "WOCK-CD3"
+    },
+    {
+      "number": 390,
+      "name": "WOCK-CD5"
+    },
+    {
+      "number": 391,
+      "name": "WOCK-CD2"
+    },
+    {
+      "number": 392,
+      "name": "WOCK-CD4"
+    },
+    {
+      "number": 394,
+      "name": "WSNS-DT2"
+    },
+    {
+      "number": 396,
+      "name": "WESVLD (SD Feed)"
+    },
+    {
+      "number": 401,
+      "name": "FXX"
+    },
+    {
+      "number": 402,
+      "name": "ESPNEWS"
+    },
+    {
+      "number": 404,
+      "name": "NHL Network"
+    },
+    {
+      "number": 405,
+      "name": "ESPNU"
+    },
+    {
+      "number": 406,
+      "name": "Outdoor Channel"
+    },
+    {
+      "number": 407,
+      "name": "FanDuel Racing"
+    },
+    {
+      "number": 408,
+      "name": "FS1"
+    },
+    {
+      "number": 409,
+      "name": "FS2"
+    },
+    {
+      "number": 410,
+      "name": "MLB Network"
+    },
+    {
+      "number": 411,
+      "name": "NFL RedZone"
+    },
+    {
+      "number": 412,
+      "name": "NFL Network"
+    },
+    {
+      "number": 416,
+      "name": "Sportsman Channel"
+    },
+    {
+      "number": 417,
+      "name": "Tennis Channel"
+    },
+    {
+      "number": 418,
+      "name": "CBS Sports Network"
+    },
+    {
+      "number": 420,
+      "name": "ACC Network"
+    },
+    {
+      "number": 421,
+      "name": "SEC Network"
+    },
+    {
+      "number": 439,
+      "name": "NBA TV"
+    },
+    {
+      "number": 471,
+      "name": "CMT Music"
+    },
+    {
+      "number": 472,
+      "name": "Nick Music"
+    },
+    {
+      "number": 473,
+      "name": "MTV Classic"
+    },
+    {
+      "number": 474,
+      "name": "BET Soul"
+    },
+    {
+      "number": 475,
+      "name": "UPtv"
+    },
+    {
+      "number": 481,
+      "name": "BET Her"
+    },
+    {
+      "number": 484,
+      "name": "Great American Family"
+    },
+    {
+      "number": 485,
+      "name": "Daystar Television Network (SD Feed)"
+    },
+    {
+      "number": 486,
+      "name": "The Word Network"
+    },
+    {
+      "number": 488,
+      "name": "Impact Network (SD Feed)"
+    },
+    {
+      "number": 489,
+      "name": "Military History Channel"
+    },
+    {
+      "number": 490,
+      "name": "Crime + Investigation"
+    },
+    {
+      "number": 491,
+      "name": "Cleo TV"
+    },
+    {
+      "number": 499,
+      "name": "NewsNation SD"
+    },
+    {
+      "number": 501,
+      "name": "Turner Classic Movies"
+    },
+    {
+      "number": 502,
+      "name": "WE tv"
+    },
+    {
+      "number": 503,
+      "name": "IFC"
+    },
+    {
+      "number": 504,
+      "name": "LMN"
+    },
+    {
+      "number": 505,
+      "name": "SundanceTV"
+    },
+    {
+      "number": 506,
+      "name": "FXM"
+    },
+    {
+      "number": 507,
+      "name": "ReelzChannel"
+    },
+    {
+      "number": 508,
+      "name": "Hallmark Mystery"
+    },
+    {
+      "number": 509,
+      "name": "Hallmark Family SD"
+    },
+    {
+      "number": 517,
+      "name": "Starz Encore"
+    },
+    {
+      "number": 519,
+      "name": "ScreenPix SD"
+    },
+    {
+      "number": 520,
+      "name": "ScreenPix Action SD"
+    },
+    {
+      "number": 521,
+      "name": "ScreenPix Voices SD"
+    },
+    {
+      "number": 522,
+      "name": "ScreenPix Westerns"
+    },
+    {
+      "number": 523,
+      "name": "Starz Encore Westerns SD"
+    },
+    {
+      "number": 527,
+      "name": "Starz Encore Black"
+    },
+    {
+      "number": 529,
+      "name": "Starz Encore Action"
+    },
+    {
+      "number": 533,
+      "name": "Starz"
+    },
+    {
+      "number": 535,
+      "name": "MGM+ HD"
+    },
+    {
+      "number": 536,
+      "name": "MGM+ East"
+    },
+    {
+      "number": 537,
+      "name": "MGM+ Hits"
+    },
+    {
+      "number": 538,
+      "name": "MGM+ Marquee"
+    },
+    {
+      "number": 539,
+      "name": "MGM+ Drive-In"
+    },
+    {
+      "number": 550,
+      "name": "HBO"
+    },
+    {
+      "number": 551,
+      "name": "HBO (Pacific)"
+    },
+    {
+      "number": 552,
+      "name": "HBO Hits"
+    },
+    {
+      "number": 554,
+      "name": "HBO Drama"
+    },
+    {
+      "number": 558,
+      "name": "HBO Latino"
+    },
+    {
+      "number": 559,
+      "name": "HBO Comedy"
+    },
+    {
+      "number": 560,
+      "name": "HBO Movies"
+    },
+    {
+      "number": 561,
+      "name": "Cinemax (Pacific)"
+    },
+    {
+      "number": 562,
+      "name": "Cinemax"
+    },
+    {
+      "number": 564,
+      "name": "Cinemax Hits"
+    },
+    {
+      "number": 575,
+      "name": "Paramount+ with Showtime"
+    },
+    {
+      "number": 577,
+      "name": "SHO 2"
+    },
+    {
+      "number": 579,
+      "name": "Showtime Showcase"
+    },
+    {
+      "number": 581,
+      "name": "Showtime Extreme"
+    },
+    {
+      "number": 583,
+      "name": "Showtime Next"
+    },
+    {
+      "number": 584,
+      "name": "Showtime Familyzone"
+    },
+    {
+      "number": 585,
+      "name": "Showtime Women"
+    },
+    {
+      "number": 586,
+      "name": "Flix"
+    },
+    {
+      "number": 590,
+      "name": "The Movie Channel"
+    },
+    {
+      "number": 592,
+      "name": "The Movie Channel Extra"
+    },
+    {
+      "number": 596,
+      "name": "TUDN"
+    },
+    {
+      "number": 597,
+      "name": "Galavision Cable Network"
+    },
+    {
+      "number": 599,
+      "name": "WSNS"
+    },
+    {
+      "number": 600,
+      "name": "ViendoMovies"
+    },
+    {
+      "number": 601,
+      "name": "Discovery en Español"
+    },
+    {
+      "number": 602,
+      "name": "Fox Deportes"
+    },
+    {
+      "number": 603,
+      "name": "UNIVERSO"
+    },
+    {
+      "number": 604,
+      "name": "Cine Latino US"
+    },
+    {
+      "number": 605,
+      "name": "History Channel En Español"
+    },
+    {
+      "number": 606,
+      "name": "Tr3s: MTV, Musica y Mas"
+    },
+    {
+      "number": 608,
+      "name": "CNN en Español"
+    },
+    {
+      "number": 609,
+      "name": "ESPN Deportes"
+    },
+    {
+      "number": 610,
+      "name": "Cine Mexicano US Feed"
+    },
+    {
+      "number": 611,
+      "name": "CARACOL INTERNATIONAL"
+    },
+    {
+      "number": 612,
+      "name": "Ecuavisa International"
+    },
+    {
+      "number": 614,
+      "name": "AYM Sports 2"
+    },
+    {
+      "number": 616,
+      "name": "Mexicanal"
+    },
+    {
+      "number": 617,
+      "name": "Disney XD en Español"
+    },
+    {
+      "number": 618,
+      "name": "Multimedios USA"
+    },
+    {
+      "number": 619,
+      "name": "Sony Cine"
+    },
+    {
+      "number": 620,
+      "name": "Cinema Dinamita"
+    },
+    {
+      "number": 621,
+      "name": "UniMas (Pacific)"
+    },
+    {
+      "number": 624,
+      "name": "Video Rola"
+    },
+    {
+      "number": 625,
+      "name": "TVV"
+    },
+    {
+      "number": 627,
+      "name": "Teleformula"
+    },
+    {
+      "number": 628,
+      "name": "Canal Sur"
+    },
+    {
+      "number": 629,
+      "name": "Canal RCN TELENOVELAS"
+    },
+    {
+      "number": 630,
+      "name": "Nuestra Tele Internacional"
+    },
+    {
+      "number": 631,
+      "name": "TV Chile"
+    },
+    {
+      "number": 632,
+      "name": "CentroAméricaTV"
+    },
+    {
+      "number": 633,
+      "name": "WWTO-DT2"
+    },
+    {
+      "number": 634,
+      "name": "BabyFirst"
+    },
+    {
+      "number": 635,
+      "name": "El Sembrador"
+    },
+    {
+      "number": 636,
+      "name": "Discovery Familia En Español"
+    },
+    {
+      "number": 637,
+      "name": "EWTN Español"
+    },
+    {
+      "number": 639,
+      "name": "Univision Network (Pacific)"
+    },
+    {
+      "number": 640,
+      "name": "Pasiones TV US"
+    },
+    {
+      "number": 641,
+      "name": "Once"
+    },
+    {
+      "number": 642,
+      "name": "Vme Kids (SD Feed)"
+    },
+    {
+      "number": 643,
+      "name": "Sur Peru"
+    },
+    {
+      "number": 644,
+      "name": "Televisión Dominicana"
+    },
+    {
+      "number": 645,
+      "name": "Kanal D Drama"
+    },
+    {
+      "number": 646,
+      "name": "Telefe Internacional"
+    },
+    {
+      "number": 649,
+      "name": "HITN"
+    },
+    {
+      "number": 650,
+      "name": "WAPA America SD"
+    },
+    {
+      "number": 651,
+      "name": "TVE"
+    },
+    {
+      "number": 657,
+      "name": "WESVLD (SD Feed)"
+    },
+    {
+      "number": 658,
+      "name": "WSNS-DT2"
+    },
+    {
+      "number": 673,
+      "name": "MYX Channel"
+    },
+    {
+      "number": 686,
+      "name": "Jewish Life TV (SD Feed)"
+    },
+    {
+      "number": 689,
+      "name": "WOCK-CD2"
+    },
+    {
+      "number": 692,
+      "name": "Big Ten Network Chicago Alternate"
+    },
+    {
+      "number": 693,
+      "name": "Big Ten Network Chicago Alternate 2"
+    },
+    {
+      "number": 694,
+      "name": "Big Ten Network Chicago Alternate HD"
+    },
+    {
+      "number": 701,
+      "name": "Music Choice Today's Hits"
+    },
+    {
+      "number": 702,
+      "name": "Music Choice Trending Hits"
+    },
+    {
+      "number": 703,
+      "name": "Music Choice Feel-Good Favorites"
+    },
+    {
+      "number": 704,
+      "name": "Music Choice Pop Energy"
+    },
+    {
+      "number": 705,
+      "name": "Music Choice Hip-Hop and R&B"
+    },
+    {
+      "number": 706,
+      "name": "Music Choice Dance"
+    },
+    {
+      "number": 707,
+      "name": "Music Choice Hip-Hop Classics"
+    },
+    {
+      "number": 708,
+      "name": "Music Choice Throwback Jams"
+    },
+    {
+      "number": 709,
+      "name": "Music Choice R&B Classics"
+    },
+    {
+      "number": 710,
+      "name": "Music Choice Today's R&B"
+    },
+    {
+      "number": 711,
+      "name": "Music Choice Gospel"
+    },
+    {
+      "number": 712,
+      "name": "Music Choice Contemporary Christian"
+    },
+    {
+      "number": 713,
+      "name": "Music Choice Rock"
+    },
+    {
+      "number": 714,
+      "name": "Music Choice Yacht Rock"
+    },
+    {
+      "number": 715,
+      "name": "Music Choice '60s & '70s Mellow Hits"
+    },
+    {
+      "number": 716,
+      "name": "Music Choice Adult Alternative"
+    },
+    {
+      "number": 717,
+      "name": "Music Choice Alt & Rock Favorites"
+    },
+    {
+      "number": 718,
+      "name": "Music Choice Classic Rock"
+    },
+    {
+      "number": 719,
+      "name": "Music Choice Soft Rock"
+    },
+    {
+      "number": 720,
+      "name": "Music Choice Happy Hits"
+    },
+    {
+      "number": 721,
+      "name": "Music Choice Pop Hits"
+    },
+    {
+      "number": 722,
+      "name": "Music Choice Today's Latin Hits"
+    },
+    {
+      "number": 723,
+      "name": "Music Choice Tropicales"
+    },
+    {
+      "number": 724,
+      "name": "Music Choice Romantic Latin Pop"
+    },
+    {
+      "number": 725,
+      "name": "Music Choice '70s & '80s Favorites"
+    },
+    {
+      "number": 726,
+      "name": "Music Choice '90s"
+    },
+    {
+      "number": 727,
+      "name": "Music Choice '80s"
+    },
+    {
+      "number": 728,
+      "name": "Music Choice '70s"
+    },
+    {
+      "number": 729,
+      "name": "Music Choice '60s Generation"
+    },
+    {
+      "number": 730,
+      "name": "Music Choice Solid Gold Oldies"
+    },
+    {
+      "number": 731,
+      "name": "Music Choice Pop & Country"
+    },
+    {
+      "number": 732,
+      "name": "Music Choice Today's Country"
+    },
+    {
+      "number": 733,
+      "name": "Music Choice Country Favorites"
+    },
+    {
+      "number": 734,
+      "name": "Music Choice Classic Country"
+    },
+    {
+      "number": 735,
+      "name": "Music Choice Country Rock"
+    },
+    {
+      "number": 736,
+      "name": "Music Choice Sleep Sounds"
+    },
+    {
+      "number": 737,
+      "name": "Music Choice Relaxing Vibes"
+    },
+    {
+      "number": 738,
+      "name": "Music Choice Calming Classical"
+    },
+    {
+      "number": 739,
+      "name": "Music Choice Joyful Instrumentals"
+    },
+    {
+      "number": 740,
+      "name": "Music Choice Pop Instrumentals"
+    },
+    {
+      "number": 741,
+      "name": "Music Choice Light Classical"
+    },
+    {
+      "number": 742,
+      "name": "Music Choice Classical Masterpieces"
+    },
+    {
+      "number": 743,
+      "name": "Music Choice Soundscapes"
+    },
+    {
+      "number": 744,
+      "name": "Music Choice Smooth Jazz"
+    },
+    {
+      "number": 745,
+      "name": "Music Choice Jazz"
+    },
+    {
+      "number": 746,
+      "name": "Music Choice Blues"
+    },
+    {
+      "number": 747,
+      "name": "Music Choice Singers & Swing"
+    },
+    {
+      "number": 748,
+      "name": "Music Choice Easy Listening"
+    },
+    {
+      "number": 749,
+      "name": "Music Choice Classic Christmas"
+    },
+    {
+      "number": 750,
+      "name": "Music Choice Sounds of the Seasons"
+    },
+    {
+      "number": 830,
+      "name": "Comcast PPV HD +C SD"
+    },
+    {
+      "number": 831,
+      "name": "Comcast PPV En Español"
+    },
+    {
+      "number": 900,
+      "name": "Cook County Access TV"
+    },
+    {
+      "number": 1002,
+      "name": "WBBM-DT"
+    },
+    {
+      "number": 1005,
+      "name": "WMAQ-DT"
+    },
+    {
+      "number": 1007,
+      "name": "WLS-DT"
+    },
+    {
+      "number": 1009,
+      "name": "WGN-DT"
+    },
+    {
+      "number": 1011,
+      "name": "WTTW-DT"
+    },
+    {
+      "number": 1015,
+      "name": "HSN HD"
+    },
+    {
+      "number": 1026,
+      "name": "WCIU-DT"
+    },
+    {
+      "number": 1028,
+      "name": "Jewelry Television HD"
+    },
+    {
+      "number": 1032,
+      "name": "WFLD-DT"
+    },
+    {
+      "number": 1035,
+      "name": "WWTO"
+    },
+    {
+      "number": 1037,
+      "name": "QVC HD"
+    },
+    {
+      "number": 1038,
+      "name": "WCPX-DT"
+    },
+    {
+      "number": 1040,
+      "name": "WESVLD (SD Feed)"
+    },
+    {
+      "number": 1044,
+      "name": "WSNS-DT"
+    },
+    {
+      "number": 1045,
+      "name": "HSN2 HD"
+    },
+    {
+      "number": 1048,
+      "name": "WCIU-DT2"
+    },
+    {
+      "number": 1050,
+      "name": "WPWR-DT"
+    },
+    {
+      "number": 1056,
+      "name": "WYIN-DT"
+    },
+    {
+      "number": 1059,
+      "name": "WTVK-DT"
+    },
+    {
+      "number": 1060,
+      "name": "WXFT-DT"
+    },
+    {
+      "number": 1062,
+      "name": "WJYS"
+    },
+    {
+      "number": 1066,
+      "name": "WGBO-DT"
+    },
+    {
+      "number": 1068,
+      "name": "Jewelry Television HD"
+    },
+    {
+      "number": 1072,
+      "name": "QVC2 HD"
+    },
+    {
+      "number": 1077,
+      "name": "Leased Access 115"
+    },
+    {
+      "number": 1079,
+      "name": "QVC3 HD"
+    },
+    {
+      "number": 1080,
+      "name": "GOD TV"
+    },
+    {
+      "number": 1081,
+      "name": "GEMS"
+    },
+    {
+      "number": 1082,
+      "name": "Shop Now TV"
+    },
+    {
+      "number": 1084,
+      "name": "Shop LC"
+    },
+    {
+      "number": 1085,
+      "name": "Can TV 19 Chicago"
+    },
+    {
+      "number": 1086,
+      "name": "Can TV 21 Chicago"
+    },
+    {
+      "number": 1087,
+      "name": "FYI Chicago-Nonprofit Services"
+    },
+    {
+      "number": 1088,
+      "name": "Can TV 36 Chicago"
+    },
+    {
+      "number": 1089,
+      "name": "Chicago Community Bulletin Board"
+    },
+    {
+      "number": 1094,
+      "name": "Greater Love TV 1"
+    },
+    {
+      "number": 1095,
+      "name": "Windy City TV"
+    },
+    {
+      "number": 1096,
+      "name": "City Hall TV"
+    },
+    {
+      "number": 1097,
+      "name": "Cook County Access TV"
+    },
+    {
+      "number": 1102,
+      "name": "The Weather Channel HD"
+    },
+    {
+      "number": 1108,
+      "name": "FOX Weather"
+    },
+    {
+      "number": 1110,
+      "name": "Fox News Channel HD"
+    },
+    {
+      "number": 1111,
+      "name": "CNN HD"
+    },
+    {
+      "number": 1112,
+      "name": "HLN HD"
+    },
+    {
+      "number": 1113,
+      "name": "MS NOW HD"
+    },
+    {
+      "number": 1115,
+      "name": "Newsmax TV HD"
+    },
+    {
+      "number": 1116,
+      "name": "NewsNation"
+    },
+    {
+      "number": 1117,
+      "name": "BBC News (North America) HD"
+    },
+    {
+      "number": 1118,
+      "name": "i24 News English HD"
+    },
+    {
+      "number": 1121,
+      "name": "CNBC HD"
+    },
+    {
+      "number": 1122,
+      "name": "Bloomberg HD"
+    },
+    {
+      "number": 1123,
+      "name": "Fox Business HD"
+    },
+    {
+      "number": 1128,
+      "name": "CSPAN HD"
+    },
+    {
+      "number": 1129,
+      "name": "CSPAN2 HD"
+    },
+    {
+      "number": 1130,
+      "name": "CSPAN3 HD"
+    },
+    {
+      "number": 1150,
+      "name": "WTTW-DT2 (HD Feed)"
+    },
+    {
+      "number": 1151,
+      "name": "WTTW-DT3"
+    },
+    {
+      "number": 1152,
+      "name": "WTTW-DT4"
+    },
+    {
+      "number": 1153,
+      "name": "WTTW-DT2"
+    },
+    {
+      "number": 1154,
+      "name": "WYIN-DT2"
+    },
+    {
+      "number": 1164,
+      "name": "WCPX-DT2"
+    },
+    {
+      "number": 1166,
+      "name": "WCIU-DT3"
+    },
+    {
+      "number": 1167,
+      "name": "WCIU-DT4"
+    },
+    {
+      "number": 1168,
+      "name": "WCIU-DT5"
+    },
+    {
+      "number": 1169,
+      "name": "WCIU-DT2 (SD Feed)"
+    },
+    {
+      "number": 1170,
+      "name": "WCIU-DT6"
+    },
+    {
+      "number": 1171,
+      "name": "WCIU-DT2"
+    },
+    {
+      "number": 1174,
+      "name": "WMAQ-DT2"
+    },
+    {
+      "number": 1175,
+      "name": "WMAQ-DT5"
+    },
+    {
+      "number": 1176,
+      "name": "WBBM-DT2"
+    },
+    {
+      "number": 1177,
+      "name": "WBBM-DT3"
+    },
+    {
+      "number": 1178,
+      "name": "WLS-DT2"
+    },
+    {
+      "number": 1181,
+      "name": "WFLD-DT2"
+    },
+    {
+      "number": 1182,
+      "name": "WFLD-DT3"
+    },
+    {
+      "number": 1183,
+      "name": "WFLD-DT4"
+    },
+    {
+      "number": 1185,
+      "name": "WGN-DT2"
+    },
+    {
+      "number": 1186,
+      "name": "WGN-DT3"
+    },
+    {
+      "number": 1187,
+      "name": "WGN-DT4"
+    },
+    {
+      "number": 1189,
+      "name": "TBN Inspire (SD Feed)"
+    },
+    {
+      "number": 1190,
+      "name": "WWTO-DT2"
+    },
+    {
+      "number": 1191,
+      "name": "WTVK-DT4"
+    },
+    {
+      "number": 1193,
+      "name": "WSNS-DT2"
+    },
+    {
+      "number": 1196,
+      "name": "WOCK-CD3"
+    },
+    {
+      "number": 1197,
+      "name": "WOCK-CD5"
+    },
+    {
+      "number": 1198,
+      "name": "WOCK-CD2"
+    },
+    {
+      "number": 1199,
+      "name": "WOCK-CD4"
+    },
+    {
+      "number": 1205,
+      "name": "ESPN HD"
+    },
+    {
+      "number": 1206,
+      "name": "ESPN2 HD"
+    },
+    {
+      "number": 1208,
+      "name": "FS1 HD"
+    },
+    {
+      "number": 1209,
+      "name": "FS2 HD"
+    },
+    {
+      "number": 1210,
+      "name": "ESPNEWS HD"
+    },
+    {
+      "number": 1211,
+      "name": "NBC Sports Network"
+    },
+    {
+      "number": 1215,
+      "name": "NFL Network HD"
+    },
+    {
+      "number": 1216,
+      "name": "NFL RedZone HD"
+    },
+    {
+      "number": 1217,
+      "name": "NHL Network HD"
+    },
+    {
+      "number": 1218,
+      "name": "NBA TV HD"
+    },
+    {
+      "number": 1219,
+      "name": "MLB Network HD"
+    },
+    {
+      "number": 1220,
+      "name": "MLS 360 English"
+    },
+    {
+      "number": 1223,
+      "name": "Golf Channel HD"
+    },
+    {
+      "number": 1224,
+      "name": "Tennis Channel HD"
+    },
+    {
+      "number": 1228,
+      "name": "Zona Futbol"
+    },
+    {
+      "number": 1229,
+      "name": "TUDN"
+    },
+    {
+      "number": 1230,
+      "name": "Fox Deportes HD"
+    },
+    {
+      "number": 1231,
+      "name": "ESPN Deportes HD"
+    },
+    {
+      "number": 1232,
+      "name": "UNIVERSO HD"
+    },
+    {
+      "number": 1234,
+      "name": "Latin American Sports HD"
+    },
+    {
+      "number": 1236,
+      "name": "Outdoor Channel HD"
+    },
+    {
+      "number": 1237,
+      "name": "The Sportsman Channel HD"
+    },
+    {
+      "number": 1238,
+      "name": "Pursuit Channel HD"
+    },
+    {
+      "number": 1243,
+      "name": "DISCOVERY TURBO HD"
+    },
+    {
+      "number": 1246,
+      "name": "FanDuel TV"
+    },
+    {
+      "number": 1247,
+      "name": "FanDuel Racing"
+    },
+    {
+      "number": 1251,
+      "name": "CHSN"
+    },
+    {
+      "number": 1254,
+      "name": "Marquee Sports Network (Inner Market)"
+    },
+    {
+      "number": 1255,
+      "name": "CHSN Plus"
+    },
+    {
+      "number": 1301,
+      "name": "ESPNU HD"
+    },
+    {
+      "number": 1303,
+      "name": "CBS Sports Network HD"
+    },
+    {
+      "number": 1313,
+      "name": "Big Ten Network Chicago HD"
+    },
+    {
+      "number": 1314,
+      "name": "Big Ten Network Chicago Alternate HD"
+    },
+    {
+      "number": 1315,
+      "name": "Big Ten Network Chicago Alternate 2"
+    },
+    {
+      "number": 1316,
+      "name": "Big Ten Network Chicago Alternate"
+    },
+    {
+      "number": 1321,
+      "name": "SEC Network HD"
+    },
+    {
+      "number": 1325,
+      "name": "ACC Network"
+    },
+    {
+      "number": 1354,
+      "name": "Fox Sports 4K Events 1"
+    },
+    {
+      "number": 1356,
+      "name": "NBC 4K Events"
+    },
+    {
+      "number": 1362,
+      "name": "USA 4K"
+    },
+    {
+      "number": 1364,
+      "name": "The Golf Channel 4K"
+    },
+    {
+      "number": 1366,
+      "name": "Telemundo 4K"
+    },
+    {
+      "number": 1368,
+      "name": "NBC Sports Network 4K"
+    },
+    {
+      "number": 1390,
+      "name": "Fox Sports 4K Events 2"
+    },
+    {
+      "number": 1402,
+      "name": "A&E HD East"
+    },
+    {
+      "number": 1403,
+      "name": "USA Network HD"
+    },
+    {
+      "number": 1404,
+      "name": "TNT HD"
+    },
+    {
+      "number": 1405,
+      "name": "AMC HD"
+    },
+    {
+      "number": 1406,
+      "name": "AMC+"
+    },
+    {
+      "number": 1409,
+      "name": "FX HD"
+    },
+    {
+      "number": 1410,
+      "name": "FXX HD"
+    },
+    {
+      "number": 1411,
+      "name": "Syfy HD"
+    },
+    {
+      "number": 1412,
+      "name": "Paramount Network HD"
+    },
+    {
+      "number": 1418,
+      "name": "BBC America HD"
+    },
+    {
+      "number": 1425,
+      "name": "Game Show Network HD"
+    },
+    {
+      "number": 1426,
+      "name": "TV Land HD"
+    },
+    {
+      "number": 1427,
+      "name": "POP HD"
+    },
+    {
+      "number": 1428,
+      "name": "WE tv HD"
+    },
+    {
+      "number": 1429,
+      "name": "ReelzChannel HD"
+    },
+    {
+      "number": 1430,
+      "name": "truTV HD"
+    },
+    {
+      "number": 1431,
+      "name": "INSP HD"
+    },
+    {
+      "number": 1433,
+      "name": "Great HD"
+    },
+    {
+      "number": 1434,
+      "name": "TBS HD"
+    },
+    {
+      "number": 1435,
+      "name": "Comedy Central HD"
+    },
+    {
+      "number": 1436,
+      "name": "Vice HD"
+    },
+    {
+      "number": 1437,
+      "name": "Comedy.TV HD"
+    },
+    {
+      "number": 1438,
+      "name": "IFC HD"
+    },
+    {
+      "number": 1439,
+      "name": "Logo HD"
+    },
+    {
+      "number": 1440,
+      "name": "SundanceTV HD"
+    },
+    {
+      "number": 1444,
+      "name": "Investigation Discovery HD"
+    },
+    {
+      "number": 1445,
+      "name": "Crime & Investigation Network HD"
+    },
+    {
+      "number": 1446,
+      "name": "Justice Central HD"
+    },
+    {
+      "number": 1449,
+      "name": "Discovery Channel HD"
+    },
+    {
+      "number": 1450,
+      "name": "TLC HD (US)"
+    },
+    {
+      "number": 1451,
+      "name": "Science Channel HD"
+    },
+    {
+      "number": 1455,
+      "name": "Lifetime HD"
+    },
+    {
+      "number": 1456,
+      "name": "LMN HD"
+    },
+    {
+      "number": 1457,
+      "name": "UPtv HD"
+    },
+    {
+      "number": 1458,
+      "name": "Hallmark Channel HD"
+    },
+    {
+      "number": 1459,
+      "name": "Hallmark Mystery HD"
+    },
+    {
+      "number": 1460,
+      "name": "Hallmark Family"
+    },
+    {
+      "number": 1461,
+      "name": "Great American Family HD"
+    },
+    {
+      "number": 1462,
+      "name": "Ovation HD"
+    },
+    {
+      "number": 1463,
+      "name": "Bravo HD"
+    },
+    {
+      "number": 1464,
+      "name": "Oprah Winfrey Network HD"
+    },
+    {
+      "number": 1465,
+      "name": "Oxygen True Crime HD"
+    },
+    {
+      "number": 1466,
+      "name": "E! Entertainment Television HD"
+    },
+    {
+      "number": 1471,
+      "name": "Animal Planet HD"
+    },
+    {
+      "number": 1472,
+      "name": "National Geographic Wild HD"
+    },
+    {
+      "number": 1473,
+      "name": "National Geographic HD"
+    },
+    {
+      "number": 1477,
+      "name": "Smithsonian HD Network"
+    },
+    {
+      "number": 1478,
+      "name": "History HD"
+    },
+    {
+      "number": 1479,
+      "name": "Military History Channel"
+    },
+    {
+      "number": 1480,
+      "name": "American Heroes Channel HD"
+    },
+    {
+      "number": 1483,
+      "name": "Recipe TV HD"
+    },
+    {
+      "number": 1484,
+      "name": "Food Network HD"
+    },
+    {
+      "number": 1485,
+      "name": "Cooking Channel HD"
+    },
+    {
+      "number": 1486,
+      "name": "FYI Channel HD"
+    },
+    {
+      "number": 1487,
+      "name": "Destination America HD"
+    },
+    {
+      "number": 1488,
+      "name": "The Travel Channel HD"
+    },
+    {
+      "number": 1492,
+      "name": "Home & Garden Television HD"
+    },
+    {
+      "number": 1493,
+      "name": "Magnolia Network HD"
+    },
+    {
+      "number": 1497,
+      "name": "Discovery Life Channel HD"
+    },
+    {
+      "number": 1550,
+      "name": "Music Choice Today's Hits"
+    },
+    {
+      "number": 1551,
+      "name": "Music Choice Trending Hits"
+    },
+    {
+      "number": 1552,
+      "name": "Music Choice Feel-Good Favorites"
+    },
+    {
+      "number": 1553,
+      "name": "Music Choice Pop Energy"
+    },
+    {
+      "number": 1554,
+      "name": "Music Choice Hip-Hop and R&B"
+    },
+    {
+      "number": 1555,
+      "name": "Music Choice Dance"
+    },
+    {
+      "number": 1556,
+      "name": "Music Choice Hip-Hop Classics"
+    },
+    {
+      "number": 1557,
+      "name": "Music Choice Throwback Jams"
+    },
+    {
+      "number": 1558,
+      "name": "Music Choice R&B Classics"
+    },
+    {
+      "number": 1559,
+      "name": "Music Choice Today's R&B"
+    },
+    {
+      "number": 1560,
+      "name": "Music Choice Gospel"
+    },
+    {
+      "number": 1561,
+      "name": "Music Choice Contemporary Christian"
+    },
+    {
+      "number": 1562,
+      "name": "Music Choice Rock"
+    },
+    {
+      "number": 1563,
+      "name": "Music Choice Yacht Rock"
+    },
+    {
+      "number": 1564,
+      "name": "Music Choice '60s & '70s Mellow Hits"
+    },
+    {
+      "number": 1565,
+      "name": "Music Choice Adult Alternative"
+    },
+    {
+      "number": 1566,
+      "name": "Music Choice Alt & Rock Favorites"
+    },
+    {
+      "number": 1567,
+      "name": "Music Choice Classic Rock"
+    },
+    {
+      "number": 1568,
+      "name": "Music Choice Soft Rock"
+    },
+    {
+      "number": 1569,
+      "name": "Music Choice Happy Hits"
+    },
+    {
+      "number": 1570,
+      "name": "Music Choice Pop Hits"
+    },
+    {
+      "number": 1571,
+      "name": "Music Choice Today's Latin Hits"
+    },
+    {
+      "number": 1572,
+      "name": "Music Choice Tropicales"
+    },
+    {
+      "number": 1573,
+      "name": "Music Choice Romantic Latin Pop"
+    },
+    {
+      "number": 1574,
+      "name": "Music Choice '70s & '80s Favorites"
+    },
+    {
+      "number": 1575,
+      "name": "Music Choice '90s"
+    },
+    {
+      "number": 1576,
+      "name": "Music Choice '80s"
+    },
+    {
+      "number": 1577,
+      "name": "Music Choice '70s"
+    },
+    {
+      "number": 1578,
+      "name": "Music Choice '60s Generation"
+    },
+    {
+      "number": 1579,
+      "name": "Music Choice Solid Gold Oldies"
+    },
+    {
+      "number": 1580,
+      "name": "Music Choice Pop & Country"
+    },
+    {
+      "number": 1581,
+      "name": "Music Choice Today's Country"
+    },
+    {
+      "number": 1582,
+      "name": "Music Choice Country Favorites"
+    },
+    {
+      "number": 1583,
+      "name": "Music Choice Classic Country"
+    },
+    {
+      "number": 1584,
+      "name": "Music Choice Country Rock"
+    },
+    {
+      "number": 1585,
+      "name": "Music Choice Sleep Sounds"
+    },
+    {
+      "number": 1586,
+      "name": "Music Choice Relaxing Vibes"
+    },
+    {
+      "number": 1587,
+      "name": "Music Choice Calming Classical"
+    },
+    {
+      "number": 1588,
+      "name": "Music Choice Joyful Instrumentals"
+    },
+    {
+      "number": 1589,
+      "name": "Music Choice Pop Instrumentals"
+    },
+    {
+      "number": 1590,
+      "name": "Music Choice Light Classical"
+    },
+    {
+      "number": 1591,
+      "name": "Music Choice Classical Masterpieces"
+    },
+    {
+      "number": 1592,
+      "name": "Music Choice Soundscapes"
+    },
+    {
+      "number": 1593,
+      "name": "Music Choice Smooth Jazz"
+    },
+    {
+      "number": 1594,
+      "name": "Music Choice Jazz"
+    },
+    {
+      "number": 1595,
+      "name": "Music Choice Blues"
+    },
+    {
+      "number": 1596,
+      "name": "Music Choice Singers & Swing"
+    },
+    {
+      "number": 1597,
+      "name": "Music Choice Easy Listening"
+    },
+    {
+      "number": 1598,
+      "name": "Music Choice Classic Christmas"
+    },
+    {
+      "number": 1599,
+      "name": "Music Choice Sounds of the Seasons"
+    },
+    {
+      "number": 1606,
+      "name": "MTV - Music Television HD"
+    },
+    {
+      "number": 1607,
+      "name": "VH1 HD"
+    },
+    {
+      "number": 1608,
+      "name": "CMT HD"
+    },
+    {
+      "number": 1612,
+      "name": "MTVLIVE"
+    },
+    {
+      "number": 1613,
+      "name": "AXS TV"
+    },
+    {
+      "number": 1614,
+      "name": "MTV Classic"
+    },
+    {
+      "number": 1615,
+      "name": "Nick Music"
+    },
+    {
+      "number": 1619,
+      "name": "CMT Music"
+    },
+    {
+      "number": 1623,
+      "name": "AFRO"
+    },
+    {
+      "number": 1624,
+      "name": "Cleo TV HD"
+    },
+    {
+      "number": 1625,
+      "name": "BET HD"
+    },
+    {
+      "number": 1626,
+      "name": "TV ONE HD"
+    },
+    {
+      "number": 1627,
+      "name": "ASPiRE HD"
+    },
+    {
+      "number": 1628,
+      "name": "BET Her HD"
+    },
+    {
+      "number": 1629,
+      "name": "The Africa Channel"
+    },
+    {
+      "number": 1630,
+      "name": "BET Soul"
+    },
+    {
+      "number": 1633,
+      "name": "BET Jams"
+    },
+    {
+      "number": 1636,
+      "name": "The Grio HD"
+    },
+    {
+      "number": 1637,
+      "name": "Revolt HD"
+    },
+    {
+      "number": 1639,
+      "name": "MTV2: Music Television HD"
+    },
+    {
+      "number": 1657,
+      "name": "Daystar Television Network (SD Feed)"
+    },
+    {
+      "number": 1668,
+      "name": "Eternal Word Television Network HD"
+    },
+    {
+      "number": 1678,
+      "name": "Total Living Network"
+    },
+    {
+      "number": 1681,
+      "name": "The Word Network"
+    },
+    {
+      "number": 1682,
+      "name": "Impact Network (SD Feed)"
+    },
+    {
+      "number": 1684,
+      "name": "JBSHD"
+    },
+    {
+      "number": 1685,
+      "name": "Jewish Life TV (SD Feed)"
+    },
+    {
+      "number": 1701,
+      "name": "Disney Junior HD"
+    },
+    {
+      "number": 1702,
+      "name": "Nick Jr HD"
+    },
+    {
+      "number": 1709,
+      "name": "BabyFirst TV"
+    },
+    {
+      "number": 1714,
+      "name": "Discovery Family Channel HD"
+    },
+    {
+      "number": 1715,
+      "name": "Disney Channel HD"
+    },
+    {
+      "number": 1716,
+      "name": "Disney XD HD"
+    },
+    {
+      "number": 1721,
+      "name": "Primo TV HD"
+    },
+    {
+      "number": 1722,
+      "name": "Kids Street HD"
+    },
+    {
+      "number": 1727,
+      "name": "Nicktoons HD"
+    },
+    {
+      "number": 1728,
+      "name": "Nickelodeon HD"
+    },
+    {
+      "number": 1729,
+      "name": "Nick Too HD East"
+    },
+    {
+      "number": 1734,
+      "name": "Cartoon Network HD"
+    },
+    {
+      "number": 1736,
+      "name": "MeTV Toons"
+    },
+    {
+      "number": 1740,
+      "name": "Teen Nick HD"
+    },
+    {
+      "number": 1742,
+      "name": "Freeform HD"
+    },
+    {
+      "number": 1755,
+      "name": "Turner Classic Movies HD"
+    },
+    {
+      "number": 1766,
+      "name": "FX Movie Channel HD"
+    },
+    {
+      "number": 1771,
+      "name": "Flix HD"
+    },
+    {
+      "number": 1773,
+      "name": "Starz Encore HD"
+    },
+    {
+      "number": 1775,
+      "name": "Starz Encore Action"
+    },
+    {
+      "number": 1777,
+      "name": "Starz Encore Black"
+    },
+    {
+      "number": 1784,
+      "name": "Starz Encore Westerns SD"
+    },
+    {
+      "number": 1786,
+      "name": "ScreenPix"
+    },
+    {
+      "number": 1787,
+      "name": "ScreenPix Action"
+    },
+    {
+      "number": 1788,
+      "name": "ScreenPix Voices"
+    },
+    {
+      "number": 1789,
+      "name": "ScreenPix Westerns"
+    },
+    {
+      "number": 1802,
+      "name": "HBO East"
+    },
+    {
+      "number": 1803,
+      "name": "HBO (Pacific)"
+    },
+    {
+      "number": 1804,
+      "name": "HBO Hits"
+    },
+    {
+      "number": 1806,
+      "name": "HBO Drama"
+    },
+    {
+      "number": 1810,
+      "name": "HBO Comedy"
+    },
+    {
+      "number": 1812,
+      "name": "HBO Movies"
+    },
+    {
+      "number": 1814,
+      "name": "HBO Latino HD"
+    },
+    {
+      "number": 1816,
+      "name": "AMC+"
+    },
+    {
+      "number": 1820,
+      "name": "Cinemax HD"
+    },
+    {
+      "number": 1821,
+      "name": "Cinemax (Pacific)"
+    },
+    {
+      "number": 1822,
+      "name": "Cinemax Hits"
+    },
+    {
+      "number": 1824,
+      "name": "Cinemax Action"
+    },
+    {
+      "number": 1830,
+      "name": "Cinemax Classics"
+    },
+    {
+      "number": 1840,
+      "name": "Paramount+ with Showtime HD"
+    },
+    {
+      "number": 1842,
+      "name": "SHO 2"
+    },
+    {
+      "number": 1846,
+      "name": "Showtime Showcase"
+    },
+    {
+      "number": 1848,
+      "name": "Showtime Extreme"
+    },
+    {
+      "number": 1850,
+      "name": "Showtime Women"
+    },
+    {
+      "number": 1852,
+      "name": "Showtime Familyzone"
+    },
+    {
+      "number": 1854,
+      "name": "Showtime Next"
+    },
+    {
+      "number": 1860,
+      "name": "The Movie Channel HD"
+    },
+    {
+      "number": 1862,
+      "name": "The Movie Channel Extra"
+    },
+    {
+      "number": 1868,
+      "name": "Starz HD"
+    },
+    {
+      "number": 1871,
+      "name": "MGM+ HD"
+    },
+    {
+      "number": 1873,
+      "name": "MGM+ Hits HD"
+    },
+    {
+      "number": 1874,
+      "name": "MGM+ Marquee HD"
+    },
+    {
+      "number": 1875,
+      "name": "MGM+ Drive-In HD"
+    },
+    {
+      "number": 1883,
+      "name": "Playboy Premium HD"
+    },
+    {
+      "number": 1884,
+      "name": "Playboy Español (Premium HD)"
+    },
+    {
+      "number": 1885,
+      "name": "Hustler HD (Comcast)"
+    },
+    {
+      "number": 1886,
+      "name": "VividTV HD (Comcast)"
+    },
+    {
+      "number": 1887,
+      "name": "MATURE LUST"
+    },
+    {
+      "number": 1888,
+      "name": "Penthouse HD (Comcast)"
+    },
+    {
+      "number": 1889,
+      "name": "VIXEN HD"
+    },
+    {
+      "number": 1890,
+      "name": "AROUSE"
+    },
+    {
+      "number": 1891,
+      "name": "XTSY XX5 HD (Comcast)"
+    },
+    {
+      "number": 1893,
+      "name": "Juicy HD (Comcast)"
+    },
+    {
+      "number": 1894,
+      "name": "Ten XX.5 HD (Comcast)"
+    },
+    {
+      "number": 1901,
+      "name": "Security Camera"
+    },
+    {
+      "number": 1902,
+      "name": "Security Camera"
+    },
+    {
+      "number": 1903,
+      "name": "Security Camera"
+    },
+    {
+      "number": 3001,
+      "name": "Arizona Diamondbacks: MLB Extra Innings"
+    },
+    {
+      "number": 3002,
+      "name": "Atlanta Braves: MLB Extra Innings"
+    },
+    {
+      "number": 3003,
+      "name": "Baltimore Orioles: MLB Extra Innings"
+    },
+    {
+      "number": 3004,
+      "name": "Boston Red Sox: MLB Extra Innings"
+    },
+    {
+      "number": 3005,
+      "name": "Chicago Cubs: MLB Extra Innings"
+    },
+    {
+      "number": 3006,
+      "name": "Chicago White Sox: MLB Extra Innings"
+    },
+    {
+      "number": 3007,
+      "name": "Cincinnati Reds: MLB Extra Innings"
+    },
+    {
+      "number": 3008,
+      "name": "Cleveland Guardians: MLB Extra Innings"
+    },
+    {
+      "number": 3009,
+      "name": "Colorado Rockies: MLB Extra Innings"
+    },
+    {
+      "number": 3010,
+      "name": "Detroit Tigers: MLB Extra Innings"
+    },
+    {
+      "number": 3011,
+      "name": "Houston Astros: MLB Extra Innings"
+    },
+    {
+      "number": 3012,
+      "name": "Kansas City Royals: MLB Extra Innings"
+    },
+    {
+      "number": 3013,
+      "name": "Los Angeles Angels: MLB Extra Innings"
+    },
+    {
+      "number": 3014,
+      "name": "Los Angeles Dodgers: MLB Extra Innings"
+    },
+    {
+      "number": 3015,
+      "name": "Miami Marlins: MLB Extra Innings"
+    },
+    {
+      "number": 3016,
+      "name": "Milwaukee Brewers: MLB Extra Innings"
+    },
+    {
+      "number": 3017,
+      "name": "Minnesota Twins: MLB Extra Innings"
+    },
+    {
+      "number": 3018,
+      "name": "New York Mets: MLB Extra Innings"
+    },
+    {
+      "number": 3019,
+      "name": "New York Yankees: MLB Extra Innings"
+    },
+    {
+      "number": 3020,
+      "name": "Athletics: MLB Extra Innings"
+    },
+    {
+      "number": 3021,
+      "name": "Philadelphia Phillies: MLB Extra Innings"
+    },
+    {
+      "number": 3022,
+      "name": "Pittsburgh Pirates: MLB Extra Innings"
+    },
+    {
+      "number": 3023,
+      "name": "San Diego Padres: MLB Extra Innings"
+    },
+    {
+      "number": 3024,
+      "name": "San Francisco Giants: MLB Extra Innings"
+    },
+    {
+      "number": 3025,
+      "name": "Seattle Mariners: MLB Extra Innings"
+    },
+    {
+      "number": 3026,
+      "name": "St. Louis Cardinals: MLB Extra Innings"
+    },
+    {
+      "number": 3027,
+      "name": "Tampa Bay Rays: MLB Extra Innings"
+    },
+    {
+      "number": 3028,
+      "name": "Texas Rangers: MLB Extra Innings"
+    },
+    {
+      "number": 3029,
+      "name": "Toronto Blue Jays: MLB Extra Innings"
+    },
+    {
+      "number": 3030,
+      "name": "Washington Nationals: MLB Extra Innings"
+    },
+    {
+      "number": 3034,
+      "name": "Atlanta Hawks: NBA League Pass"
+    },
+    {
+      "number": 3035,
+      "name": "Boston Celtics: NBA League Pass"
+    },
+    {
+      "number": 3036,
+      "name": "Brooklyn Nets: NBA League Pass"
+    },
+    {
+      "number": 3037,
+      "name": "Charlotte Hornets: NBA League Pass"
+    },
+    {
+      "number": 3038,
+      "name": "Chicago Bulls: NBA League Pass"
+    },
+    {
+      "number": 3039,
+      "name": "Cleveland Cavaliers: NBA League Pass"
+    },
+    {
+      "number": 3040,
+      "name": "Dallas Mavericks: NBA League Pass"
+    },
+    {
+      "number": 3041,
+      "name": "Denver Nuggets: NBA League Pass"
+    },
+    {
+      "number": 3042,
+      "name": "Detroit Pistons: NBA League Pass"
+    },
+    {
+      "number": 3043,
+      "name": "Golden State Warriors: NBA League Pass"
+    },
+    {
+      "number": 3044,
+      "name": "Houston Rockets: NBA League Pass"
+    },
+    {
+      "number": 3045,
+      "name": "Indiana Pacers: NBA League Pass"
+    },
+    {
+      "number": 3046,
+      "name": "Los Angeles Clippers: NBA League Pass"
+    },
+    {
+      "number": 3047,
+      "name": "Los Angeles Lakers: NBA League Pass"
+    },
+    {
+      "number": 3048,
+      "name": "Memphis Grizzlies: NBA League Pass"
+    },
+    {
+      "number": 3049,
+      "name": "Miami Heat: NBA League Pass"
+    },
+    {
+      "number": 3050,
+      "name": "Milwaukee Bucks: NBA League Pass"
+    },
+    {
+      "number": 3051,
+      "name": "Minnesota Timberwolves: NBA League Pass"
+    },
+    {
+      "number": 3052,
+      "name": "New Orleans Pelicans: NBA League Pass"
+    },
+    {
+      "number": 3053,
+      "name": "New York Knicks: NBA League Pass"
+    },
+    {
+      "number": 3054,
+      "name": "Oklahoma City Thunder: NBA League Pass"
+    },
+    {
+      "number": 3055,
+      "name": "Orlando Magic: NBA League Pass"
+    },
+    {
+      "number": 3056,
+      "name": "Philadelphia 76ers: NBA League Pass"
+    },
+    {
+      "number": 3057,
+      "name": "Phoenix Suns: NBA League Pass"
+    },
+    {
+      "number": 3058,
+      "name": "Portland Trail Blazers: NBA League Pass"
+    },
+    {
+      "number": 3059,
+      "name": "Sacramento Kings: NBA League Pass"
+    },
+    {
+      "number": 3060,
+      "name": "San Antonio Spurs: NBA League Pass"
+    },
+    {
+      "number": 3061,
+      "name": "Toronto Raptors: NBA League Pass"
+    },
+    {
+      "number": 3062,
+      "name": "Utah Jazz: NBA League Pass"
+    },
+    {
+      "number": 3063,
+      "name": "Washington Wizards: NBA League Pass"
+    },
+    {
+      "number": 3067,
+      "name": "Anaheim Ducks: NHL Center Ice"
+    },
+    {
+      "number": 3068,
+      "name": "Boston Bruins: NHL Center Ice"
+    },
+    {
+      "number": 3069,
+      "name": "Buffalo Sabres: NHL Center Ice"
+    },
+    {
+      "number": 3070,
+      "name": "Calgary Flames: NHL Center Ice"
+    },
+    {
+      "number": 3071,
+      "name": "Carolina Hurricanes: NHL Center Ice"
+    },
+    {
+      "number": 3072,
+      "name": "Chicago Blackhawks: NHL Center Ice"
+    },
+    {
+      "number": 3073,
+      "name": "Colorado Avalanche: NHL Center Ice"
+    },
+    {
+      "number": 3074,
+      "name": "Columbus Blue Jackets: NHL Center Ice"
+    },
+    {
+      "number": 3075,
+      "name": "Dallas Stars: NHL Center Ice"
+    },
+    {
+      "number": 3076,
+      "name": "Detroit Red Wings: NHL Center Ice"
+    },
+    {
+      "number": 3077,
+      "name": "Edmonton Oilers: NHL Center Ice"
+    },
+    {
+      "number": 3078,
+      "name": "Florida Panthers: NHL Center Ice"
+    },
+    {
+      "number": 3079,
+      "name": "Los Angeles Kings: NHL Center Ice"
+    },
+    {
+      "number": 3080,
+      "name": "Minnesota Wild: NHL Center Ice"
+    },
+    {
+      "number": 3081,
+      "name": "Montreal Canadiens: NHL Center Ice"
+    },
+    {
+      "number": 3082,
+      "name": "Nashville Predators: NHL Center Ice"
+    },
+    {
+      "number": 3083,
+      "name": "New Jersey Devils: NHL Center Ice"
+    },
+    {
+      "number": 3084,
+      "name": "New York Islanders: NHL Center Ice"
+    },
+    {
+      "number": 3085,
+      "name": "New York Rangers: NHL Center Ice"
+    },
+    {
+      "number": 3086,
+      "name": "Ottawa Senators: NHL Center Ice"
+    },
+    {
+      "number": 3087,
+      "name": "Philadelphia Flyers: NHL Center Ice"
+    },
+    {
+      "number": 3088,
+      "name": "Pittsburgh Penguins: NHL Center Ice"
+    },
+    {
+      "number": 3089,
+      "name": "San Jose Sharks: NHL Center Ice"
+    },
+    {
+      "number": 3090,
+      "name": "Seattle Kraken: NHL Center Ice"
+    },
+    {
+      "number": 3091,
+      "name": "St. Louis Blues: NHL Center Ice"
+    },
+    {
+      "number": 3092,
+      "name": "Tampa Bay Lightning: NHL Center Ice"
+    },
+    {
+      "number": 3093,
+      "name": "Toronto Maple Leafs: NHL Center Ice"
+    },
+    {
+      "number": 3094,
+      "name": "Utah Mammoth: NHL Center Ice"
+    },
+    {
+      "number": 3095,
+      "name": "Vancouver Canucks: NHL Center Ice"
+    },
+    {
+      "number": 3096,
+      "name": "Vegas Golden Knights: NHL Center Ice"
+    },
+    {
+      "number": 3097,
+      "name": "Washington Capitals: NHL Center Ice"
+    },
+    {
+      "number": 3098,
+      "name": "Winnipeg Jets: NHL Center Ice"
+    },
+    {
+      "number": 3101,
+      "name": "Willow Cricket HD"
+    },
+    {
+      "number": 3102,
+      "name": "TV Asia HD"
+    },
+    {
+      "number": 3103,
+      "name": "Zee TV HD"
+    },
+    {
+      "number": 3106,
+      "name": "SET HD"
+    },
+    {
+      "number": 3108,
+      "name": "ATN ABP News"
+    },
+    {
+      "number": 3131,
+      "name": "Crossings TV Chicago/Minneapolis"
+    },
+    {
+      "number": 3135,
+      "name": "CCTV4-China Central TV"
+    },
+    {
+      "number": 3137,
+      "name": "Phoenix Info News"
+    },
+    {
+      "number": 3138,
+      "name": "CTI Zhong Tian Channel"
+    },
+    {
+      "number": 3139,
+      "name": "Phoenix Satellite TV"
+    },
+    {
+      "number": 3150,
+      "name": "Jade San Francisco Cable Channel"
+    },
+    {
+      "number": 3185,
+      "name": "Saigon Broadcasting Network"
+    },
+    {
+      "number": 3194,
+      "name": "The Filipino Channel HD"
+    },
+    {
+      "number": 3195,
+      "name": "GMA Pinoy TV"
+    },
+    {
+      "number": 3196,
+      "name": "GMA Life TV"
+    },
+    {
+      "number": 3212,
+      "name": "Record International HD"
+    },
+    {
+      "number": 3213,
+      "name": "Rede Globo TV Internacional HD"
+    },
+    {
+      "number": 3216,
+      "name": "SIC Internacional"
+    },
+    {
+      "number": 3217,
+      "name": "RTP Mundo"
+    },
+    {
+      "number": 3225,
+      "name": "RTV International US"
+    },
+    {
+      "number": 3226,
+      "name": "RTN-WMNB"
+    },
+    {
+      "number": 3227,
+      "name": "Russian Kino"
+    },
+    {
+      "number": 3230,
+      "name": "Impact TV Network"
+    },
+    {
+      "number": 3245,
+      "name": "Art America"
+    },
+    {
+      "number": 3250,
+      "name": "Israel Plus"
+    },
+    {
+      "number": 3265,
+      "name": "TV5MONDE Etats Unis HD"
+    },
+    {
+      "number": 3275,
+      "name": "Antenna Satellite"
+    },
+    {
+      "number": 3280,
+      "name": "Rai Italia HD"
+    },
+    {
+      "number": 3281,
+      "name": "Mediaset Italia"
+    },
+    {
+      "number": 3285,
+      "name": "Willow Cricket"
+    },
+    {
+      "number": 3286,
+      "name": "TV Asia"
+    },
+    {
+      "number": 3287,
+      "name": "Zee TV USA, Inc."
+    },
+    {
+      "number": 3289,
+      "name": "SET"
+    },
+    {
+      "number": 3292,
+      "name": "Record International"
+    },
+    {
+      "number": 3293,
+      "name": "Rede Globo TV Internacional"
+    },
+    {
+      "number": 3294,
+      "name": "TV5MONDE Etats Unis"
+    },
+    {
+      "number": 3295,
+      "name": "Rai Italia"
+    },
+    {
+      "number": 3296,
+      "name": "The Filipino Channel"
+    },
+    {
+      "number": 3308,
+      "name": "UniMas HD (Pacific)"
+    },
+    {
+      "number": 3311,
+      "name": "Univision Network HD (Pacific)"
+    },
+    {
+      "number": 3335,
+      "name": "Discovery Familia HD"
+    },
+    {
+      "number": 3344,
+      "name": "El Sembrador"
+    },
+    {
+      "number": 3355,
+      "name": "Latin American Sports HD"
+    },
+    {
+      "number": 3360,
+      "name": "Zona Futbol"
+    },
+    {
+      "number": 3371,
+      "name": "Discovery en Español"
+    },
+    {
+      "number": 3377,
+      "name": "History Channel En Español HD"
+    },
+    {
+      "number": 3385,
+      "name": "Kanal D Drama"
+    },
+    {
+      "number": 3387,
+      "name": "UNIVERSO HD"
+    },
+    {
+      "number": 3404,
+      "name": "Caracol Internacional HD"
+    },
+    {
+      "number": 3409,
+      "name": "MEXICANAL (HD)"
+    },
+    {
+      "number": 3443,
+      "name": "Sony Cine"
+    },
+    {
+      "number": 3447,
+      "name": "ViendoMovies HD"
+    },
+    {
+      "number": 3487,
+      "name": "WGBO"
+    },
+    {
+      "number": 3489,
+      "name": "Univision Network (Pacific)"
+    },
+    {
+      "number": 3490,
+      "name": "UniMas (Pacific)"
+    },
+    {
+      "number": 3491,
+      "name": "Zona Futbol SD"
+    },
+    {
+      "number": 3494,
+      "name": "AYM Sports 2"
+    },
+    {
+      "number": 3800,
+      "name": "Comcast Employee Channel IP"
+    },
+    {
+      "number": 11080,
+      "name": "QVC HD"
+    },
+    {
+      "number": 11083,
+      "name": "HSN HD"
+    },
+    {
+      "number": 11084,
+      "name": "HSN2 HD"
+    },
+    {
+      "number": 11085,
+      "name": "Jewelry Television HD"
+    },
+    {
+      "number": 11102,
+      "name": "The Weather Channel HD"
+    },
+    {
+      "number": 11108,
+      "name": "FOX Weather"
+    },
+    {
+      "number": 11110,
+      "name": "Fox News Channel HD"
+    },
+    {
+      "number": 11111,
+      "name": "CNN HD"
+    },
+    {
+      "number": 11112,
+      "name": "HLN HD"
+    },
+    {
+      "number": 11113,
+      "name": "MS NOW HD"
+    },
+    {
+      "number": 11115,
+      "name": "Newsmax TV HD"
+    },
+    {
+      "number": 11116,
+      "name": "NewsNation"
+    },
+    {
+      "number": 11117,
+      "name": "BBC News (North America) HD"
+    },
+    {
+      "number": 11121,
+      "name": "CNBC HD"
+    },
+    {
+      "number": 11122,
+      "name": "Bloomberg HD"
+    },
+    {
+      "number": 11123,
+      "name": "Fox Business HD"
+    },
+    {
+      "number": 11128,
+      "name": "CSPAN HD"
+    },
+    {
+      "number": 11129,
+      "name": "CSPAN2 HD"
+    },
+    {
+      "number": 11130,
+      "name": "CSPAN3 HD"
+    },
+    {
+      "number": 11205,
+      "name": "ESPN HD"
+    },
+    {
+      "number": 11206,
+      "name": "ESPN2 HD"
+    },
+    {
+      "number": 11208,
+      "name": "FS1 HD"
+    },
+    {
+      "number": 11209,
+      "name": "FS2 HD"
+    },
+    {
+      "number": 11210,
+      "name": "ESPNEWS HD"
+    },
+    {
+      "number": 11215,
+      "name": "NFL Network HD"
+    },
+    {
+      "number": 11216,
+      "name": "NFL RedZone HD"
+    },
+    {
+      "number": 11220,
+      "name": "MLS 360 English"
+    },
+    {
+      "number": 11223,
+      "name": "Golf Channel HD"
+    },
+    {
+      "number": 11224,
+      "name": "Tennis Channel HD"
+    },
+    {
+      "number": 11228,
+      "name": "Zona Futbol"
+    },
+    {
+      "number": 11229,
+      "name": "TUDN"
+    },
+    {
+      "number": 11230,
+      "name": "Fox Deportes HD"
+    },
+    {
+      "number": 11231,
+      "name": "ESPN Deportes HD"
+    },
+    {
+      "number": 11232,
+      "name": "UNIVERSO HD"
+    },
+    {
+      "number": 11234,
+      "name": "Latin American Sports HD"
+    },
+    {
+      "number": 11236,
+      "name": "Outdoor Channel HD"
+    },
+    {
+      "number": 11238,
+      "name": "Pursuit Channel HD"
+    },
+    {
+      "number": 11243,
+      "name": "DISCOVERY TURBO HD"
+    },
+    {
+      "number": 11301,
+      "name": "ESPNU HD"
+    },
+    {
+      "number": 11303,
+      "name": "CBS Sports Network HD"
+    },
+    {
+      "number": 11313,
+      "name": "Big Ten Network HD"
+    },
+    {
+      "number": 11314,
+      "name": "Big Ten Network HDTV (24/7 Overflow Number 1)"
+    },
+    {
+      "number": 11315,
+      "name": "Big Ten Network Overflow 2 HD"
+    },
+    {
+      "number": 11321,
+      "name": "SEC Network HD"
+    },
+    {
+      "number": 11325,
+      "name": "ACC Network"
+    },
+    {
+      "number": 11402,
+      "name": "A&E Network Stream"
+    },
+    {
+      "number": 11403,
+      "name": "USA Network HD"
+    },
+    {
+      "number": 11404,
+      "name": "TNT HD"
+    },
+    {
+      "number": 11405,
+      "name": "AMC HD"
+    },
+    {
+      "number": 11406,
+      "name": "AMC+"
+    },
+    {
+      "number": 11409,
+      "name": "FX HD"
+    },
+    {
+      "number": 11410,
+      "name": "FXX HD"
+    },
+    {
+      "number": 11411,
+      "name": "Syfy HD"
+    },
+    {
+      "number": 11412,
+      "name": "Paramount Network HD"
+    },
+    {
+      "number": 11418,
+      "name": "BBC America HD"
+    },
+    {
+      "number": 11425,
+      "name": "Game Show Network HD"
+    },
+    {
+      "number": 11426,
+      "name": "TV Land HD"
+    },
+    {
+      "number": 11427,
+      "name": "POP HD"
+    },
+    {
+      "number": 11428,
+      "name": "WE tv HD"
+    },
+    {
+      "number": 11429,
+      "name": "ReelzChannel HD"
+    },
+    {
+      "number": 11430,
+      "name": "truTV HD"
+    },
+    {
+      "number": 11431,
+      "name": "INSP HD"
+    },
+    {
+      "number": 11434,
+      "name": "TBS HD"
+    },
+    {
+      "number": 11435,
+      "name": "Comedy Central HD"
+    },
+    {
+      "number": 11436,
+      "name": "Vice HD"
+    },
+    {
+      "number": 11437,
+      "name": "Comedy.TV HD"
+    },
+    {
+      "number": 11438,
+      "name": "IFC HD"
+    },
+    {
+      "number": 11439,
+      "name": "Logo HD"
+    },
+    {
+      "number": 11440,
+      "name": "SundanceTV HD"
+    },
+    {
+      "number": 11444,
+      "name": "Investigation Discovery HD"
+    },
+    {
+      "number": 11445,
+      "name": "Crime & Investigation Network HD"
+    },
+    {
+      "number": 11446,
+      "name": "Justice Central HD"
+    },
+    {
+      "number": 11449,
+      "name": "Discovery Channel HD"
+    },
+    {
+      "number": 11450,
+      "name": "TLC HD (US)"
+    },
+    {
+      "number": 11451,
+      "name": "Science Channel HD"
+    },
+    {
+      "number": 11455,
+      "name": "Lifetime HD"
+    },
+    {
+      "number": 11456,
+      "name": "LMN HD"
+    },
+    {
+      "number": 11457,
+      "name": "UPtv HD"
+    },
+    {
+      "number": 11458,
+      "name": "Hallmark Channel HD"
+    },
+    {
+      "number": 11459,
+      "name": "Hallmark Mystery HD"
+    },
+    {
+      "number": 11460,
+      "name": "Hallmark Family"
+    },
+    {
+      "number": 11461,
+      "name": "Great American Family HD"
+    },
+    {
+      "number": 11462,
+      "name": "Ovation HD"
+    },
+    {
+      "number": 11463,
+      "name": "Bravo HD"
+    },
+    {
+      "number": 11464,
+      "name": "Oprah Winfrey Network HD"
+    },
+    {
+      "number": 11465,
+      "name": "Oxygen True Crime HD"
+    },
+    {
+      "number": 11466,
+      "name": "E! Entertainment Television HD"
+    },
+    {
+      "number": 11471,
+      "name": "Animal Planet HD"
+    },
+    {
+      "number": 11472,
+      "name": "National Geographic Wild HD"
+    },
+    {
+      "number": 11473,
+      "name": "National Geographic HD"
+    },
+    {
+      "number": 11477,
+      "name": "Smithsonian HD Network"
+    },
+    {
+      "number": 11478,
+      "name": "History HD"
+    },
+    {
+      "number": 11479,
+      "name": "Military History Channel"
+    },
+    {
+      "number": 11480,
+      "name": "American Heroes Channel HD"
+    },
+    {
+      "number": 11483,
+      "name": "Recipe TV HD"
+    },
+    {
+      "number": 11484,
+      "name": "Food Network HD"
+    },
+    {
+      "number": 11485,
+      "name": "Cooking Channel HD"
+    },
+    {
+      "number": 11486,
+      "name": "FYI Channel HD"
+    },
+    {
+      "number": 11487,
+      "name": "Destination America HD"
+    },
+    {
+      "number": 11488,
+      "name": "The Travel Channel HD"
+    },
+    {
+      "number": 11492,
+      "name": "Home & Garden Television HD"
+    },
+    {
+      "number": 11493,
+      "name": "Magnolia Network HD"
+    },
+    {
+      "number": 11497,
+      "name": "Discovery Life Channel HD"
+    },
+    {
+      "number": 11550,
+      "name": "Music Choice Today's Hits"
+    },
+    {
+      "number": 11551,
+      "name": "Music Choice Trending Hits"
+    },
+    {
+      "number": 11552,
+      "name": "Music Choice Feel-Good Favorites"
+    },
+    {
+      "number": 11553,
+      "name": "Music Choice Pop Energy"
+    },
+    {
+      "number": 11554,
+      "name": "Music Choice Hip-Hop and R&B"
+    },
+    {
+      "number": 11555,
+      "name": "Music Choice Dance"
+    },
+    {
+      "number": 11556,
+      "name": "Music Choice Hip-Hop Classics"
+    },
+    {
+      "number": 11557,
+      "name": "Music Choice Throwback Jams"
+    },
+    {
+      "number": 11558,
+      "name": "Music Choice R&B Classics"
+    },
+    {
+      "number": 11559,
+      "name": "Music Choice Today's R&B"
+    },
+    {
+      "number": 11560,
+      "name": "Music Choice Gospel"
+    },
+    {
+      "number": 11561,
+      "name": "Music Choice Contemporary Christian"
+    },
+    {
+      "number": 11562,
+      "name": "Music Choice Rock"
+    },
+    {
+      "number": 11563,
+      "name": "Music Choice Yacht Rock"
+    },
+    {
+      "number": 11564,
+      "name": "Music Choice '60s & '70s Mellow Hits"
+    },
+    {
+      "number": 11565,
+      "name": "Music Choice Adult Alternative"
+    },
+    {
+      "number": 11566,
+      "name": "Music Choice Alt & Rock Favorites"
+    },
+    {
+      "number": 11567,
+      "name": "Music Choice Classic Rock"
+    },
+    {
+      "number": 11568,
+      "name": "Music Choice Soft Rock"
+    },
+    {
+      "number": 11569,
+      "name": "Music Choice Happy Hits"
+    },
+    {
+      "number": 11570,
+      "name": "Music Choice Pop Hits"
+    },
+    {
+      "number": 11571,
+      "name": "Music Choice Today's Latin Hits"
+    },
+    {
+      "number": 11572,
+      "name": "Music Choice Tropicales"
+    },
+    {
+      "number": 11573,
+      "name": "Music Choice Romantic Latin Pop"
+    },
+    {
+      "number": 11574,
+      "name": "Music Choice '70s & '80s Favorites"
+    },
+    {
+      "number": 11575,
+      "name": "Music Choice '90s"
+    },
+    {
+      "number": 11576,
+      "name": "Music Choice '80s"
+    },
+    {
+      "number": 11577,
+      "name": "Music Choice '70s"
+    },
+    {
+      "number": 11578,
+      "name": "Music Choice '60s Generation"
+    },
+    {
+      "number": 11579,
+      "name": "Music Choice Solid Gold Oldies"
+    },
+    {
+      "number": 11580,
+      "name": "Music Choice Pop & Country"
+    },
+    {
+      "number": 11581,
+      "name": "Music Choice Today's Country"
+    },
+    {
+      "number": 11582,
+      "name": "Music Choice Country Favorites"
+    },
+    {
+      "number": 11583,
+      "name": "Music Choice Classic Country"
+    },
+    {
+      "number": 11584,
+      "name": "Music Choice Country Rock"
+    },
+    {
+      "number": 11585,
+      "name": "Music Choice Sleep Sounds"
+    },
+    {
+      "number": 11586,
+      "name": "Music Choice Relaxing Vibes"
+    },
+    {
+      "number": 11587,
+      "name": "Music Choice Calming Classical"
+    },
+    {
+      "number": 11588,
+      "name": "Music Choice Joyful Instrumentals"
+    },
+    {
+      "number": 11589,
+      "name": "Music Choice Pop Instrumentals"
+    },
+    {
+      "number": 11590,
+      "name": "Music Choice Light Classical"
+    },
+    {
+      "number": 11591,
+      "name": "Music Choice Classical Masterpieces"
+    },
+    {
+      "number": 11592,
+      "name": "Music Choice Soundscapes"
+    },
+    {
+      "number": 11593,
+      "name": "Music Choice Smooth Jazz"
+    },
+    {
+      "number": 11594,
+      "name": "Music Choice Jazz"
+    },
+    {
+      "number": 11595,
+      "name": "Music Choice Blues"
+    },
+    {
+      "number": 11596,
+      "name": "Music Choice Singers & Swing"
+    },
+    {
+      "number": 11597,
+      "name": "Music Choice Easy Listening"
+    },
+    {
+      "number": 11598,
+      "name": "Music Choice Classic Christmas"
+    },
+    {
+      "number": 11599,
+      "name": "Music Choice Sounds of the Seasons"
+    },
+    {
+      "number": 11606,
+      "name": "MTV - Music Television HD"
+    },
+    {
+      "number": 11607,
+      "name": "VH1 HD"
+    },
+    {
+      "number": 11608,
+      "name": "CMT HD"
+    },
+    {
+      "number": 11612,
+      "name": "MTVLIVE"
+    },
+    {
+      "number": 11613,
+      "name": "AXS TV"
+    },
+    {
+      "number": 11614,
+      "name": "MTV Classic"
+    },
+    {
+      "number": 11615,
+      "name": "Nick Music"
+    },
+    {
+      "number": 11619,
+      "name": "CMT Music"
+    },
+    {
+      "number": 11623,
+      "name": "AFRO"
+    },
+    {
+      "number": 11624,
+      "name": "Cleo TV HD"
+    },
+    {
+      "number": 11625,
+      "name": "BET HD"
+    },
+    {
+      "number": 11626,
+      "name": "TV ONE HD"
+    },
+    {
+      "number": 11627,
+      "name": "ASPiRE HD"
+    },
+    {
+      "number": 11628,
+      "name": "BET Her HD"
+    },
+    {
+      "number": 11629,
+      "name": "The Africa Channel HD"
+    },
+    {
+      "number": 11630,
+      "name": "BET Soul"
+    },
+    {
+      "number": 11631,
+      "name": "BET GOSPEL SD"
+    },
+    {
+      "number": 11632,
+      "name": "BET Hip Hop"
+    },
+    {
+      "number": 11633,
+      "name": "BET Jams"
+    },
+    {
+      "number": 11636,
+      "name": "The Grio HD"
+    },
+    {
+      "number": 11637,
+      "name": "Revolt HD"
+    },
+    {
+      "number": 11639,
+      "name": "MTV2: Music Television HD"
+    },
+    {
+      "number": 11684,
+      "name": "JBSHD"
+    },
+    {
+      "number": 11701,
+      "name": "Disney Junior HD"
+    },
+    {
+      "number": 11702,
+      "name": "Nick Jr HD"
+    },
+    {
+      "number": 11714,
+      "name": "Discovery Family Channel HD"
+    },
+    {
+      "number": 11715,
+      "name": "Disney Channel HD"
+    },
+    {
+      "number": 11716,
+      "name": "Disney XD HD"
+    },
+    {
+      "number": 11721,
+      "name": "Primo TV HD"
+    },
+    {
+      "number": 11722,
+      "name": "Kids Street HD"
+    },
+    {
+      "number": 11727,
+      "name": "Nicktoons HD"
+    },
+    {
+      "number": 11728,
+      "name": "Nickelodeon HD"
+    },
+    {
+      "number": 11733,
+      "name": "Adult Swim/Cartoon Network TVE"
+    },
+    {
+      "number": 11734,
+      "name": "Cartoon Network - Excludes Adult Swim"
+    },
+    {
+      "number": 11740,
+      "name": "Teen Nick HD"
+    },
+    {
+      "number": 11742,
+      "name": "Freeform Streaming East"
+    },
+    {
+      "number": 11755,
+      "name": "Turner Classic Movies HD"
+    },
+    {
+      "number": 11766,
+      "name": "FX Movie Channel HD"
+    },
+    {
+      "number": 11773,
+      "name": "Starz Encore HD"
+    },
+    {
+      "number": 11775,
+      "name": "Starz Encore Action HD"
+    },
+    {
+      "number": 11777,
+      "name": "Starz Encore Black HD"
+    },
+    {
+      "number": 11784,
+      "name": "Starz Encore Westerns"
+    },
+    {
+      "number": 11786,
+      "name": "ScreenPix"
+    },
+    {
+      "number": 11787,
+      "name": "ScreenPix Action"
+    },
+    {
+      "number": 11788,
+      "name": "ScreenPix Voices"
+    },
+    {
+      "number": 11789,
+      "name": "ScreenPix Westerns"
+    },
+    {
+      "number": 11802,
+      "name": "HBO East"
+    },
+    {
+      "number": 11803,
+      "name": "HBO West"
+    },
+    {
+      "number": 11804,
+      "name": "HBO Hits"
+    },
+    {
+      "number": 11806,
+      "name": "HBO Drama"
+    },
+    {
+      "number": 11810,
+      "name": "HBO Comedy HD"
+    },
+    {
+      "number": 11812,
+      "name": "HBO Movies"
+    },
+    {
+      "number": 11814,
+      "name": "HBO Latino HD"
+    },
+    {
+      "number": 11816,
+      "name": "AMC+"
+    },
+    {
+      "number": 11820,
+      "name": "Cinemax HD"
+    },
+    {
+      "number": 11821,
+      "name": "Cinemax HD (Pacific)"
+    },
+    {
+      "number": 11822,
+      "name": "Cinemax Hits"
+    },
+    {
+      "number": 11824,
+      "name": "Cinemax Action"
+    },
+    {
+      "number": 11830,
+      "name": "Cinemax Classics"
+    },
+    {
+      "number": 11834,
+      "name": "Cinemax Spanish HD"
+    },
+    {
+      "number": 11840,
+      "name": "Paramount+ with Showtime HD"
+    },
+    {
+      "number": 11841,
+      "name": "Paramount+ with Showtime HD (Pacific)"
+    },
+    {
+      "number": 11842,
+      "name": "SHO 2 HD"
+    },
+    {
+      "number": 11844,
+      "name": "SHO x BET HD"
+    },
+    {
+      "number": 11846,
+      "name": "Showtime Showcase HD"
+    },
+    {
+      "number": 11848,
+      "name": "Showtime Extreme HD"
+    },
+    {
+      "number": 11850,
+      "name": "Showtime Women HD"
+    },
+    {
+      "number": 11852,
+      "name": "Showtime Familyzone"
+    },
+    {
+      "number": 11854,
+      "name": "Showtime Next HD"
+    },
+    {
+      "number": 11868,
+      "name": "Starz HD"
+    },
+    {
+      "number": 11869,
+      "name": "Starz HD (Pacific)"
+    },
+    {
+      "number": 11871,
+      "name": "MGM+ HD"
+    },
+    {
+      "number": 11872,
+      "name": "MGM+ HD West"
+    },
+    {
+      "number": 11873,
+      "name": "MGM+ Hits HD"
+    },
+    {
+      "number": 11874,
+      "name": "MGM+ Marquee HD"
+    },
+    {
+      "number": 11875,
+      "name": "MGM+ Drive-In HD"
+    },
+    {
+      "number": 13034,
+      "name": "Atlanta Hawks: NBA League Pass"
+    },
+    {
+      "number": 13035,
+      "name": "Boston Celtics: NBA League Pass"
+    },
+    {
+      "number": 13036,
+      "name": "Brooklyn Nets: NBA League Pass"
+    },
+    {
+      "number": 13037,
+      "name": "Charlotte Hornets: NBA League Pass"
+    },
+    {
+      "number": 13038,
+      "name": "Chicago Bulls: NBA League Pass"
+    },
+    {
+      "number": 13039,
+      "name": "Cleveland Cavaliers: NBA League Pass"
+    },
+    {
+      "number": 13040,
+      "name": "Dallas Mavericks: NBA League Pass"
+    },
+    {
+      "number": 13041,
+      "name": "Denver Nuggets: NBA League Pass"
+    },
+    {
+      "number": 13042,
+      "name": "Detroit Pistons: NBA League Pass"
+    },
+    {
+      "number": 13043,
+      "name": "Golden State Warriors: NBA League Pass"
+    },
+    {
+      "number": 13044,
+      "name": "Houston Rockets: NBA League Pass"
+    },
+    {
+      "number": 13045,
+      "name": "Indiana Pacers: NBA League Pass"
+    },
+    {
+      "number": 13046,
+      "name": "Los Angeles Clippers: NBA League Pass"
+    },
+    {
+      "number": 13047,
+      "name": "Los Angeles Lakers: NBA League Pass"
+    },
+    {
+      "number": 13048,
+      "name": "Memphis Grizzlies: NBA League Pass"
+    },
+    {
+      "number": 13049,
+      "name": "Miami Heat: NBA League Pass"
+    },
+    {
+      "number": 13050,
+      "name": "Milwaukee Bucks: NBA League Pass"
+    },
+    {
+      "number": 13051,
+      "name": "Minnesota Timberwolves: NBA League Pass"
+    },
+    {
+      "number": 13052,
+      "name": "New Orleans Pelicans: NBA League Pass"
+    },
+    {
+      "number": 13053,
+      "name": "New York Knicks: NBA League Pass"
+    },
+    {
+      "number": 13054,
+      "name": "Oklahoma City Thunder: NBA League Pass"
+    },
+    {
+      "number": 13055,
+      "name": "Orlando Magic: NBA League Pass"
+    },
+    {
+      "number": 13056,
+      "name": "Philadelphia 76ers: NBA League Pass"
+    },
+    {
+      "number": 13057,
+      "name": "Phoenix Suns: NBA League Pass"
+    },
+    {
+      "number": 13058,
+      "name": "Portland Trail Blazers: NBA League Pass"
+    },
+    {
+      "number": 13059,
+      "name": "Sacramento Kings: NBA League Pass"
+    },
+    {
+      "number": 13060,
+      "name": "San Antonio Spurs: NBA League Pass"
+    },
+    {
+      "number": 13061,
+      "name": "Toronto Raptors: NBA League Pass"
+    },
+    {
+      "number": 13062,
+      "name": "Utah Jazz: NBA League Pass"
+    },
+    {
+      "number": 13063,
+      "name": "Washington Wizards: NBA League Pass"
+    },
+    {
+      "number": 13101,
+      "name": "Willow Cricket HD"
+    },
+    {
+      "number": 13103,
+      "name": "Zee TV HD"
+    },
+    {
+      "number": 13194,
+      "name": "The Filipino Channel HD"
+    },
+    {
+      "number": 13195,
+      "name": "GMA Pinoy TV"
+    },
+    {
+      "number": 13196,
+      "name": "GMA Life TV"
+    },
+    {
+      "number": 13213,
+      "name": "Rede Globo TV Internacional HD"
+    },
+    {
+      "number": 13265,
+      "name": "TV5MONDE Etats Unis HD"
+    },
+    {
+      "number": 13331,
+      "name": "BabyFirst Americas Spanish HD"
+    },
+    {
+      "number": 13335,
+      "name": "Discovery Familia HD"
+    },
+    {
+      "number": 13340,
+      "name": "Vme Kids"
+    },
+    {
+      "number": 13351,
+      "name": "ESPN Deportes HD"
+    },
+    {
+      "number": 13353,
+      "name": "Fox Deportes HD"
+    },
+    {
+      "number": 13355,
+      "name": "Latin American Sports HD"
+    },
+    {
+      "number": 13359,
+      "name": "TUDN"
+    },
+    {
+      "number": 13360,
+      "name": "Zona Futbol"
+    },
+    {
+      "number": 13371,
+      "name": "Discovery en Español"
+    },
+    {
+      "number": 13375,
+      "name": "Galavision Cable Network HD"
+    },
+    {
+      "number": 13377,
+      "name": "History Channel En Español HD"
+    },
+    {
+      "number": 13378,
+      "name": "HITN HD"
+    },
+    {
+      "number": 13380,
+      "name": "Tr3s: MTV, Musica y Mas"
+    },
+    {
+      "number": 13383,
+      "name": "Pasiones TV US"
+    },
+    {
+      "number": 13384,
+      "name": "Canal RCN TELENOVELAS"
+    },
+    {
+      "number": 13385,
+      "name": "Kanal D Drama"
+    },
+    {
+      "number": 13387,
+      "name": "UNIVERSO HD"
+    },
+    {
+      "number": 13404,
+      "name": "Caracol Internacional HD"
+    },
+    {
+      "number": 13405,
+      "name": "CentroAméricaTV (HD Feed)"
+    },
+    {
+      "number": 13409,
+      "name": "MEXICANAL (HD)"
+    },
+    {
+      "number": 13410,
+      "name": "Multimedios USA"
+    },
+    {
+      "number": 13412,
+      "name": "Nuestra Tele Internacional"
+    },
+    {
+      "number": 13423,
+      "name": "Televisión Dominicana (HD Feed)"
+    },
+    {
+      "number": 13424,
+      "name": "TVV"
+    },
+    {
+      "number": 13425,
+      "name": "TVE America Television Española HD"
+    },
+    {
+      "number": 13428,
+      "name": "WAPA-DT"
+    },
+    {
+      "number": 13441,
+      "name": "Cine Latino US HD"
+    },
+    {
+      "number": 13442,
+      "name": "Cine Mexicano US Feed (HD Feed)"
+    },
+    {
+      "number": 13443,
+      "name": "Sony Cine"
+    },
+    {
+      "number": 13445,
+      "name": "Cinema Dinamita (HD Feed)"
+    },
+    {
+      "number": 13447,
+      "name": "ViendoMovies HD"
+    },
+    {
+      "number": 13453,
+      "name": "Cinemax Spanish HD"
+    },
+    {
+      "number": 13455,
+      "name": "HBO Latino HD"
+    },
+    {
+      "number": 13956,
+      "name": "MLS on Apple TV 01 Spanish"
+    },
+    {
+      "number": 13957,
+      "name": "MLS on Apple TV 02 Spanish"
+    },
+    {
+      "number": 13958,
+      "name": "MLS on Apple TV 03 Spanish"
+    },
+    {
+      "number": 13959,
+      "name": "MLS on Apple TV 04 Spanish"
+    },
+    {
+      "number": 13960,
+      "name": "MLS on Apple TV 05 Spanish"
+    },
+    {
+      "number": 13961,
+      "name": "MLS on Apple TV 06 Spanish"
+    },
+    {
+      "number": 13962,
+      "name": "MLS on Apple TV 07 Spanish"
+    },
+    {
+      "number": 13963,
+      "name": "MLS on Apple TV 08 Spanish"
+    },
+    {
+      "number": 13964,
+      "name": "MLS on Apple TV 09 Spanish"
+    },
+    {
+      "number": 13965,
+      "name": "MLS on Apple TV 10 Spanish"
+    },
+    {
+      "number": 13966,
+      "name": "MLS on Apple TV 11 Spanish"
+    },
+    {
+      "number": 13967,
+      "name": "MLS on Apple TV 12 Spanish"
+    },
+    {
+      "number": 13968,
+      "name": "MLS on Apple TV 13 Spanish"
+    },
+    {
+      "number": 13969,
+      "name": "MLS on Apple TV 14 Spanish"
+    },
+    {
+      "number": 13970,
+      "name": "MLS on Apple TV 15 Spanish"
+    },
+    {
+      "number": 13972,
+      "name": "MLS on Apple TV 01 English"
+    },
+    {
+      "number": 13973,
+      "name": "MLS on Apple TV 02 English"
+    },
+    {
+      "number": 13974,
+      "name": "MLS on Apple TV 03 English"
+    },
+    {
+      "number": 13975,
+      "name": "MLS on Apple TV 04 English"
+    },
+    {
+      "number": 13976,
+      "name": "MLS on Apple TV 05 English"
+    },
+    {
+      "number": 13977,
+      "name": "MLS on Apple TV 06 English"
+    },
+    {
+      "number": 13978,
+      "name": "MLS on Apple TV 07 English"
+    },
+    {
+      "number": 13979,
+      "name": "MLS on Apple TV 08 English"
+    },
+    {
+      "number": 13980,
+      "name": "MLS on Apple TV 09 English"
+    },
+    {
+      "number": 13981,
+      "name": "MLS on Apple TV 10 English"
+    },
+    {
+      "number": 13982,
+      "name": "MLS on Apple TV 11 English"
+    },
+    {
+      "number": 13983,
+      "name": "MLS on Apple TV 12 English"
+    },
+    {
+      "number": 13984,
+      "name": "MLS on Apple TV 13 English"
+    },
+    {
+      "number": 13985,
+      "name": "MLS on Apple TV 14 English"
+    },
+    {
+      "number": 13986,
+      "name": "MLS on Apple TV 15 English"
+    },
+    {
+      "number": 13990,
+      "name": "F1 on Apple TV"
+    },
+    {
+      "number": 13996,
+      "name": "Friday Night Baseball on Apple TV 1"
+    },
+    {
+      "number": 13997,
+      "name": "Friday Night Baseball on Apple TV 2"
+    },
+    {
+      "number": 14005,
+      "name": "NBC News NOW"
+    },
+    {
+      "number": 14006,
+      "name": "Sky News"
+    },
+    {
+      "number": 14014,
+      "name": "LiveNOW from FOX"
+    },
+    {
+      "number": 14015,
+      "name": "Dateline"
+    },
+    {
+      "number": 14016,
+      "name": "TODAY All Day"
+    },
+    {
+      "number": 14017,
+      "name": "ABC News Live"
+    },
+    {
+      "number": 14018,
+      "name": "20/20"
+    },
+    {
+      "number": 14020,
+      "name": "AccuWeather NOW"
+    },
+    {
+      "number": 14045,
+      "name": "Circle Country"
+    },
+    {
+      "number": 14055,
+      "name": "Xumo Free Movies"
+    },
+    {
+      "number": 14056,
+      "name": "Xumo Free Action Movies"
+    },
+    {
+      "number": 14057,
+      "name": "Xumo Free Her Movies"
+    },
+    {
+      "number": 14058,
+      "name": "Xumo Free Comedy Movies"
+    },
+    {
+      "number": 14059,
+      "name": "Xumo Free Black Cinema"
+    },
+    {
+      "number": 14060,
+      "name": "Xumo Free Documentaries"
+    },
+    {
+      "number": 14061,
+      "name": "Xumo Free Horror & Thriller"
+    },
+    {
+      "number": 14062,
+      "name": "Xumo Free Sci-Fi & Fantasy Movies"
+    },
+    {
+      "number": 14063,
+      "name": "Xumo Free Westerns"
+    },
+    {
+      "number": 14067,
+      "name": "NBA FAST"
+    },
+    {
+      "number": 14068,
+      "name": "NBC Sports NOW"
+    },
+    {
+      "number": 14069,
+      "name": "FOX Sports"
+    },
+    {
+      "number": 14070,
+      "name": "GolfPass"
+    },
+    {
+      "number": 14071,
+      "name": "PGA Tour"
+    },
+    {
+      "number": 14072,
+      "name": "DNVR Sports"
+    },
+    {
+      "number": 14073,
+      "name": "PHLY Sports"
+    },
+    {
+      "number": 14074,
+      "name": "CHGO Sports"
+    },
+    {
+      "number": 14079,
+      "name": "HBO Boxing"
+    },
+    {
+      "number": 14080,
+      "name": "DISCOVERY TURBO TV [XUMO / XFINITY]"
+    },
+    {
+      "number": 14082,
+      "name": "Billiards"
+    },
+    {
+      "number": 14083,
+      "name": "World Poker Tour"
+    },
+    {
+      "number": 14084,
+      "name": "Real Madrid TV"
+    },
+    {
+      "number": 14086,
+      "name": "Pickleball TV"
+    },
+    {
+      "number": 14087,
+      "name": "Unbeaten"
+    },
+    {
+      "number": 14088,
+      "name": "Ryz Sports Network"
+    },
+    {
+      "number": 14089,
+      "name": "Willow Sports"
+    },
+    {
+      "number": 14090,
+      "name": "PokerGO FAST"
+    },
+    {
+      "number": 14091,
+      "name": "Yahoo! Sports Network"
+    },
+    {
+      "number": 14092,
+      "name": "Bowling TV"
+    },
+    {
+      "number": 14093,
+      "name": "NASCAR Channel"
+    },
+    {
+      "number": 14094,
+      "name": "UFC"
+    },
+    {
+      "number": 14095,
+      "name": "ONE Championship"
+    },
+    {
+      "number": 14096,
+      "name": "DP World Tour (Xumo)"
+    },
+    {
+      "number": 14097,
+      "name": "SportsGrid"
+    },
+    {
+      "number": 14101,
+      "name": "Xumo Free Crime TV"
+    },
+    {
+      "number": 14102,
+      "name": "Xumo Free Food TV"
+    },
+    {
+      "number": 14103,
+      "name": "Xumo Free Travel & Lifestyle TV"
+    },
+    {
+      "number": 14104,
+      "name": "Xumo Free Reality TV"
+    },
+    {
+      "number": 14105,
+      "name": "Xumo Free Game Shows"
+    },
+    {
+      "number": 14106,
+      "name": "Xumo Free Action & Drama TV"
+    },
+    {
+      "number": 14107,
+      "name": "Xumo Free Comedy TV"
+    },
+    {
+      "number": 14108,
+      "name": "Xumo Free Nature & Wildlife TV"
+    },
+    {
+      "number": 14109,
+      "name": "Love Nature"
+    },
+    {
+      "number": 14114,
+      "name": "LOL! Network"
+    },
+    {
+      "number": 14117,
+      "name": "The Conners"
+    },
+    {
+      "number": 14118,
+      "name": "Game Show Central"
+    },
+    {
+      "number": 14119,
+      "name": "The Price is Right: The Barker Era"
+    },
+    {
+      "number": 14120,
+      "name": "Family Feud Classic"
+    },
+    {
+      "number": 14121,
+      "name": "Deal Or No Deal"
+    },
+    {
+      "number": 14122,
+      "name": "America's Got Talent"
+    },
+    {
+      "number": 14123,
+      "name": "Comedy Dynamics"
+    },
+    {
+      "number": 14125,
+      "name": "Xumo Free Family Movies"
+    },
+    {
+      "number": 14126,
+      "name": "Xumo Free Kids TV"
+    },
+    {
+      "number": 14131,
+      "name": "Moviesphere"
+    },
+    {
+      "number": 14132,
+      "name": "OuterSphere"
+    },
+    {
+      "number": 14134,
+      "name": "Universal Action"
+    },
+    {
+      "number": 14135,
+      "name": "Universal Monsters"
+    },
+    {
+      "number": 14136,
+      "name": "Universal Movies"
+    },
+    {
+      "number": 14137,
+      "name": "Universal Westerns"
+    },
+    {
+      "number": 14139,
+      "name": "Are We There Yet?"
+    },
+    {
+      "number": 14140,
+      "name": "Xena Warrior Princess"
+    },
+    {
+      "number": 14141,
+      "name": "Western Bound Wrangled by INSP"
+    },
+    {
+      "number": 14143,
+      "name": "Say Yes to the Dress"
+    },
+    {
+      "number": 14145,
+      "name": "E! Keeping Up"
+    },
+    {
+      "number": 14150,
+      "name": "NBC Comedy Vault"
+    },
+    {
+      "number": 14151,
+      "name": "SNL Vault"
+    },
+    {
+      "number": 14156,
+      "name": "Bravo Vault"
+    },
+    {
+      "number": 14157,
+      "name": "Bachelor Nation"
+    },
+    {
+      "number": 14158,
+      "name": "World of Love Island"
+    },
+    {
+      "number": 14161,
+      "name": "Real Housewives Vault"
+    },
+    {
+      "number": 14163,
+      "name": "Saved by the Bell"
+    },
+    {
+      "number": 14164,
+      "name": "Leave It to Beaver"
+    },
+    {
+      "number": 14165,
+      "name": "Little House on the Prairie"
+    },
+    {
+      "number": 14166,
+      "name": "Lassie"
+    },
+    {
+      "number": 14167,
+      "name": "Hit Sitcoms"
+    },
+    {
+      "number": 14170,
+      "name": "Murder, She Wrote"
+    },
+    {
+      "number": 14171,
+      "name": "Alfred Hitchcock Presents"
+    },
+    {
+      "number": 14172,
+      "name": "Bad Girls Club"
+    },
+    {
+      "number": 14173,
+      "name": "Baywatch"
+    },
+    {
+      "number": 14174,
+      "name": "The Lone Ranger"
+    },
+    {
+      "number": 14175,
+      "name": "American Crimes"
+    },
+    {
+      "number": 14176,
+      "name": "The F.B.I. by WB TV"
+    },
+    {
+      "number": 14179,
+      "name": "Universal Crime"
+    },
+    {
+      "number": 14180,
+      "name": "Unsolved Mysteries"
+    },
+    {
+      "number": 14181,
+      "name": "Forensic Files"
+    },
+    {
+      "number": 14182,
+      "name": "Mysterious Worlds"
+    },
+    {
+      "number": 14183,
+      "name": "Documentary+"
+    },
+    {
+      "number": 14185,
+      "name": "Oxygen True Crime Archives"
+    },
+    {
+      "number": 14186,
+      "name": "Court TV"
+    },
+    {
+      "number": 14192,
+      "name": "Family Feud"
+    },
+    {
+      "number": 14193,
+      "name": "American Ninja Warrior"
+    },
+    {
+      "number": 14194,
+      "name": "BUZZR Stream"
+    },
+    {
+      "number": 14202,
+      "name": "The Martha Stewart Channel"
+    },
+    {
+      "number": 14203,
+      "name": "America's Test Kitchen"
+    },
+    {
+      "number": 14204,
+      "name": "Jamie Oliver"
+    },
+    {
+      "number": 14205,
+      "name": "Las Vegas"
+    },
+    {
+      "number": 14206,
+      "name": "Bizarre Foods with Andrew Zimmer"
+    },
+    {
+      "number": 14207,
+      "name": "Extreme Jobs"
+    },
+    {
+      "number": 14225,
+      "name": "Shades of Black"
+    },
+    {
+      "number": 14226,
+      "name": "Ebony TV by Lionsgate"
+    },
+    {
+      "number": 14227,
+      "name": "Bounce XL"
+    },
+    {
+      "number": 14231,
+      "name": "Green Acres"
+    },
+    {
+      "number": 14232,
+      "name": "In the Heat of the Night"
+    },
+    {
+      "number": 14233,
+      "name": "Lauren Lakes Paternity Court"
+    },
+    {
+      "number": 14234,
+      "name": "MGM Celebrates Black Cinema"
+    },
+    {
+      "number": 14235,
+      "name": "MGM Presents"
+    },
+    {
+      "number": 14236,
+      "name": "MGM Presents Action"
+    },
+    {
+      "number": 14237,
+      "name": "MGM Presents Horror"
+    },
+    {
+      "number": 14238,
+      "name": "MGM Presents Westerns"
+    },
+    {
+      "number": 14239,
+      "name": "Stargate"
+    },
+    {
+      "number": 14240,
+      "name": "The Addams Family by MGM"
+    },
+    {
+      "number": 14241,
+      "name": "The Outer Limits"
+    },
+    {
+      "number": 14246,
+      "name": "Million Dollar Listing"
+    },
+    {
+      "number": 14250,
+      "name": "How-To"
+    },
+    {
+      "number": 14251,
+      "name": "At Home with Family HandyMan"
+    },
+    {
+      "number": 14252,
+      "name": "Garden With Monty Don"
+    },
+    {
+      "number": 14253,
+      "name": "Tastemade"
+    },
+    {
+      "number": 14254,
+      "name": "Tastemade Travel"
+    },
+    {
+      "number": 14258,
+      "name": "Mythbusters"
+    },
+    {
+      "number": 14262,
+      "name": "Ghost Hunters Channel"
+    },
+    {
+      "number": 14263,
+      "name": "Lawless"
+    },
+    {
+      "number": 14264,
+      "name": "Nash Bridges"
+    },
+    {
+      "number": 14265,
+      "name": "Wendy Williams"
+    },
+    {
+      "number": 14270,
+      "name": "PowerNation"
+    },
+    {
+      "number": 14271,
+      "name": "Dog Whisperer"
+    },
+    {
+      "number": 14274,
+      "name": "PBS Nature"
+    },
+    {
+      "number": 14275,
+      "name": "PBS Food"
+    },
+    {
+      "number": 14276,
+      "name": "PBS Travel"
+    },
+    {
+      "number": 14277,
+      "name": "PBS Antiques Roadshow"
+    },
+    {
+      "number": 14278,
+      "name": "Curiosity NOW"
+    },
+    {
+      "number": 14290,
+      "name": "OUTFLIX MOVIES"
+    },
+    {
+      "number": 14341,
+      "name": "Joel Osteen"
+    },
+    {
+      "number": 14342,
+      "name": "Impact Gospel"
+    },
+    {
+      "number": 14360,
+      "name": "Stingray Holidayscapes"
+    },
+    {
+      "number": 14361,
+      "name": "Stingray Naturescape"
+    },
+    {
+      "number": 14363,
+      "name": "Qello Concerts"
+    },
+    {
+      "number": 14405,
+      "name": "NBC Bay Area News"
+    },
+    {
+      "number": 14406,
+      "name": "NBC 10 Boston News"
+    },
+    {
+      "number": 14407,
+      "name": "NBC 5 Chicago News"
+    },
+    {
+      "number": 14408,
+      "name": "NBC Connecticut News"
+    },
+    {
+      "number": 14409,
+      "name": "NBC 5 Dallas Fort Worth News"
+    },
+    {
+      "number": 14410,
+      "name": "NBC 4 Los Angeles News"
+    },
+    {
+      "number": 14411,
+      "name": "NBC 4 New York News"
+    },
+    {
+      "number": 14412,
+      "name": "NBC 10 Philadelphia News"
+    },
+    {
+      "number": 14413,
+      "name": "NBC 7 San Diego News"
+    },
+    {
+      "number": 14414,
+      "name": "NBC 6 South Florida News"
+    },
+    {
+      "number": 14415,
+      "name": "NBC 4 Washington News"
+    },
+    {
+      "number": 14421,
+      "name": "FOX LOCAL Detroit"
+    },
+    {
+      "number": 14422,
+      "name": "FOX LOCAL San Francisco"
+    },
+    {
+      "number": 14423,
+      "name": "FOX LOCAL Dallas Fort Worth"
+    },
+    {
+      "number": 14424,
+      "name": "FOX LOCAL Atlanta"
+    },
+    {
+      "number": 14425,
+      "name": "FOX LOCAL New York"
+    },
+    {
+      "number": 14426,
+      "name": "FOX LOCAL Washington DC"
+    },
+    {
+      "number": 14427,
+      "name": "FOX LOCAL Milwaukee"
+    },
+    {
+      "number": 14428,
+      "name": "FOX LOCAL Austin"
+    },
+    {
+      "number": 14429,
+      "name": "FOX LOCAL Minnesota"
+    },
+    {
+      "number": 14430,
+      "name": "FOX LOCAL Phoenix"
+    },
+    {
+      "number": 14431,
+      "name": "FOX LOCAL Los Angeles"
+    },
+    {
+      "number": 14432,
+      "name": "FOX LOCAL Seattle"
+    },
+    {
+      "number": 14433,
+      "name": "FOX LOCAL Tampa Bay"
+    },
+    {
+      "number": 14434,
+      "name": "FOX LOCAL Houston"
+    },
+    {
+      "number": 14435,
+      "name": "FOX LOCAL Philadelphia"
+    },
+    {
+      "number": 14436,
+      "name": "FOX LOCAL Chicago"
+    },
+    {
+      "number": 14437,
+      "name": "FOX LOCAL Orlando"
+    },
+    {
+      "number": 14481,
+      "name": "News 12 New York"
+    },
+    {
+      "number": 14540,
+      "name": "Telemundo California"
+    },
+    {
+      "number": 14550,
+      "name": "Telemundo Florida"
+    },
+    {
+      "number": 14556,
+      "name": "Telemundo Texas"
+    },
+    {
+      "number": 14557,
+      "name": "Noticias Telemundo Puerto Rico"
+    },
+    {
+      "number": 14565,
+      "name": "Telemundo Noreste"
+    },
+    {
+      "number": 14566,
+      "name": "Noticias Telemundo Suroeste"
+    },
+    {
+      "number": 14582,
+      "name": "Noticias Telemundo AHORA"
+    },
+    {
+      "number": 14602,
+      "name": "Telemundo Romance"
+    },
+    {
+      "number": 14603,
+      "name": "Telemundo Acción"
+    },
+    {
+      "number": 14605,
+      "name": "Telemundo Deportes Ahora"
+    },
+    {
+      "number": 14615,
+      "name": "Lucha Plus"
+    },
+    {
+      "number": 14650,
+      "name": "Estrella TV"
+    },
+    {
+      "number": 14654,
+      "name": "Dateline en español"
+    },
+    {
+      "number": 14655,
+      "name": "Estrella News"
+    },
+    {
+      "number": 14656,
+      "name": "RCN Noticias"
+    },
+    {
+      "number": 14657,
+      "name": "Comercio TV"
+    },
+    {
+      "number": 14664,
+      "name": "Wapa+"
+    },
+    {
+      "number": 14671,
+      "name": "Tastemade Español"
+    },
+    {
+      "number": 14672,
+      "name": "Love The Planet En Español"
+    },
+    {
+      "number": 14681,
+      "name": "Fluffy TV"
+    },
+    {
+      "number": 14682,
+      "name": "Todo Cine"
+    },
+    {
+      "number": 14683,
+      "name": "Camino al cielo"
+    },
+    {
+      "number": 14711,
+      "name": "DNU Cine Romántico"
+    },
+    {
+      "number": 14712,
+      "name": "Canela.TV Clasicos"
+    },
+    {
+      "number": 14721,
+      "name": "América TeVe"
+    },
+    {
+      "number": 14724,
+      "name": "Pelimex"
+    },
+    {
+      "number": 14725,
+      "name": "Filmex"
+    },
+    {
+      "number": 14726,
+      "name": "Filmex Clasico"
+    },
+    {
+      "number": 14728,
+      "name": "Todo Novelas, más Pasiones"
+    }
+  ]
+}
