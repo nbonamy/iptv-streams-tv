@@ -8,8 +8,19 @@ import coil.disk.DiskCache
 import coil.memory.MemoryCache
 import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit
+import coil.imageLoader
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 
 class IPTVApplication : Application(), ImageLoaderFactory {
+    internal val libraryStore by lazy { LibraryStore(this) }
+    override fun onCreate() {
+        super.onCreate()
+        // Prepare artwork infrastructure off the UI thread before the first country opens.
+        CoroutineScope(SupervisorJob() + Dispatchers.IO).launch { runCatching { applicationContext.imageLoader } }
+    }
     override fun newImageLoader() = ImageLoader.Builder(this)
         .components { add(SvgDecoder.Factory()) }
         .okHttpClient {

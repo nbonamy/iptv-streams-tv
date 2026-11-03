@@ -27,7 +27,18 @@ class HeaderMenuTest {
             pressBack()
             // Reopening and selecting the real custom action exercises the callback.
             onView(withId(R.id.browser_menu)).perform(click())
+            val cache = java.io.File(InstrumentationRegistry.getInstrumentation().targetContext.filesDir, "library.json")
+            val modified = cache.lastModified()
             onView(withText("Refresh")).inRoot(isDialog()).perform(click())
+            val deadline = android.os.SystemClock.elapsedRealtime() + 60000
+            var refreshed = false
+            while (!refreshed && android.os.SystemClock.elapsedRealtime() < deadline) {
+                scenario.onActivity {
+                    refreshed = cache.lastModified() > modified && it.findViewById<android.widget.TextView>(R.id.browser_status).text.isEmpty()
+                }
+                if (!refreshed) android.os.SystemClock.sleep(100)
+            }
+            org.junit.Assert.assertTrue("Refresh must replace the saved catalog and finish", refreshed)
         }
     }
 }

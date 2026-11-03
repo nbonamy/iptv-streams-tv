@@ -18,7 +18,7 @@ make build
 
 `make check` runs core tests, Android unit tests, lint and the debug build. Unit
 tests exercise country/category joins, variants and headers, malformed input,
-favorites, logo parsing, country lineup ordering, metadata corrections, offline startup and failed-cache replacement.
+favorites, logo parsing, country lineup ordering, prepared indexes, offline startup and failed-cache replacement.
 The copied phone-server tests cover request decoding, escaping, invalid requests,
 port conflicts and restart.
 
@@ -116,6 +116,24 @@ No user playlist/account entry is provided. A successful refresh validates befor
 replacing the local cache through Android AtomicFile. A failed refresh leaves the
 working catalog intact. Invalid caches fall back to the bundled source.
 
+Startup and country navigation never download the playlist. `Refresh` in the IPTV
+header menu is the only catalog download action. The build generates `catalog.json`
+from the bundled M3U and metadata using the core parser. A first install seeds the
+local catalog from this prepared data and persists it after the UI is ready;
+an older text-only cache upgrades once.
+The versioned atomic cache retains both source text and parsed channels. A shared
+application store reuses its channel snapshot across activity recreation. Parsed
+channels precede source text in the cache, so startup does not decode the retained
+M3U and metadata strings. Source text is loaded only when needed by Refresh.
+Country lists, lineup ordering, ID lookups and folded search text are prepared once
+per catalog load or successful refresh. Favorites read only their saved IDs;
+channel metadata always comes from the source.
+
+`CatalogPerformanceTest` checks local startup without downloads, first-install
+seeding, and three real France grid draws (under 250 ms). Run it alongside the
+native browsing/search checks. Generated catalog output stays under `build/` and
+is regenerated when source snapshots or the core parser change.
+
 Country/category joins use the provider channel ID before its variant suffix.
 Unknown channels remain available. Favorites persist by channel ID; channels
 without an ID use a deterministic URL hash and may acquire a new identity if that
@@ -170,7 +188,8 @@ names remain independent of channel order.
 
 ## Phone search
 
-The local HTTP listener runs only while the activity is visible and uses ports
+The local HTTP listener starts when search is opened, stops when the activity is
+hidden, and uses ports
 8090–8099 so it can coexist with Movies' 8070–8079 range. It serves the adapted
 Movies phone page and IPTV icon. A phone must reach the TV on the same LAN.
 Emulator addresses generally require port forwarding for a physical phone;

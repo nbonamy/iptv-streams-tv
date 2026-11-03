@@ -74,6 +74,8 @@ class BrowsingTest {
                 .check(androidx.test.espresso.assertion.ViewAssertions.doesNotExist())
             tile(1)
             awaitGrid(scenario) { list -> list.all { it.country == "FR" } }
+            onView(withText("Hold Select for channel options")).check(androidx.test.espresso.assertion.ViewAssertions.doesNotExist())
+            onView(withId(R.id.browser_status)).check(matches(withEffectiveVisibility(Visibility.GONE)))
             onView(withId(R.id.browser_hero)).check(matches(withEffectiveVisibility(Visibility.GONE)))
             scenario.onActivity {
                 val grid = it.findViewById<RecyclerView>(R.id.channel_grid)
@@ -87,6 +89,8 @@ class BrowsingTest {
                 org.junit.Assert.assertTrue("Name belongs below the logo", name[1] >= logo[1] + holder.logo.height)
             }
             onView(withId(R.id.channel_grid)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, longClick()))
+            onView(withText("Country")).check(androidx.test.espresso.assertion.ViewAssertions.doesNotExist())
+            onView(withText("Sports category")).check(androidx.test.espresso.assertion.ViewAssertions.doesNotExist())
             onView(withText("Add to favorites")).perform(click())
             androidx.test.espresso.Espresso.pressBack(); home(scenario)
             onView(withId(R.id.browser_hero)).check(matches(isDisplayed()))

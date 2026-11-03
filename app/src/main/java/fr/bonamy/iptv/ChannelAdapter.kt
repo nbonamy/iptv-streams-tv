@@ -81,6 +81,8 @@ internal class ChannelAdapter(
         super.onViewRecycled(holder)
     }
     fun replace(items: List<Channel>, ids: List<String>, countries: Boolean = false) {
-        channels = items; favorites = ids.toSet(); showCountries = countries; notifyDataSetChanged()
+        val favoriteIds = ids.toSet()
+        if (channels === items && favorites == favoriteIds && showCountries == countries) return
+        channels = items; favorites = favoriteIds; showCountries = countries; notifyDataSetChanged()
     }
 }

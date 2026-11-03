@@ -4,59 +4,130 @@ import android.content.Context
 import android.util.AtomicFile
 import fr.bonamy.iptv.core.*
 import org.json.JSONArray
-import org.json.JSONObject
 import java.io.File
 import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonWriter
+import com.google.gson.Gson
 
 internal data class Library(val playlist: String, val metadataJson: String) {
     fun channels() = Catalog.parse(playlist, Catalog.metadata(metadataJson))
 }
 
-internal class LibraryStore(private val context: Context, private val fetch: (String) -> String = SourceClient()::fetch) {
-    companion object { private val cacheLock = Any() }
-    private val file = AtomicFile(File(context.filesDir, "library.json"))
-    fun bundled() = Library(context.assets.open("worldwide.m3u").bufferedReader().use { it.readText() },
-        context.assets.open("channels.json").bufferedReader().use { it.readText() })
+/** Channel data is ready immediately; the retained M3U/metadata is read only for Refresh. */
+internal class CatalogSnapshot(val channels: List<Channel>, source: () -> Library) {
+    val source: Library by lazy(source)
+}
 
-    fun initial(): Pair<Library, List<Channel>> = synchronized(cacheLock) {
-        val cached = runCatching {
-            JsonReader(file.openRead().bufferedReader()).use { reader ->
-                var playlist: String? = null; var metadata: String? = null
-                reader.beginObject()
-                while (reader.hasNext()) when (reader.nextName()) {
-                    "playlist" -> playlist = reader.nextString()
-                    "metadata" -> metadata = reader.nextString()
-                    else -> reader.skipValue()
-                }
-                reader.endObject()
-                Library(requireNotNull(playlist), requireNotNull(metadata)).let { it to it.channels() }
+internal class LibraryStore(private val context: Context, private val fetch: (String) -> String = { sourceClient.fetch(it) }) {
+    companion object {
+        private val cacheLock = Any()
+        private val sourceClient by lazy { SourceClient() }
+    }
+    private val file = AtomicFile(File(context.filesDir, "library.json"))
+    @Volatile private var snapshot: CatalogSnapshot? = null
+    @Volatile private var pendingSeed: CatalogSnapshot? = null
+    private val gson = Gson()
+
+    fun initial(): CatalogSnapshot {
+        snapshot?.let { return it }
+        return synchronized(cacheLock) {
+            snapshot?.let { return@synchronized it }
+            val loaded = runCatching { readPrepared(file.openRead().bufferedReader()) { synchronized(cacheLock) { readSource() } } }.getOrNull() ?: runCatching {
+                // Migrate a text-only or damaged derived cache using its original saved source.
+                val source = readSource()
+                val channels = source.channels()
+                write(source, channels)
+                CatalogSnapshot(channels) { source }
+            }.getOrElse {
+                readPrepared(context.assets.open("catalog.json").bufferedReader()) {
+                    Library(context.assets.open("worldwide.m3u").bufferedReader().use { it.readText() },
+                        context.assets.open("channels.json").bufferedReader().use { it.readText() })
+                }.also { pendingSeed = it }
             }
-        }.getOrNull()
-        cached ?: bundled().let { it to it.channels() }
+            loaded.also { snapshot = it }
+        }
     }
 
-    fun refresh(current: Library): Pair<Library, List<Channel>> {
-        val playlist = fetch(Source.PLAYLIST)
-        val metadata = runCatching { Catalog.compactMetadata(fetch(Source.METADATA)) }.getOrDefault(current.metadataJson)
-        if (Thread.currentThread().isInterrupted) throw java.io.InterruptedIOException()
-        val updated = Library(playlist, metadata)
-        val channels = updated.channels() // Validate everything before replacing the working cache.
+    private fun readPrepared(input: java.io.Reader, source: () -> Library): CatalogSnapshot = JsonReader(input).use { reader ->
+        var version = 0
+        reader.beginObject()
+        while (reader.hasNext()) when (reader.nextName()) {
+            "version" -> version = reader.nextInt()
+            "channels" -> {
+                require(version in 2..3)
+                val channels: Array<Channel> = gson.fromJson(reader, Array<Channel>::class.java)
+                require(channels.isNotEmpty() && channels.all(::validChannel))
+                // Parsed channels precede the larger source strings in the current format.
+                // Closing here avoids decoding those strings on every cold process launch.
+                return CatalogSnapshot(channels.toList(), source)
+            }
+            else -> reader.skipValue()
+        }
+        error("No prepared channels")
+    }
+
+    private fun readSource(): Library = JsonReader(file.openRead().bufferedReader()).use { reader ->
+        var playlist: String? = null; var metadata: String? = null
+        reader.beginObject()
+        while (reader.hasNext()) when (reader.nextName()) {
+            "playlist" -> playlist = reader.nextString()
+            "metadata" -> metadata = reader.nextString()
+            else -> reader.skipValue()
+        }
+        reader.endObject()
+        Library(requireNotNull(playlist), requireNotNull(metadata))
+    }
+
+    private fun seedBundled() {
+        val output = file.startWrite()
+        try {
+            context.assets.open("catalog.json").use { it.copyTo(output) }
+            file.finishWrite(output)
+        } catch (error: Exception) { file.failWrite(output); throw error }
+    }
+
+    /** Persist a bundled seed after the UI has received its in-memory catalog. */
+    fun persistIfNeeded() {
+        val expected = pendingSeed ?: return
         synchronized(cacheLock) {
-            val output = file.startWrite()
-            try {
-                // Stream escaping directly to disk: JSONObject.toString creates several
-                // full-size copies and competes with the video decoder for the TV heap.
-                val writer = JsonWriter(output.writer())
-                writer.beginObject().name("playlist").value(playlist).name("metadata").value(metadata).endObject()
-                writer.flush()
-                file.finishWrite(output)
-            } catch (error: Exception) {
-                file.failWrite(output)
-                throw error
+            if (snapshot === expected && pendingSeed === expected) {
+                seedBundled()
+                pendingSeed = null
             }
         }
-        return updated to channels
+    }
+
+    fun refresh(current: Library? = null): CatalogSnapshot {
+        val playlist = fetch(Source.PLAYLIST)
+        val metadata = runCatching { Catalog.compactMetadata(fetch(Source.METADATA)) }.getOrElse {
+            runCatching { current?.metadataJson ?: snapshot?.source?.metadataJson }.getOrNull()
+                ?: context.assets.open("channels.json").bufferedReader().use { it.readText() }
+        }
+        if (Thread.currentThread().isInterrupted) throw java.io.InterruptedIOException()
+        val updated = Library(playlist, metadata)
+        val channels = updated.channels()
+        return synchronized(cacheLock) {
+            write(updated, channels)
+            pendingSeed = null
+            CatalogSnapshot(channels) { updated }.also { snapshot = it }
+        }
+    }
+
+    private fun validChannel(channel: Channel): Boolean = runCatching {
+        channel.id.isNotBlank() && channel.name.isNotBlank() && channel.categories.all { it.isNotBlank() } &&
+            channel.streams.isNotEmpty() && channel.streams.all { it.url.isNotBlank() && it.label.isNotBlank() && it.headers.keys.all { key -> key.isNotBlank() } }
+    }.getOrDefault(false)
+
+    private fun write(library: Library, channels: List<Channel>) {
+        val output = file.startWrite()
+        try {
+            val writer = JsonWriter(output.bufferedWriter())
+            writer.beginObject().name("version").value(3).name("channels")
+            gson.toJson(channels, List::class.java, writer)
+            writer.name("playlist").value(library.playlist).name("metadata").value(library.metadataJson).endObject()
+            writer.flush()
+            file.finishWrite(output)
+        } catch (error: Exception) { file.failWrite(output); throw error }
     }
 }
 
@@ -75,19 +146,7 @@ internal class ViewerPreferences(context: Context) {
         ids.removeAt(from); ids.add(to, id)
         prefs.edit().putString("favorites", JSONArray(ids).toString()).apply()
     }
-    fun country(id: String, country: String?) { prefs.edit().putString("country:$id", country).apply() }
-    fun sports(id: String, sports: Boolean?) {
-        val edit = prefs.edit()
-        if (sports == null) edit.remove("sports:$id") else edit.putBoolean("sports:$id", sports)
-        edit.apply()
-    }
-    fun apply(channels: List<Channel>): List<Channel> {
-        val present = channels.map { it.id }.toHashSet()
-        val missing = favorites().filterNot { it in present }.map { Channel(it, prefs.getString("name:$it", "Unavailable channel")!!, null, emptyList(), emptyList()) }
-        return (channels + missing).map { channel ->
-            val categories = if (!prefs.contains("sports:${channel.id}")) channel.categories else
-                channel.categories.filterNot { it == "sports" } + if (prefs.getBoolean("sports:${channel.id}", false)) listOf("sports") else emptyList()
-            channel.copy(country = prefs.getString("country:${channel.id}", null) ?: channel.country, categories = categories)
-        }
+    fun favoriteChannels(channels: Map<String, Channel>): List<Channel> = favorites().map { id ->
+        channels[id] ?: Channel(id, prefs.getString("name:$id", "Unavailable channel")!!, null, emptyList(), emptyList())
     }
 }

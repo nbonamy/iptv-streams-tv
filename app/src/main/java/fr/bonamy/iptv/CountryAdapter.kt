@@ -12,7 +12,7 @@ import java.util.Locale
 internal data class CountryTile(val code: String?, val name: String)
 internal class CountryAdapter(private val focused: (String?) -> Unit, private val select: (String?) -> Unit) : RecyclerView.Adapter<CountryAdapter.Holder>() {
     var countries = emptyList<CountryTile>()
-        set(value) { field = value; notifyDataSetChanged() }
+        set(value) { if (field == value) return; field = value; notifyDataSetChanged() }
     class Holder(val card: LinearLayout, val code: TextView, val name: TextView, val icon: ImageView) : RecyclerView.ViewHolder(card)
     override fun getItemCount() = countries.size
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -52,7 +52,8 @@ internal class CountryAdapter(private val focused: (String?) -> Unit, private va
         fun tiles(codes: List<String>): List<CountryTile> {
             val priorities = listOf(CountryTile("FAVORITES", "Favorites"), CountryTile("FR", "France"),
                 CountryTile("US", "USA"), CountryTile("GB", "UK"), CountryTile("CA", "Canada"))
-            return priorities + codes.distinct().filterNot { it in setOf("FR", "US", "GB", "CA") }.sortedBy(::name).map { CountryTile(it, name(it)) }
+            return priorities + codes.distinct().filterNot { it in setOf("FR", "US", "GB", "CA") }
+                .map { CountryTile(it, name(it)) }.sortedBy { it.name }
         }
     }
 }

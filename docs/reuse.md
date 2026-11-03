@@ -30,7 +30,7 @@ is carried over. Both siblings remain independent and unchanged.
 
 The IPTV core owns metadata joins, stable channel IDs, playlist variants, search,
 country/category filtering and bounded source requests. Android owns atomic cache
-replacement, favorite ordering/corrections, activity visibility, remote focus and
+replacement, favorite ordering, activity visibility, remote focus and
 Media3 lifecycle. Tests and emulator acceptance are described in
 [development](development.md).
 

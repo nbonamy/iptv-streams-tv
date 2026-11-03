@@ -27,20 +27,20 @@ class LibraryStoreTest {
         first.refresh(Library(playlist, metadata))
         val bad = LibraryStore(context) { "<html>unavailable</html>" }
         assertThrows(IllegalArgumentException::class.java) { bad.refresh(Library(playlist, metadata)) }
-        assertEquals("France2.fr", bad.initial().second.single().id)
+        assertEquals("France2.fr", bad.initial().channels.single().id)
         val offline = LibraryStore(context) { throw java.io.IOException("offline") }
         assertThrows(java.io.IOException::class.java) { offline.refresh(Library(playlist, metadata)) }
-        assertEquals("France2.fr", offline.initial().second.single().id)
+        assertEquals("France2.fr", offline.initial().channels.single().id)
     }
     @Test fun `cache stores only compact metadata rather than unused provider payload`() {
         val full = metadata.replace("\"categories\"", "\"unused\":\"${"x".repeat(1000000)}\",\"categories\"")
         LibraryStore(context) { if (it == Source.PLAYLIST) playlist else full }.refresh(Library(playlist, metadata))
-        assertTrue(File(context.filesDir, "library.json").length() < 1000)
-        assertEquals("FR", LibraryStore(context).initial().second.single().country)
+        assertTrue(File(context.filesDir, "library.json").length() < 2000)
+        assertEquals("FR", LibraryStore(context).initial().channels.single().country)
     }
     @Test fun `bundled source loads offline and corrupt cache falls back to it`() {
         File(context.filesDir, "library.json").writeText("not json")
-        val channels = LibraryStore(context).initial().second
+        val channels = LibraryStore(context).initial().channels
         assertTrue(channels.size > 10000)
         assertTrue(Catalog.browse(channels, Section.FRANCE).size > 100)
         assertTrue(Catalog.browse(channels, Section.USA).size > 1000)
@@ -53,18 +53,76 @@ class LibraryStoreTest {
         prefs.toggle(a); prefs.toggle(b); prefs.move("b", -1)
         val restored = ViewerPreferences(context)
         assertEquals(listOf("b", "a"), restored.favorites())
-        assertEquals(0, restored.apply(listOf(a)).first { it.id == "b" }.streams.size)
-        assertEquals(listOf("b", "a"), Catalog.browse(restored.apply(listOf(a.copy(streams = listOf(Stream("https://example.com/new", "New"))))), Section.FAVORITES, restored.favorites()).map { it.id })
+        assertEquals(0, restored.favoriteChannels(mapOf(a.id to a)).first { it.id == "b" }.streams.size)
+        assertEquals(listOf("b", "a"), restored.favoriteChannels(mapOf(a.id to a.copy(streams = listOf(Stream("https://example.com/new", "New"))))).map { it.id })
         restored.toggle(b); assertEquals(listOf("a"), restored.favorites())
     }
-    @Test fun `explicit country and sports corrections persist and can return to source defaults`() {
-        val channel = Channel("x", "X", null, listOf("news"), emptyList())
-        ViewerPreferences(context).apply { country("x", "FR"); sports("x", true) }
+    @Test fun `saved parsed catalog is reused without reparsing raw M3U`() {
+        val store = LibraryStore(context) { if (it == Source.PLAYLIST) playlist else metadata }
+        val first = store.refresh(Library(playlist, metadata))
+        assertSame(store.initial(), store.initial())
+        assertEquals(first.channels, store.initial().channels)
+        val cache = File(context.filesDir, "library.json")
+        // The parsed cache remains usable even if its source text cannot be parsed.
+        val json = org.json.JSONObject(cache.readText()).put("playlist", "cached raw source is not reparsed")
+        cache.writeText(json.toString())
+        val reopened = LibraryStore(context) { error("Offline startup attempted a download") }.initial()
+        assertEquals(first.channels, reopened.channels)
+    }
+    @Test fun `older text only caches upgrade once and favorites ignore legacy metadata overrides`() {
+        File(context.filesDir, "library.json").writeText(org.json.JSONObject().put("playlist", playlist).put("metadata", metadata).toString())
+        val channels = LibraryStore(context).initial().channels
+        assertEquals("FR", channels.single().country)
+        assertEquals(3, org.json.JSONObject(File(context.filesDir, "library.json").readText()).getInt("version"))
+        context.getSharedPreferences("viewer", Context.MODE_PRIVATE).edit().putString("country:France2.fr", "US").putBoolean("sports:France2.fr", true).commit()
         val prefs = ViewerPreferences(context)
-        val corrected = prefs.apply(listOf(channel)).single()
-        assertEquals("FR", corrected.country); assertTrue("sports" in corrected.categories)
-        prefs.country("x", null); prefs.sports("x", null)
-        assertNull(prefs.apply(listOf(channel)).single().country)
-        assertFalse("sports" in prefs.apply(listOf(channel)).single().categories)
+        prefs.toggle(channels.single())
+        assertSame(channels.single(), prefs.favoriteChannels(channels.associateBy { it.id }).single())
+    }
+    @Test fun `invalid materialized channels rebuild from the saved source`() {
+        val json = org.json.JSONObject().put("version", 2).put("playlist", playlist).put("metadata", metadata)
+            .put("channels", org.json.JSONArray("[{}]"))
+        File(context.filesDir, "library.json").writeText(json.toString())
+        val loaded = LibraryStore(context) { error("Local recovery must not download") }.initial()
+        assertEquals("France2.fr", loaded.channels.single().id)
+    }
+    @Test fun `a blocked refresh keeps the existing in memory catalog immediately readable`() {
+        val entered = java.util.concurrent.CountDownLatch(1)
+        val release = java.util.concurrent.CountDownLatch(1)
+        var block = false
+        val store = LibraryStore(context) {
+            if (block) { entered.countDown(); check(release.await(5, java.util.concurrent.TimeUnit.SECONDS)) }
+            if (it == Source.PLAYLIST) playlist else metadata
+        }
+        store.refresh(Library(playlist, metadata))
+        val original = store.initial()
+        block = true
+        val executor = java.util.concurrent.Executors.newSingleThreadExecutor()
+        try {
+            val pending = executor.submit { store.refresh(original.source) }
+            assertTrue(entered.await(3, java.util.concurrent.TimeUnit.SECONDS))
+            assertSame(original, store.initial())
+            release.countDown(); pending.get(3, java.util.concurrent.TimeUnit.SECONDS)
+            assertNotSame(original, store.initial())
+        } finally { release.countDown(); executor.shutdownNow() }
+    }
+    @Test fun `bundled catalog is available before persistence and an explicit refresh supersedes the pending seed`() {
+        val store = LibraryStore(context) { if (it == Source.PLAYLIST) playlist else metadata }
+        val bundled = store.initial()
+        assertTrue(bundled.channels.size > 10000)
+        assertFalse(File(context.filesDir, "library.json").exists())
+        val refreshed = store.refresh()
+        store.persistIfNeeded()
+        assertEquals(refreshed.channels, LibraryStore(context).initial().channels)
+        assertEquals(listOf("France2.fr"), refreshed.channels.map { it.id })
+    }
+    @Test fun `the initial bundled source is retained in a complete durable snapshot`() {
+        val store = LibraryStore(context) { error("Local source must not download") }
+        val initial = store.initial()
+        store.persistIfNeeded()
+        val reopened = LibraryStore(context).initial()
+        assertEquals(initial.channels, reopened.channels)
+        assertEquals(initial.source.playlist, reopened.source.playlist)
+        assertEquals(initial.source.metadataJson, reopened.source.metadataJson)
     }
 }

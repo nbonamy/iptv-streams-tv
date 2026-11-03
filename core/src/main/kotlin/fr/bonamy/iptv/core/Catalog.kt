@@ -16,6 +16,8 @@ data class Channel(val id: String, val name: String, val country: String?, val c
 enum class Section(val title: String) { FAVORITES("Favorites"), FRANCE("France"), USA("USA"), SPORTS("Sports"), ALL("All channels") }
 
 object Catalog {
+    private val combiningMarks = Regex("\\p{M}+")
+    private val hex = "0123456789abcdef".toCharArray()
     /** Skip unused provider fields without building a full JSON object tree. */
     fun metadata(json: String): Map<String, Metadata> = JsonReader(StringReader(json)).use { reader ->
         val result = linkedMapOf<String, Metadata>()
@@ -63,6 +65,7 @@ object Catalog {
             if (value.isNotBlank() && value.none { it == '\r' || it == '\n' }) headers[canonical] = value
         }
         text.lineSequence().forEach { raw ->
+            if (Thread.currentThread().isInterrupted) throw java.io.InterruptedIOException()
             val line = raw.trim().removePrefix("\uFEFF")
             when {
                 line.startsWith("#EXTINF:") -> {
@@ -85,7 +88,10 @@ object Catalog {
                             runCatching { header(option.substringBefore('='), URLDecoder.decode(option.substringAfter('='), "UTF-8")) }
                         }
                         val providerId = attributes["tvg-id"].orEmpty().substringBefore('@').trim()
-                        val id = providerId.ifBlank { "url:" + MessageDigest.getInstance("SHA-256").digest(url.toByteArray()).joinToString("") { "%02x".format(it) } }
+                        val id = providerId.ifBlank {
+                            val digest = MessageDigest.getInstance("SHA-256").digest(url.toByteArray())
+                            "url:" + buildString(digest.size * 2) { digest.forEach { byte -> val value = byte.toInt() and 255; append(hex[value ushr 4]); append(hex[value and 15]) } }
+                        }
                         val info = metadata[providerId]
                         val categories = (info?.categories.orEmpty() + attributes["group-title"].orEmpty().split(';').map { it.trim().lowercase(Locale.ROOT) }).filter { it.isNotBlank() }.distinct()
                         val existing = channels[id]
@@ -103,7 +109,8 @@ object Catalog {
             }
         }
         require(channels.isNotEmpty()) { "Playlist contains no supported channels" }
-        return channels.values.sortedWith(compareBy({ folded(it.name) }, { it.id }))
+        // Compute Unicode sort keys once, not on every comparison in the sort.
+        return channels.values.map { it to folded(it.name) }.sortedWith(compareBy({ it.second }, { it.first.id })).map { it.first }
     }
 
     fun browse(channels: List<Channel>, section: Section, favorites: List<String> = emptyList(), query: String = "", country: String? = null, order: CountryChannelOrder = CountryChannelOrder.EMPTY): List<Channel> {
@@ -117,14 +124,15 @@ object Catalog {
                 Section.SPORTS -> "sports" in channel.categories
                 Section.ALL -> true
             }
-            val searchable = folded(channel.name + " " + channel.country.orEmpty() + " " + channel.categories.joinToString(" "))
-            inSection && (country == null || (channel.country ?: "ZZ") == country) && terms.all { it in searchable }
+            inSection && (country == null || (channel.country ?: "ZZ") == country) &&
+                (terms.isEmpty() || folded(searchableText(channel)).let { searchable -> terms.all { it in searchable } })
         }
         if (section == Section.FAVORITES) return result.sortedBy { favoriteOrder[it.id] }
         val orderCountry = country ?: when (section) { Section.FRANCE -> "FR"; Section.USA -> "US"; else -> null }
         return if (orderCountry != null) order.sort(result, orderCountry) else result
     }
 
-    private fun folded(value: String) = Normalizer.normalize(value, Normalizer.Form.NFD)
-        .replace(Regex("\\p{M}+"), "").lowercase(Locale.ROOT)
+    internal fun searchableText(channel: Channel) = channel.name + " " + channel.country.orEmpty() + " " + channel.categories.joinToString(" ")
+    internal fun folded(value: String): String = if (value.all { it.code < 128 }) value.lowercase(Locale.ROOT)
+        else Normalizer.normalize(value, Normalizer.Form.NFD).replace(combiningMarks, "").lowercase(Locale.ROOT)
 }

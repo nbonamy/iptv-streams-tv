@@ -1,5 +1,7 @@
 # IPTV
 
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+
 Native Android TV app for live channels from the built-in
 [iptv-org worldwide playlist](https://iptv-org.github.io/iptv/index.m3u).
 
@@ -9,8 +11,8 @@ Native Android TV app for live channels from the built-in
 - Country-specific channel lineups: France follows national DTT numbering; remaining channels follow alphabetically.
 - Channel search from the TV, voice input where available, or a phone via QR code.
 - Native fullscreen playback, quality/audio/subtitle selection, and explicit source selection.
-- Saved favorites, manual ordering, and country/sports corrections.
-- Bundled channels for offline startup, automatic refresh, and a persistent cache.
+- Saved favorites and manual ordering.
+- Immediate local channel browsing, a persistent catalog, and explicit Refresh.
 
 The interface follows the TV family's Lato typography, dark surfaces, blue focus,
 Sports country grid, and Movies playback menus and phone search.
@@ -25,8 +27,8 @@ Sports country grid, and Movies playback menus and phone search.
 
 ## Usage
 
-Select a channel to watch. Hold **Select** on a channel for favorites, ordering,
-and category options. Use the home tiles for countries and collections;
+Select a channel to watch. Hold **Select** on a channel to manage favorites
+and their order. Use the home tiles for countries and collections;
 Search covers the worldwide library. **Back** returns to the selected tile.
 
 France uses the [metropolitan national DTT lineup](https://en.wikipedia.org/wiki/List_of_television_stations_in_France).
@@ -50,6 +52,8 @@ Focus the **IPTV / section** header and press **OK** to open the menu.
 Requires JDK 17 and Android SDK 36. Runs on Android TV 8.0 or later.
 
 ```sh
+git clone git@github.com:nbonamy/iptv-streams-tv.git
+cd iptv-streams-tv
 make check
 make build
 ```
@@ -65,3 +69,13 @@ make run ANDROID_DEVICE=emulator-5554
 
 See [development](docs/development.md), [product direction](PRODUCT.md),
 [visual conventions](DESIGN.md), and [third-party notices](THIRD_PARTY_NOTICES.md).
+
+## License
+
+Copyright 2026 Nicolas Bonamy. Original project source is licensed under the
+[Apache License 2.0](LICENSE).
+
+Third-party code, fonts, artwork and channel data retain their respective licenses;
+see [NOTICE](NOTICE) and [third-party notices](THIRD_PARTY_NOTICES.md).
+The Nextlib FFmpeg decoder dependency is GPL-3.0, so distribution of an APK
+containing it must also comply with its GPL terms.

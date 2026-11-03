@@ -12,10 +12,10 @@ class CountryChannelOrder private constructor(private val rules: Map<String, Lis
         val entries = rules[country] ?: return channels
         val ids = entries.flatMap { rule -> rule.ids.map { it to rule.number } }.toMap()
         val names = entries.flatMap { rule -> rule.names.map { it to rule.number } }.toMap()
-        return channels.sortedBy { channel ->
+        return channels.map { channel -> channel to (
             if (channel.country != country) Int.MAX_VALUE
             else ids[channel.id] ?: names[normalized(channel.name)] ?: Int.MAX_VALUE
-        }
+        ) }.sortedBy { it.second }.map { it.first }
     }
 
     companion object {

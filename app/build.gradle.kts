@@ -14,7 +14,9 @@ android {
     kotlinOptions { jvmTarget = "17" }
     testOptions { unitTests.isIncludeAndroidResources = true }
     packaging { resources.excludes += "META-INF/versions/9/OSGI-INF/MANIFEST.MF" }
+    sourceSets["main"].assets.srcDir(rootProject.layout.buildDirectory.dir("generated/bundled-catalog"))
 }
+tasks.named("preBuild") { dependsOn(":core:compileBundledCatalog") }
 dependencies {
     implementation(project(":core"))
     implementation("com.google.code.gson:gson:2.12.1")

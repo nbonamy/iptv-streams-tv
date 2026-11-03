@@ -53,7 +53,7 @@ appear. Other countries and global search retain alphabetical order until a
 country lineup is supplied. Favorites always retain the viewer's manual order.
 
 M3U metadata may be incomplete or inconsistent. Preserve provider names and groups;
-use explicit country/category metadata where available and allow user corrections.
+use explicit country/category metadata where available.
 Keep unknown-country and uncategorized channels accessible. Missing metadata must
 not silently exclude a channel from global search. Do not fabricate a programme
 guide or sports schedule when the source does not supply one.
@@ -83,10 +83,10 @@ menus. Shared resources are copied locally so neither sibling is a build depende
 Playback prefers hardware decoding and includes FFmpeg fallback for unsupported
 audio and failing device decoders, keeping viewing inside the app.
 
-A source snapshot is bundled for startup without a network connection. The fixed
-worldwide URL refreshes automatically while the app is visible and through Refresh;
-valid updates replace a persistent cache atomically. Country/category metadata
-joins iptv-org channel IDs, with explicit local corrections available to the viewer.
+A prepared source snapshot is bundled for immediate startup without a network
+connection. Startup and browsing use the saved local catalog. Refresh explicitly
+downloads the fixed worldwide source, validates it, and replaces the persistent
+cache atomically. Country/category metadata joins iptv-org channel IDs.
 
 Movies and series are outside the first version. XMLTV/now-next, catch-up,
 recording, multiview, time-shifting, and background sync

@@ -40,8 +40,8 @@ internal class RemoteSearchController(context: Context, private val onSearch: (S
         addView(qr, LinearLayout.LayoutParams(dp(72), dp(72)))
         addView(addressLabel, LinearLayout.LayoutParams(-2, -2))
     }
-    private val page = context.assets.open("remote/index.html").bufferedReader().use { it.readText() }
-    private val icon = Bitmap.createBitmap(192, 192, Bitmap.Config.ARGB_8888).let { bitmap ->
+    private val page by lazy { context.assets.open("remote/index.html").bufferedReader().use { it.readText() } }
+    private val icon by lazy { Bitmap.createBitmap(192, 192, Bitmap.Config.ARGB_8888).let { bitmap ->
         context.getDrawable(R.mipmap.ic_launcher)?.apply {
             setBounds(0, 0, 192, 192)
             draw(Canvas(bitmap))
@@ -51,7 +51,7 @@ internal class RemoteSearchController(context: Context, private val onSearch: (S
             bitmap.recycle()
             output.toByteArray()
         }
-    }
+    } }
 
     fun start() {
         val currentAddress = RemoteSearchAddress.find()

@@ -20,7 +20,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import fr.bonamy.iptv.core.*
 import kotlinx.coroutines.*
-import java.util.Locale
 
 class MainActivity : ComponentActivity() {
     private lateinit var root: FrameLayout
@@ -46,12 +45,13 @@ class MainActivity : ComponentActivity() {
     private lateinit var menuControl: LinearLayout
     private var browserMenu: android.app.Dialog? = null
     private val preferences by lazy { ViewerPreferences(this) }
-    private val store by lazy { LibraryStore(this) }
+    private val store get() = (application as IPTVApplication).libraryStore
     private val channelOrder by lazy {
         CountryChannelOrder.parse(assets.open("channel-order.json").bufferedReader().use { it.readText() })
     }
-    private var library: Library? = null
-    private var channels = emptyList<Channel>()
+    private var library: CatalogSnapshot? = null
+    private var catalog = CatalogIndex(emptyList())
+    private var countries = CountryAdapter.tiles(emptyList())
     internal var section = Section.ALL
         private set
     private var country: String? = null
@@ -189,14 +189,18 @@ class MainActivity : ComponentActivity() {
             }
         })
         render(true)
+        prepareChannelCards()
         lifecycleScope.launch {
             try {
-                val loaded = withContext(Dispatchers.IO) { store.initial() }
-                library = loaded.first; channels = loaded.second; status.text = "Hold Select for channel options"
-                render(!countryMode || selectedChannel != null)
-                restorePlayback?.let { id -> preferences.apply(channels).find { it.id == id }?.let { play(it, restoreStream) } }
+                val loaded = withContext(Dispatchers.IO) { prepareLibrary(store.initial()) }
+                // An explicit Refresh may finish while the initial local index is preparing.
+                if (library == null) {
+                    applyLibrary(loaded)
+                    render(!countryMode || selectedChannel != null)
+                }
+                restorePlayback?.let { id -> catalog.byId[id]?.let { play(it, restoreStream) } }
                 restorePlayback = null
-                refresh(silent = true)
+                lifecycleScope.launch(Dispatchers.IO) { runCatching { store.persistIfNeeded() } }
             } catch (error: CancellationException) { throw error }
             catch (_: Exception) { status.text = "Channels unavailable. Select Refresh to retry."; render() }
         }
@@ -206,19 +210,32 @@ class MainActivity : ComponentActivity() {
         countryMode = true; country = null; render(true)
     }
 
+    private fun prepareChannelCards() {
+        val pool = grid.recycledViewPool
+        pool.setMaxRecycledViews(0, 18)
+        grid.postOnAnimation(object : Runnable {
+            override fun run() {
+                if (isDestroyed || !countryMode || pool.getRecycledViewCount(0) >= 12) return
+                // Build one reusable card per frame while the local catalog loads.
+                pool.putRecycledView(adapter.createViewHolder(grid, 0))
+                grid.postOnAnimation(this)
+            }
+        })
+    }
+
     private fun render(focus: Boolean = false) {
         if (!::adapter.isInitialized) return
         val searching = searchPanel.visibility == View.VISIBLE
         hero.visibility = if (countryMode && !searching) View.VISIBLE else View.GONE
         heading.text = if (searching) "Search" else if (countryMode) "LiveTV" else country?.let(::countryName) ?: section.title
         breadcrumb.text = "/  " + heading.text
-        status.visibility = if (countryMode && library != null) View.INVISIBLE else View.VISIBLE
+        status.visibility = if (status.text.isNullOrBlank()) View.GONE else View.VISIBLE
         val currentSection = section; val currentCountry = country; val query = search.text.toString()
-        val favorites = preferences.favorites(); val source = channels
+        val favorites = preferences.favorites(); val source = catalog
         filterJob?.cancel()
         if (countryMode && searchPanel.visibility != View.VISIBLE) {
             val restoreCountryFocus = countryGrid.hasFocus()
-            countryAdapter.countries = CountryAdapter.tiles(preferences.apply(channels).map { it.country ?: "ZZ" })
+            countryAdapter.countries = countries
             countryGrid.visibility = View.VISIBLE; grid.visibility = View.GONE; empty.visibility = View.GONE
             if (focus || restoreCountryFocus) {
                 val position = countryAdapter.countries.indexOfFirst { it.code == countryFocus }.coerceAtLeast(0)
@@ -231,32 +248,40 @@ class MainActivity : ComponentActivity() {
         countryGrid.visibility = View.GONE
         if (searching && query.isBlank()) {
             adapter.replace(emptyList(), favorites, countries = true)
-            grid.visibility = View.GONE; empty.visibility = View.GONE; status.visibility = View.INVISIBLE
+            grid.visibility = View.GONE; empty.visibility = View.GONE; status.visibility = View.GONE
             if (focus) search.requestFocus()
             return
         }
-        filterJob = lifecycleScope.launch {
-            val items = withContext(Dispatchers.Default) { Catalog.browse(preferences.apply(source), currentSection, favorites, query, currentCountry, channelOrder) }
-            val hadGridFocus = grid.hasFocus()
-            adapter.replace(items, favorites, countries = searching)
-            empty.removeAllViews()
-            empty.visibility = if (items.isEmpty()) View.VISIBLE else View.GONE
-            grid.visibility = if (items.isEmpty()) View.GONE else View.VISIBLE
-            if (items.isEmpty()) {
-                val message = when {
-                    library == null -> "Loading channels…"
-                    query.isNotBlank() -> "No matching channels"
-                    currentSection == Section.FAVORITES -> "No favorites yet"
-                    else -> "No channels available"
-                }
-                empty.addView(label(message, 23f, MUTED).apply { gravity = Gravity.CENTER })
-                if (currentSection == Section.FAVORITES && query.isBlank() && library != null) {
-                    empty.addView(action("Browse channels") { showHome() }, LinearLayout.LayoutParams(-2, dp(48)).apply { topMargin = dp(20) })
-                }
+        if (!searching) {
+            val items = if (library == null) emptyList() else if (currentSection == Section.FAVORITES) preferences.favoriteChannels(source.byId)
+                else source.browse(currentSection, currentCountry)
+            displayChannels(items, favorites, searching = false, focus = focus, query = query)
+        } else filterJob = lifecycleScope.launch {
+            val items = withContext(Dispatchers.Default) { source.search(query) }
+            displayChannels(items, favorites, searching = true, focus = focus, query = query)
+        }
+    }
+
+    private fun displayChannels(items: List<Channel>, favorites: List<String>, searching: Boolean, focus: Boolean, query: String) {
+        val hadGridFocus = grid.hasFocus()
+        adapter.replace(items, favorites, countries = searching)
+        empty.removeAllViews()
+        empty.visibility = if (items.isEmpty()) View.VISIBLE else View.GONE
+        grid.visibility = if (items.isEmpty()) View.GONE else View.VISIBLE
+        if (items.isEmpty()) {
+            val message = when {
+                library == null -> "Loading channels…"
+                query.isNotBlank() -> "No matching channels"
+                section == Section.FAVORITES -> "No favorites yet"
+                else -> "No channels available"
             }
-            if (focus || hadGridFocus) {
-                if (items.isNotEmpty()) focusChannel() else empty.getChildAt(1)?.requestFocus() ?: menuControl.requestFocus()
+            empty.addView(label(message, 23f, MUTED).apply { gravity = Gravity.CENTER })
+            if (section == Section.FAVORITES && query.isBlank() && library != null) {
+                empty.addView(action("Browse channels") { showHome() }, LinearLayout.LayoutParams(-2, dp(48)).apply { topMargin = dp(20) })
             }
+        }
+        if (focus || hadGridFocus) {
+            if (items.isNotEmpty()) focusChannel() else empty.getChildAt(1)?.requestFocus() ?: menuControl.requestFocus()
         }
     }
 
@@ -290,19 +315,26 @@ class MainActivity : ComponentActivity() {
             .create().also { it.show() }
     }
 
-    private fun refresh(silent: Boolean = false) {
+    private data class PreparedLibrary(val source: CatalogSnapshot, val catalog: CatalogIndex, val countries: List<CountryTile>)
+    private fun prepareLibrary(loaded: CatalogSnapshot): PreparedLibrary {
+        val index = CatalogIndex(loaded.channels, channelOrder)
+        return PreparedLibrary(loaded, index, CountryAdapter.tiles(index.countries.toList()))
+    }
+    private fun applyLibrary(loaded: PreparedLibrary) {
+        library = loaded.source; catalog = loaded.catalog; countries = loaded.countries
+        status.text = ""; status.visibility = View.GONE
+    }
+    private fun refresh() {
         if (updateJob?.isActive == true) return
         updateJob = lifecycleScope.launch {
-            if (!silent) status.text = "Refreshing channels…"
+            status.text = "Refreshing channels…"; status.visibility = View.VISIBLE
             try {
-                val current = library ?: withContext(Dispatchers.IO) { store.bundled() }
-                val loaded = runInterruptible(Dispatchers.IO) { store.refresh(current) }
-                library = loaded.first; channels = loaded.second
-                status.text = "Hold Select for channel options"; render()
+                val loaded = runInterruptible(Dispatchers.IO) { prepareLibrary(store.refresh()) }
+                applyLibrary(loaded); render()
             } catch (error: CancellationException) { throw error }
             catch (error: Exception) {
                 android.util.Log.w("IPTV", "Catalog refresh failed: ${error.javaClass.simpleName}")
-                status.text = "Refresh unavailable. Saved channels are still available."
+                status.text = "Refresh unavailable. Saved channels are still available."; status.visibility = View.VISIBLE
             }
         }
     }
@@ -327,18 +359,6 @@ class MainActivity : ComponentActivity() {
             val index = preferences.favorites().indexOf(channel.id)
             if (index > 0) actions += "Move favorite up" to { preferences.move(channel.id, -1); render(true) }
             if (index < preferences.favorites().lastIndex) actions += "Move favorite down" to { preferences.move(channel.id, 1); render(true) }
-        }
-        actions += "Country" to {
-            val codes = Locale.getISOCountries().toList().sortedBy(::countryName)
-            val choices = listOf("From playlist", "Unassigned") + codes.map(::countryName)
-            AlertDialog.Builder(this).setTitle(channel.name).setItems(choices.toTypedArray()) { _, index ->
-                preferences.country(channel.id, when (index) { 0 -> null; 1 -> "ZZ"; else -> codes[index - 2] }); render(true)
-            }.setNegativeButton("Cancel", null).show()
-        }
-        actions += "Sports category" to {
-            AlertDialog.Builder(this).setTitle(channel.name).setItems(arrayOf("From playlist", "Sports", "Not sports")) { _, index ->
-                preferences.sports(channel.id, when (index) { 0 -> null; 1 -> true; else -> false }); render(true)
-            }.setNegativeButton("Cancel", null).show()
         }
         AlertDialog.Builder(this).setTitle(channel.name).setItems(actions.map { it.first }.toTypedArray()) { _, index -> actions[index].second() }
             .setNegativeButton("Cancel", null).show()
@@ -367,7 +387,11 @@ class MainActivity : ComponentActivity() {
         if (event.action == KeyEvent.ACTION_DOWN && event.keyCode != KeyEvent.KEYCODE_BACK && playerScreen?.handleKey(event.keyCode) == true) return true
         return super.dispatchKeyEvent(event)
     }
-    override fun onStart() { super.onStart(); remoteSearch.start(); playerScreen?.start(); if (library != null) refresh(silent = true) }
+    override fun onStart() {
+        super.onStart()
+        if (searchPanel.visibility == View.VISIBLE) remoteSearch.start()
+        playerScreen?.start()
+    }
     override fun onStop() { updateJob?.cancel(); remoteSearch.stop(); playerScreen?.stop(); super.onStop() }
     override fun onDestroy() { browserMenu?.dismiss(); playerScreen?.release(); super.onDestroy() }
     override fun onSaveInstanceState(outState: Bundle) {

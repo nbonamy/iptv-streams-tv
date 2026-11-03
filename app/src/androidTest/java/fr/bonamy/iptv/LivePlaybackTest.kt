@@ -43,6 +43,10 @@ class LivePlaybackTest {
         val channelId = arguments.getString("channelId") ?: "France24.fr"
         ActivityScenario.launch(MainActivity::class.java).use { scenario ->
             waitUntil(scenario) { it.findViewById<android.widget.TextView>(R.id.browser_status).text.toString() != "Loading channels…" }
+            val cache = java.io.File(InstrumentationRegistry.getInstrumentation().targetContext.filesDir, "library.json")
+            val previousCacheTime = cache.lastModified()
+            onView(withId(R.id.browser_menu)).perform(click())
+            onView(withText("Refresh")).perform(click())
             onView(withId(R.id.search_button)).perform(click())
             onView(withId(R.id.search_input)).perform(replaceText(query), androidx.test.espresso.action.ViewActions.closeSoftKeyboard())
             waitUntil(scenario) {
@@ -82,8 +86,7 @@ class LivePlaybackTest {
             waitUntil(scenario) { streamPosition(findPlayer(it.findViewById(android.R.id.content))!!) > start + 3000 }
             // Refresh must complete alongside decoding within a normal TV heap.
             waitUntil(scenario) {
-                val cache = java.io.File(it.filesDir, "library.json")
-                cache.exists() && cache.length() in 1..8_000_000
+                cache.exists() && cache.length() in 1..16_000_000 && cache.lastModified() > previousCacheTime
             }
             val instrumentation = InstrumentationRegistry.getInstrumentation()
             val file = java.io.File(instrumentation.targetContext.getExternalFilesDir(null), "verified-playback.png")

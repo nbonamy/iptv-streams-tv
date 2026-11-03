@@ -95,6 +95,7 @@ not a blue filled button.
 
 - Home grid: `CountryAdapter.kt`, using Sports tile geometry and flag-icons artwork.
 - Channel cards: `ChannelAdapter.kt`, portrait source artwork with the shared dark surfaces and blue focus.
+- Channel options: long Select opens favorite actions only, including manual ordering. No persistent instruction footer is shown.
 - Search: Leanback SearchBar plus the copied QR/phone-search components from Movies.
 - Player: copied Sports transport/loading views and Movies underline selectors;
   Subtitles, Quality, Audio, Source and Favorite menus above the video.
