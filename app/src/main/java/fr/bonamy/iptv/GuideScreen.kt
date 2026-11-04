@@ -12,7 +12,8 @@ import kotlin.math.max
 import kotlin.math.min
 
 /** A three-hour, time-proportional grid. Paging keeps every slot readable from a sofa. */
-internal class GuideScreen(context: Context, private val play: (Channel) -> Unit, close: () -> Unit, retry: () -> Unit) : LinearLayout(context) {
+internal class GuideScreen(context: Context, private val play: (Channel) -> Unit, close: () -> Unit,
+    private val overlayMode: Boolean = false, retry: () -> Unit) : LinearLayout(context) {
     private val zone = ZoneId.of("Europe/Paris")
     private val time = DateTimeFormatter.ofPattern("HH:mm").withZone(zone)
     private val date = DateTimeFormatter.ofPattern("EEE d MMM · HH:mm", java.util.Locale.ENGLISH).withZone(zone)
@@ -21,6 +22,11 @@ internal class GuideScreen(context: Context, private val play: (Channel) -> Unit
     private var data: TvGuide? = null
     private var channels = emptyList<Channel>()
     private var selected: String? = null
+    private var preferredChannel: String? = null
+    private val closeButton = context.headerAction("IPTV  /  France  /  TV guide", close).apply {
+        textSize = 17f; gravity = Gravity.START or Gravity.CENTER_VERTICAL
+        if (overlayMode) contentDescription = "Close TV guide"
+    }
     private val period = context.label("", 17f).apply { bold(); gravity = Gravity.CENTER_VERTICAL }
     private val detail = context.label("Select a program to watch its channel live", 15f, MUTED).apply { maxLines = 2 }
     private val message = context.label("Loading TV guide…", 18f, MUTED)
@@ -29,10 +35,13 @@ internal class GuideScreen(context: Context, private val play: (Channel) -> Unit
     private val rulerContainer = FrameLayout(context)
     private val retryButton = context.headerAction("Retry", retry).apply { visibility = View.GONE }
     init {
-        id = R.id.tv_guide; orientation = VERTICAL; background = context.browserBackground()
+        id = if (overlayMode) R.id.tv_guide_overlay else R.id.tv_guide
+        if (overlayMode) tag = "tv-guide-overlay"
+        orientation = VERTICAL
+        background = if (overlayMode) android.graphics.drawable.ColorDrawable(0xd907111d.toInt()) else context.browserBackground()
         setPadding(context.dp(36), 0, context.dp(36), context.dp(24))
         addView(context.row().apply {
-            addView(context.headerAction("IPTV  /  France  /  TV guide", close).apply { textSize = 17f; gravity = Gravity.START or Gravity.CENTER_VERTICAL }, LayoutParams(0, context.dp(56), 1f))
+            addView(closeButton, LayoutParams(0, context.dp(56), 1f))
             addView(context.headerAction("Refresh", retry))
         })
         addView(context.row().apply {
@@ -48,13 +57,25 @@ internal class GuideScreen(context: Context, private val play: (Channel) -> Unit
         addOnLayoutChangeListener { _, l, _, r, _, ol, _, or, _ -> if (r - l != or - ol && data != null) render(visibility == View.VISIBLE) }
     }
     private fun nowStart() = System.currentTimeMillis().let { it - it % (30 * 60 * 1000L) }
-    fun loading() { message.text = "Loading TV guide…"; message.visibility = View.VISIBLE; retryButton.visibility = View.GONE }
+    fun loading() {
+        message.text = "Loading TV guide…"; message.visibility = View.VISIBLE; retryButton.visibility = View.GONE
+        if (overlayMode && data == null) closeButton.requestFocusFromTouch()
+    }
     fun failed() { message.text = "TV guide unavailable. Check your connection and retry."; message.visibility = View.VISIBLE; retryButton.visibility = View.VISIBLE; retryButton.requestFocus() }
     fun show(result: SavedGuide, available: List<Channel>) {
         data = result.guide; channels = available
+        if (selected == null || result.guide.programs.none { key(it) == selected }) selectPreferredChannel()
         message.text = if (result.saved) "Saved schedule · Refresh to try again" else ""
         message.visibility = if (result.saved) View.VISIBLE else View.GONE
-        retryButton.visibility = View.GONE; render(true)
+        retryButton.visibility = View.GONE; render(isShown)
+    }
+    fun focusChannel(id: String) { preferredChannel = id; if (data != null) { selectPreferredChannel(); render(isShown) } }
+    private fun selectPreferredChannel() {
+        val guide = data ?: return
+        val id = guide.channels.firstOrNull { it.match(channels)?.id == preferredChannel }?.id ?: return
+        val visible = guide.programs.filter { it.channelId == id && it.start < start + duration && it.end > start }
+        val now = System.currentTimeMillis()
+        selected = (visible.firstOrNull { it.start <= now && it.end > now } ?: visible.firstOrNull())?.let(::key)
     }
     private fun page(direction: Int) { start += duration * direction; selected = null; render(true) }
     private fun key(p: GuideProgram) = "${p.channelId}:${p.start}"

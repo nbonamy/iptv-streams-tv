@@ -55,7 +55,9 @@ During playback, use the top menus for subtitles, quality, audio, source, and
 favorites. **Channel +/−** moves through the current country, Favorites or search
 results, wrapping at the ends and skipping unavailable channels. The bottom control
 pauses/resumes. **Back** hides controls, then returns
-to the same channel in browsing. Streams are selected explicitly; reconnecting
+to the same channel in browsing. While watching a French channel, **JUMP** opens
+the TV guide over the playing video; **Back** or **JUMP** closes it. Select a
+program to switch to its live channel. Streams are selected explicitly; reconnecting
 retries the current stream.
 
 Focus the **IPTV / section** header and press **OK** to open the menu.

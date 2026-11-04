@@ -64,6 +64,10 @@ class MainActivity : ComponentActivity() {
     private var filterJob: Job? = null
     private var guideScreen: GuideScreen? = null
     private var guideJob: Job? = null
+    private var guideOverlay: GuideScreen? = null
+    private var guideOverlayJob: Job? = null
+    private var restoreGuideOverlay = false
+    private var guideOverlayState: Bundle? = null
     private var guideTileFocused = false
     private var restoreGuide = false
     private var guideState: Bundle? = null
@@ -81,6 +85,8 @@ class MainActivity : ComponentActivity() {
         selectedChannel = savedInstanceState?.getString("channel")
         restoreGuide = savedInstanceState?.getBoolean("guideOpen") ?: false
         guideState = savedInstanceState?.getBundle("guideState")
+        restoreGuideOverlay = savedInstanceState?.getBoolean("guideOverlayOpen") ?: false
+        guideOverlayState = savedInstanceState?.getBundle("guideOverlayState")
         restorePlayback = savedInstanceState?.getString("playing")
         restoreStream = savedInstanceState?.getInt("stream") ?: 0
         countryMode = savedInstanceState?.getBoolean("countryMode") ?: true
@@ -190,6 +196,7 @@ class MainActivity : ComponentActivity() {
             override fun handleOnBackPressed() {
                 val screen = playerScreen
                 when {
+                    guideOverlay != null -> closeGuideOverlay()
                     screen != null -> if (!screen.back()) closePlayer()
                     guideScreen != null -> closeGuide()
                     searchPanel.visibility == View.VISIBLE -> closeSearch()
@@ -211,6 +218,7 @@ class MainActivity : ComponentActivity() {
                 if (restoreGuide) { openGuide(); restoreGuide = false }
                 restorePlayback?.let { id -> catalog.byId[id]?.let { play(it, restoreStream) } }
                 restorePlayback = null
+                if (restoreGuideOverlay) { openGuideOverlay(); restoreGuideOverlay = false }
                 lifecycleScope.launch(Dispatchers.IO) { runCatching { store.persistIfNeeded() } }
             } catch (error: CancellationException) { throw error }
             catch (_: Exception) { status.text = "Channels unavailable. Select Refresh to retry."; render() }
@@ -384,14 +392,40 @@ class MainActivity : ComponentActivity() {
     }
     private fun loadGuide(force: Boolean = false) {
         guideJob?.cancel()
-        guideScreen?.loading()
-        guideJob = lifecycleScope.launch {
+        guideJob = guideScreen?.let { loadGuideInto(it, force) }
+    }
+    private fun loadGuideInto(screen: GuideScreen, force: Boolean): Job {
+        screen.loading()
+        return lifecycleScope.launch {
             try {
                 val result = runInterruptible(Dispatchers.IO) { (application as IPTVApplication).guideStore.load(force) }
-                guideScreen?.show(result, catalog.browse(Section.FRANCE))
+                screen.show(result, catalog.browse(Section.FRANCE))
             } catch (error: CancellationException) { throw error }
-            catch (_: Exception) { guideScreen?.failed() }
+            catch (_: Exception) { screen.failed() }
         }
+    }
+    private fun openGuideOverlay() {
+        val current = playerScreen?.channel ?: return
+        if (current.country != "FR" || guideOverlay != null) return
+        playerScreen?.setGuideVisible(true)
+        guideOverlay = GuideScreen(this, { channel ->
+            closeGuideOverlay()
+            if (playerScreen?.channel?.id != channel.id) play(channel)
+        }, ::closeGuideOverlay, overlayMode = true) { loadGuideOverlay(true) }.also {
+            it.restoreState(guideOverlayState); guideOverlayState = null
+            it.focusChannel(current.id)
+            root.addView(it, FrameLayout.LayoutParams(-1, -1))
+        }
+        loadGuideOverlay()
+    }
+    private fun loadGuideOverlay(force: Boolean = false) {
+        guideOverlayJob?.cancel()
+        guideOverlayJob = guideOverlay?.let { loadGuideInto(it, force) }
+    }
+    private fun closeGuideOverlay() {
+        guideOverlayJob?.cancel(); guideOverlayJob = null
+        guideOverlay?.let(root::removeView); guideOverlay = null
+        playerScreen?.setGuideVisible(false)
     }
     private fun closeGuide() {
         guideJob?.cancel(); guideScreen?.let(root::removeView); guideScreen = null
@@ -403,6 +437,7 @@ class MainActivity : ComponentActivity() {
             AlertDialog.Builder(this).setTitle(channel.name).setMessage("This channel is no longer in the playlist. Try Refresh.")
                 .setPositiveButton("OK", null).show(); return
         }
+        closeGuideOverlay()
         (getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(search.windowToken, 0)
         selectedChannel = channel.id
         positions[section] = channel.id
@@ -422,6 +457,7 @@ class MainActivity : ComponentActivity() {
         ChannelNavigation.adjacent(channels, current.id, direction)?.let(::play)
     }
     private fun closePlayer() {
+        closeGuideOverlay()
         playerScreen?.let { it.release(); root.removeView(it) }; playerScreen = null
         if (guideScreen != null) { guideScreen?.visibility = View.VISIBLE; guideScreen?.restoreFocus() }
         else { browser.visibility = View.VISIBLE; render(true) }
@@ -430,6 +466,12 @@ class MainActivity : ComponentActivity() {
     // incorrectly marks the bridge restricted. TV controls need interception before focus dispatch.
     @android.annotation.SuppressLint("RestrictedApi")
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
+        if (playerScreen != null && event.keyCode in setOf(KeyEvent.KEYCODE_LAST_CHANNEL, KeyEvent.KEYCODE_GUIDE)) {
+            if (event.action == KeyEvent.ACTION_DOWN && event.repeatCount == 0) {
+                if (guideOverlay != null) closeGuideOverlay() else openGuideOverlay()
+            }
+            return true
+        }
         if (playerScreen != null && event.keyCode in setOf(KeyEvent.KEYCODE_CHANNEL_UP, KeyEvent.KEYCODE_CHANNEL_DOWN)) {
             if (event.action == KeyEvent.ACTION_DOWN && event.repeatCount == 0) {
                 changeChannel(if (event.keyCode == KeyEvent.KEYCODE_CHANNEL_UP) 1 else -1)
@@ -447,6 +489,8 @@ class MainActivity : ComponentActivity() {
     override fun onStop() { updateJob?.cancel(); remoteSearch.stop(); playerScreen?.stop(); super.onStop() }
     override fun onDestroy() { browserMenu?.dismiss(); playerScreen?.release(); super.onDestroy() }
     override fun onSaveInstanceState(outState: Bundle) {
+        outState.putBoolean("guideOverlayOpen", guideOverlay != null)
+        guideOverlay?.let { outState.putBundle("guideOverlayState", it.saveState()) }
         outState.putBoolean("guideOpen", guideScreen != null)
         guideScreen?.let { outState.putBundle("guideState", it.saveState()) }
         outState.putBoolean("searchOriginHome", searchOriginHome); outState.putString("searchOriginCountry", searchOriginCountry)

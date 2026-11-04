@@ -23,12 +23,13 @@ class ShortLiveWindowTest {
         }
     }
 
-    private class Origin : Closeable {
+    internal class Origin : Closeable {
         private val assets = InstrumentationRegistry.getInstrumentation().context.assets
         private val server = ServerSocket(0, 16, InetAddress.getByName("127.0.0.1"))
         private val firstMedia = AtomicBoolean(true)
         @Volatile private var started = 0L
         val url = "http://127.0.0.1:${server.localPort}/index.m3u8"
+        fun reset() { started = 0L; firstMedia.set(true) }
         init {
             thread(isDaemon = true, name = "live-window-origin") {
                 while (!server.isClosed) {

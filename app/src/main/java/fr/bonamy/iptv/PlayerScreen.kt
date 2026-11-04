@@ -54,6 +54,9 @@ internal class PlayerScreen(
     private var recoverAtLiveEdge = false
     private var useSoftwareDecoder = false
     private var picker: AlertDialog? = null
+    private var guideVisible = false
+    private val normalFocusability = descendantFocusability
+    private val normalAccessibility = importantForAccessibility
     private val video = PlayerView(context).apply {
         useController = false; isFocusable = false; setKeepContentOnPlayerReset(true)
         setShutterBackgroundColor(Color.BLACK)
@@ -230,16 +233,23 @@ internal class PlayerScreen(
 
     private fun scheduleHide() {
         handler.removeCallbacks(hide)
-        if (!paused && !failed && picker == null && player?.playbackState == Player.STATE_READY) handler.postDelayed(hide, 6000)
+        if (!guideVisible && !paused && !failed && picker == null && player?.playbackState == Player.STATE_READY) handler.postDelayed(hide, 6000)
     }
-    private fun showControls() { controls.visibility = View.VISIBLE; playButton.requestFocusFromTouch(); scheduleHide() }
+    private fun showControls() { if (guideVisible) return; controls.visibility = View.VISIBLE; playButton.requestFocusFromTouch(); scheduleHide() }
     private fun hideControls() { controls.visibility = View.GONE; requestFocus() }
+    fun setGuideVisible(visible: Boolean) {
+        guideVisible = visible
+        descendantFocusability = if (visible) FOCUS_BLOCK_DESCENDANTS else normalFocusability
+        importantForAccessibility = if (visible) IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS else normalAccessibility
+        if (visible) { picker?.dismiss(); handler.removeCallbacks(hide); hideControls() } else requestFocus()
+    }
     fun back(): Boolean {
         if (controls.visibility == View.VISIBLE) { handler.removeCallbacks(hide); hideControls(); return true }
         return false
     }
     fun handleKey(key: Int): Boolean {
         if (key == KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE) { togglePause(); return true }
+        if (guideVisible) return false
         if (key !in setOf(KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER, KeyEvent.KEYCODE_DPAD_UP,
                 KeyEvent.KEYCODE_DPAD_DOWN, KeyEvent.KEYCODE_DPAD_LEFT, KeyEvent.KEYCODE_DPAD_RIGHT)) return false
         if (controls.visibility != View.VISIBLE) { showControls(); if (key == KeyEvent.KEYCODE_DPAD_UP) subtitlesButton.requestFocus(); return true }

@@ -112,7 +112,10 @@ cache atomically. Country/category metadata joins iptv-org channel IDs.
 France has a first-position **TV guide** tile powered by
 `https://xmltvfr.fr/xmltv/xmltv_tnt.xml`. Its time-aligned grid uses Paris time;
 selecting any program opens that channel live. Earlier, Now and Later browse the
-schedule. The guide retains a validated local copy for connection failures.
+schedule. While a French channel is playing, JUMP toggles the same guide as a
+full-screen translucent overlay; audio and video continue underneath. Back closes
+the overlay, and selecting a different program switches its channel live and
+returns to fullscreen. The guide retains a validated local copy for connection failures.
 
 Movies and series are outside the first version. Worldwide XMLTV, catch-up,
 recording, multiview, time-shifting, and background sync

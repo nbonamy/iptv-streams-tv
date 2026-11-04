@@ -119,3 +119,10 @@ Now and Later page the timeline; the grid scrolls vertically with the remote.
 Current programs use a muted blue surface; focused programs retain the shared
 blue outline. A two-line detail area shows the focused title and description.
 Select opens the live channel; Back restores the guide position and focus.
+
+While a French channel plays, JUMP opens the same guide component over the video.
+The overlay fills the screen with the player's existing translucent navy surface
+(`#D907111D`), preserving the guide's grid, typography and focus treatment. Player
+controls stay hidden and do not take focus from the guide. Back or JUMP closes
+the overlay without restarting playback. The guide tile uses the supplied
+transparent TV GUIDE PNG on a white background.

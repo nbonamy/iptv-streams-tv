@@ -60,6 +60,8 @@ internal class ChannelAdapter(
     override fun onBindViewHolder(holder: Holder, position: Int) {
         if (guideAvailable && position == 0) {
             holder.name.text = "TV guide"
+            holder.logo.dispose()
+            holder.logo.setBackgroundColor(android.graphics.Color.WHITE)
             holder.logo.setImageResource(R.drawable.ic_tv_guide)
             holder.detail.visibility = View.GONE; holder.flag.visibility = View.GONE
             holder.card.contentDescription = "TV guide"
@@ -70,6 +72,7 @@ internal class ChannelAdapter(
         }
         val channel = channels[position - if (guideAvailable) 1 else 0]
         holder.name.text = channel.name
+        holder.logo.setBackgroundColor(0xfff3f5f7.toInt())
         holder.logo.load(channel.logoUrl) {
             size(holder.card.context.dp(112), holder.card.context.dp(112))
             placeholder(R.drawable.ic_channel_placeholder)

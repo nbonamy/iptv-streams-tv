@@ -1,5 +1,6 @@
 <resources>
     <item type="id" name="tv_guide" />
+    <item type="id" name="tv_guide_overlay" />
     <item type="id" name="browser_menu" />
     <item type="id" name="browser_hero" />
     <item type="id" name="channel_logo" />

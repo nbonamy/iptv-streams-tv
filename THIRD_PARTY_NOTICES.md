@@ -37,6 +37,7 @@
   Wikipedia text is available under CC BY-SA 4.0. Radio and historical tables
   are excluded from this lineup.
 
+- TV guide tile: the transparent TV GUIDE PNG supplied by Nicolas, bundled unchanged.
 - Country flags: [flag-icons v7.6.0](https://github.com/lipis/flag-icons/tree/v7.6.0),
   MIT license, [included license](licenses/flag-icons-MIT.txt). Original SVGs are
   in `branding/flags/`; the native app bundles their PNG renders.

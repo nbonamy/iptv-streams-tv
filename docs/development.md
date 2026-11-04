@@ -334,3 +334,30 @@ adb -s emulator-5554 shell am instrument -w \
 
 `LiveGuideTest` requires a fresh feed and captures the rendered native grid to
 private `files/live-guide.png` on the selected emulator.
+
+## France guide overlay
+
+During French-channel playback, `KEYCODE_LAST_CHANNEL` (JUMP) toggles a full-screen
+translucent guide. `KEYCODE_GUIDE` uses the same action if the TV delivers it to
+the app. The native `GuideScreen` has page and overlay presentation modes; both
+share the same grid and `loadGuideInto` pipeline backed by `GuideStore`. The
+overlay never pauses or releases the active player. Player controls and their
+focus are covered while the guide is visible, including during decoder recovery.
+Back dismisses the overlay first. Selecting another program tunes its live
+channel; selecting the current channel closes the guide without restarting it.
+Overlay position, selection and playback are restored on activity recreation.
+
+Run `GuideOverlayTest` separately on the explicitly selected TV emulator. It
+backs up and restores the local catalog, guide and preferences for the whole
+class, supplies a three-channel prepared catalog and reuses
+`ShortLiveWindowTest.Origin` for original synthetic H.264/AAC playback. It checks
+advancing video while the guide is open, remote focus, JUMP/Back dismissal, live
+selection, recreation and the French-channel boundary. The icon is the supplied
+512px transparent PNG, displayed on white; normal channel art retains its own
+neutral background.
+
+```sh
+adb -s emulator-5556 shell am instrument -w \
+  -e class fr.bonamy.iptv.GuideOverlayTest \
+  fr.bonamy.iptv.test/androidx.test.runner.AndroidJUnitRunner
+```
