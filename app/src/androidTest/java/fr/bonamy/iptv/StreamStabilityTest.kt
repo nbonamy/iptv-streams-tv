@@ -39,7 +39,9 @@ class StreamStabilityTest {
         val args = InstrumentationRegistry.getArguments()
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val channel = overrideChannel ?: args.getString("streamUrl")?.let { url -> Channel("probe", "Local probe", null, emptyList(), listOf(Stream(url, "Main"))) }
-            ?: LibraryStore(context).initial().channels.first { it.id == (args.getString("channelId") ?: "TF1.fr") }
+            ?: fr.bonamy.iptv.core.CatalogIndex(LibraryStore(context).initial().channels,
+                fr.bonamy.iptv.core.CountryChannelOrder.parse(context.assets.open("channel-order.json").bufferedReader().use { it.readText() }))
+                .byId.getValue(args.getString("channelId") ?: "TF1.fr")
         val durationMs = durationOverrideMs ?: (args.getString("sampleSeconds")?.toLongOrNull() ?: 60L).coerceIn(15, 180) * 1000
         val report = File(context.filesDir, "playback-trace.jsonl").apply { writeText("") }
         val began = SystemClock.elapsedRealtime()

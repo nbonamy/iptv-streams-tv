@@ -405,10 +405,21 @@ class MainActivity : ComponentActivity() {
         }
         (getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(search.windowToken, 0)
         selectedChannel = channel.id
-        playerScreen?.release()
+        positions[section] = channel.id
+        playerScreen?.let { it.release(); root.removeView(it) }
         browser.visibility = View.GONE
         guideScreen?.visibility = View.GONE
         playerScreen = PlayerScreen(this, channel, preferences, stream).also { root.addView(it, FrameLayout.LayoutParams(-1, -1)); it.start() }
+    }
+    private fun changeChannel(direction: Int) {
+        val current = playerScreen?.channel ?: return
+        val channels = when {
+            guideScreen != null -> catalog.browse(Section.FRANCE)
+            searchPanel.visibility == View.VISIBLE -> catalog.search(search.text.toString())
+            section == Section.FAVORITES -> preferences.favoriteChannels(catalog.byId)
+            else -> catalog.browse(section, country)
+        }
+        ChannelNavigation.adjacent(channels, current.id, direction)?.let(::play)
     }
     private fun closePlayer() {
         playerScreen?.let { it.release(); root.removeView(it) }; playerScreen = null
@@ -419,6 +430,12 @@ class MainActivity : ComponentActivity() {
     // incorrectly marks the bridge restricted. TV controls need interception before focus dispatch.
     @android.annotation.SuppressLint("RestrictedApi")
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
+        if (playerScreen != null && event.keyCode in setOf(KeyEvent.KEYCODE_CHANNEL_UP, KeyEvent.KEYCODE_CHANNEL_DOWN)) {
+            if (event.action == KeyEvent.ACTION_DOWN && event.repeatCount == 0) {
+                changeChannel(if (event.keyCode == KeyEvent.KEYCODE_CHANNEL_UP) 1 else -1)
+            }
+            return true
+        }
         if (event.action == KeyEvent.ACTION_DOWN && event.keyCode != KeyEvent.KEYCODE_BACK && playerScreen?.handleKey(event.keyCode) == true) return true
         return super.dispatchKeyEvent(event)
     }

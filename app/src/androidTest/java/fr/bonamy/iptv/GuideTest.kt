@@ -57,6 +57,10 @@ class GuideTest {
                 scenario.onActivity { activity ->
                     assertEquals("France2.fr", player(activity.window.decorView)?.channel?.id)
                 }
+                InstrumentationRegistry.getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_CHANNEL_DOWN)
+                await(scenario) { player(it.window.decorView)?.channel?.id == "TF1.fr" }
+                InstrumentationRegistry.getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_CHANNEL_UP)
+                await(scenario) { player(it.window.decorView)?.channel?.id == "France2.fr" }
                 // Controls have layered Back behavior; eventually return to the guide.
                 repeat(3) {
                     var inPlayer = false

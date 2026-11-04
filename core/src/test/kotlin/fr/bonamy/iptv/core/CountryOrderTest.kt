@@ -51,7 +51,7 @@ class CountryOrderTest {
             index.country("US").take(6).map { it.id })
         val policy = com.google.gson.JsonParser.parseString(resource("channel-order.json")).asJsonObject.getAsJsonObject("countries").getAsJsonObject("US")
         val excluded = policy.getAsJsonArray("excludedIds").map { it.asString }.toSet()
-        assertEquals(channels.filter { it.country == "US" && (it.id !in excluded || "sports" in it.categories) }.toSet(), index.country("US").toSet())
+        assertEquals(channels.filter { it.country == "US" && (it.id !in excluded || "sports" in it.categories) }.map { it.id }.toSet(), index.country("US").map { it.id }.toSet())
         assertFalse(index.country("US").any { it.id == "Univision.us" })
         assertTrue(index.country("US").any { it.id == "ESPNDeportes.us" })
         assertTrue(index.search("Univision").any { it.id == "Univision.us" })
@@ -83,7 +83,7 @@ class CountryOrderTest {
         fun resource(name: String) = javaClass.getResourceAsStream("/$name")!!.bufferedReader().use { it.readText() }
         val order = CountryChannelOrder.parse(resource("channel-order.json"))
         val metadata = Catalog.metadata(resource("channels.json"))
-        val expected = listOf("CBS.us", "CNN.us", "HBO.us", "USANetwork.us", "AdultSwimRickandMorty.us", "MTV.us", "DiscoveryChannel.us", "ESPN.us", "PBSKids.us")
+        val expected = listOf("CBS.us", "CNN.us", "HBO.us", "USANetwork.us", "MTV.us", "DiscoveryChannel.us", "ESPN.us", "PBSKids.us", "AdultSwimRickandMorty.us")
         val items = expected.reversed().map { id ->
             val row = metadata.getValue(id)
             Channel(id, row.name, row.country, row.categories, emptyList())
@@ -101,6 +101,23 @@ class CountryOrderTest {
         assertEquals(items, order.sort(items, "CA"))
         assertEquals(items, CatalogIndex(items, order).search("US"))
         assertEquals(listOf("spanish"), Catalog.browse(items, Section.FAVORITES, listOf("spanish"), order = order).map { it.id })
+    }
+    @Test fun `focused US networks lead every genre with obscure and non Chicago news in an alphabetical tail`() {
+        fun resource(name: String) = javaClass.getResourceAsStream("/$name")!!.bufferedReader().use { it.readText() }
+        val json = resource("channel-order.json")
+        val policy = com.google.gson.JsonParser.parseString(json).asJsonObject.getAsJsonObject("countries").getAsJsonObject("US")
+        val focused = policy.getAsJsonArray("groups").flatMap { row -> row.asJsonObject.getAsJsonArray("ids").map { it.asString } }
+        assertEquals(focused.size, focused.distinct().size)
+        val channels = Catalog.parse(resource("worldwide.m3u"), Catalog.metadata(resource("channels.json")))
+        val items = CatalogIndex(channels, CountryChannelOrder.parse(json)).country("US")
+        val present = focused.filter { id -> items.any { it.id == id } }
+        assertEquals(present, items.take(present.size).map { it.id })
+        for (id in listOf("FlicksofFury.us", "MegaExtrenoHD.us", "CBSNewsNewYork.us", "ABCNewsLive2.us")) {
+            assertTrue(items.indexOfFirst { it.id == id } >= present.size, "$id should follow the focused lineup")
+        }
+        assertTrue(items.indexOfFirst { it.id == "CBSNewsChicago.us" } < present.size)
+        val tail = items.drop(present.size)
+        assertEquals(channels.filter { channel -> tail.any { it.id == channel.id } }.map { it.id }, tail.map { it.id })
     }
     @Test fun `UK England lineup keeps core services first and regional alternatives afterward`() {
         val json = javaClass.getResourceAsStream("/channel-order.json")!!.bufferedReader().use { it.readText() }

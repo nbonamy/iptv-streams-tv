@@ -1,11 +1,15 @@
 package fr.bonamy.iptv.core
 
 import com.google.gson.JsonParser
+import java.net.URI
 import java.text.Normalizer
 import java.util.Locale
 
 /** Country policies are data. Unlisted channels retain the catalog's original order. */
-class CountryChannelOrder private constructor(private val rules: Map<String, Lineup>) {
+class CountryChannelOrder private constructor(
+    private val rules: Map<String, Lineup>,
+    private val sourceOverrides: Map<String, List<Stream>>,
+) {
     private data class Rank(val group: Int, val position: Int) : Comparable<Rank> {
         override fun compareTo(other: Rank) = compareValuesBy(this, other, Rank::group, Rank::position)
     }
@@ -13,6 +17,12 @@ class CountryChannelOrder private constructor(private val rules: Map<String, Lin
         val ids: Map<String, Rank>, val names: Map<String, Rank>, val categories: Map<String, Rank>,
         val excludedIds: Set<String>, val retainCategories: Set<String>,
     )
+
+    /** Overrides affect existing stable IDs in every view, without changing the saved M3U. */
+    fun overrideSources(channel: Channel): Channel {
+        val streams = sourceOverrides[channel.id] ?: return channel
+        return if (streams == channel.streams) channel else channel.copy(streams = streams)
+    }
 
     fun sort(channels: List<Channel>, country: String): List<Channel> {
         val policy = rules[country] ?: return channels
@@ -28,7 +38,7 @@ class CountryChannelOrder private constructor(private val rules: Map<String, Lin
     }
 
     companion object {
-        val EMPTY = CountryChannelOrder(emptyMap())
+        val EMPTY = CountryChannelOrder(emptyMap(), emptyMap())
         private val combiningMarks = Regex("\\p{M}+")
         private fun normalized(value: String): String {
             val folded = if (value.all { it.code < 128 }) value.lowercase(Locale.ROOT)
@@ -38,8 +48,22 @@ class CountryChannelOrder private constructor(private val rules: Map<String, Lin
 
         fun parse(json: String): CountryChannelOrder {
             val countries = JsonParser.parseString(json).asJsonObject.getAsJsonObject("countries")
-            return CountryChannelOrder(countries.entrySet().associate { (country, value) ->
+            val sourceOverrides = mutableMapOf<String, List<Stream>>()
+            val rules = countries.entrySet().associate { (country, value) ->
                 val policy = value.asJsonObject
+                policy.getAsJsonObject("sourceOverrides")?.entrySet()?.forEach { (id, entries) ->
+                    val streams = entries.asJsonArray.map { entry ->
+                        val row = entry.asJsonObject
+                        val url = row.get("url").asString.trim()
+                        val label = row.get("label").asString.trim()
+                        val uri = URI(url)
+                        require(uri.scheme in setOf("http", "https") && !uri.host.isNullOrBlank() && uri.userInfo == null && label.isNotBlank())
+                        val headers = row.getAsJsonObject("headers")?.entrySet()?.associate { it.key to it.value.asString }.orEmpty()
+                        require(headers.all { (key, value) -> key in setOf("User-Agent", "Referer", "Origin") && value.none { it == '\r' || it == '\n' } })
+                        Stream(url, label, headers, StreamOrder.resolution(label))
+                    }
+                    require(id.isNotBlank() && streams.isNotEmpty() && sourceOverrides.put(id, streams) == null)
+                }
                 val ids = mutableMapOf<String, Rank>()
                 val names = mutableMapOf<String, Rank>()
                 val categories = mutableMapOf<String, Rank>()
@@ -71,7 +95,8 @@ class CountryChannelOrder private constructor(private val rules: Map<String, Lin
                 country.uppercase(Locale.ROOT) to Lineup(ids, names, categories,
                     policy.getAsJsonArray("excludedIds")?.map { it.asString }?.toSet().orEmpty(),
                     policy.getAsJsonArray("retainCategories")?.map { it.asString }?.toSet().orEmpty())
-            })
+            }
+            return CountryChannelOrder(rules, sourceOverrides)
         }
     }
 }

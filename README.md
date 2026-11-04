@@ -34,8 +34,8 @@ Search covers the worldwide library. **Back** returns to the selected tile.
 France uses the [metropolitan national DTT lineup](https://en.wikipedia.org/wiki/List_of_television_stations_in_France).
 Other countries use alphabetical order unless a country lineup is configured.
 USA uses one continuous lineup: **mainstream → news → movies → TV shows → music →
-factual → sports → kids**. Familiar networks lead each group, followed by other
-channels alphabetically. Unclassified channels remain available at the end.
+factual → sports → kids**. Familiar networks form the focused groups, including
+Chicago news. All other channels follow after kids alphabetically.
 Spanish-language channels are skipped in the US grid except sports; they remain
 available through global search and existing Favorites. This ordering does not
 add channels or change streams.
@@ -48,10 +48,13 @@ a phone on the same network. Enter a channel name to see matches, with country
 flags for context. The search screen stays empty until you enter a query.
 
 HD sources appear before SD when the playlist supplies quality labels. You can
-still choose any available stream from **Source**.
+still choose any available stream from **Source**. NBC defaults to Chicago's WMAQ
+feed, with Bay Area KNTV as an alternative.
 
 During playback, use the top menus for subtitles, quality, audio, source, and
-favorites. The bottom control pauses/resumes. **Back** hides controls, then returns
+favorites. **Channel +/−** moves through the current country, Favorites or search
+results, wrapping at the ends and skipping unavailable channels. The bottom control
+pauses/resumes. **Back** hides controls, then returns
 to the same channel in browsing. Streams are selected explicitly; reconnecting
 retries the current stream.
 

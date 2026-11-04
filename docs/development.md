@@ -180,19 +180,17 @@ the playlist and metadata, leaving bundled lineup policy unchanged.
 
 USA uses an editorial grouping policy in the same asset. Its ordered `groups`
 array defines mainstream, news, movies, shows, music, factual, sports and kids.
-Each group has a stable `key`, an optional ordered `ids` list and optional
-`categories`. These groups affect sorting only; the UI remains one continuous
-grid. Exact IDs take precedence over genre tags, so Discovery stays factual and
-USA Network stays with TV shows. Known networks lead each group; uncatalogued
-IDs never create channels. All remaining group members retain alphabetical order,
-and unmatched channels follow after kids.
+Each group has a stable `key` and an ordered `ids` list of familiar networks.
+News includes the main national channels plus Chicago. Genre metadata does not
+pull additional channels into the focused groups. Every remaining channel,
+including other local news, follows the entire focused lineup in catalog order
+(alphabetical). The UI stays one continuous grid with no headings or dividers.
+Unlisted and missing IDs never create channels.
 
-`categoryPriority` resolves overlapping genres independently of display order:
-kids, sports, news, music, factual, movies, shows, mainstream. For example,
-PBS Kids remains in kids despite its education tag. Explicit IDs override this
-precedence. Duplicate group keys, IDs or unknown priority keys are rejected.
-Numbered policies and grouped policies are mutually exclusive. Both policies
-preserve Favorites, global search and the available stream choices.
+The generic schema also accepts optional `categories` and `categoryPriority` for
+countries using genre-based fallback. Duplicate group keys, IDs or unknown
+priority keys are rejected. Numbered and grouped policies are mutually exclusive.
+Both preserve Favorites, global search and available stream choices.
 
 The US policy's `excludedIds` is derived from provider feed-language metadata;
 `retainCategories: ["sports"]` keeps Spanish sports. Explicit language overrides
@@ -227,6 +225,38 @@ python3 tools/import-numbered-lineup.py --country GB \
 make check
 ```
 
+## Channel keys during playback
+
+MainActivity consumes Android `KEYCODE_CHANNEL_UP` and `KEYCODE_CHANNEL_DOWN`
+while a player is active. Channel + moves forward and Channel − backward through
+the current country list, Favorites order or search results. Playback from the
+France guide uses the France lineup. The sequence is resolved from the effective
+catalog and saved browsing context, including after recreation. It wraps, skips
+missing Favorites and avoids restarting the only available channel. Held-key
+repeat events and key-up events do not cause extra switches.
+
+The previous player is released and its view removed before a new one is attached.
+Back restores browsing focus to the newly selected channel. `ChannelNavigationTest`
+covers ordering and boundaries; native `ChannelKeysTest` checks remote events,
+wrapping, repeat suppression, unavailable Favorites, search, recreation, one
+attached player and Back focus. `GuideTest` checks the same keys from the guide.
+
+## Country source overrides
+
+A country's entry in `channel-order.json` can include `sourceOverrides`, keyed by
+stable provider ID. Each value is a nonempty list of `{ "label", "url" }` entries,
+with optional `headers` for User-Agent, Referer or Origin. HTTP(S) URLs are required;
+embedded user credentials and header line breaks are rejected. The current NBC
+entry replaces the playlist's alternatives with WMAQ Chicago and KNTV Bay Area,
+in that order. Both sources declare 1080p, so their configured order is retained.
+
+`CatalogIndex` applies these replacements before quality preference to every
+loaded catalog, including old prepared caches. Names, country, genres, artwork
+and favorite IDs remain unchanged. Missing channels are not invented. Refresh
+still fetches and retains the fixed worldwide M3U and metadata; no extra startup
+download or M3U reparse is introduced. Country browsing, search, Favorites and the
+guide all use the effective sources. Alternatives remain explicit viewer choices.
+
 ## Stream preference
 
 `StreamOrder` sorts a channel's alternatives by declared resolution, highest first.
@@ -243,9 +273,13 @@ use the same list; choosing SD stays selected during playback and recreation.
 
 `StreamPreferenceTest` checks the native Source menu, selecting SD and retaining
 that choice when the player screen is recreated. Validation on November 3, 2026:
-`make check` passed 60 Kotlin unit tests, 12 importer tests, lint and the debug
-build. The dedicated `IPTV_Lineup_Check_API_31` emulator passed seven browsing,
-performance, search, source-preference, guide and short-live-window tests.
+`make check` passed 70 Kotlin unit tests, 12 importer tests, lint and the debug
+build. The dedicated `IPTV_Lineup_Check_API_31` emulator passed nine channel-key,
+browsing, performance, search, source-preference and guide tests. A separate 30-second NBC
+probe using the configured WMAQ override rendered video and audio, started in
+3,483 ms, reported zero player errors and zero dropped frames, and kept advancing.
+`StreamStabilityTest` resolves country source overrides before selecting its probe
+channel, matching the app's effective catalog.
 
 ## Channel artwork
 

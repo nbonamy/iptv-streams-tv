@@ -29,6 +29,9 @@ predictable focus, fullscreen playback, and easy return to browsing.
 - Keep all other countries available, with global search across the full library. Country priorities affect
   presentation, never remove channels from the library.
 - Provide channel search, clear channel selection, and native fullscreen playback.
+  Channel +/− moves through the current country, manual Favorites order or search
+  results, wrapping at the ends and skipping unavailable Favorites. From the France
+  guide it follows the France lineup. Back returns to the current channel in browsing.
 - Keep other interests configurable. Do not infer teams, leagues, genres, political
   interests, language exclusions, or paid-provider preferences from “you know my taste.”
 
@@ -53,13 +56,17 @@ appear. Country views without a lineup and global search retain alphabetical
 order. USA uses a curated, continuous grid ordered mainstream, news, movies,
 TV shows, music, factual/lifestyle, sports and kids. CBS, NBC, ABC, Fox and PBS lead
 the mainstream networks. Groups control sort order only: there are no headings,
-dividers or separate rows. Explicit provider-ID placements lead each group and
-resolve broad or mixed source tags; remaining members sort alphabetically.
-Unclassified channels follow at the end. Missing channels are never added, and
+dividers or separate rows. Each focused group contains an explicit list of familiar
+networks. Other channels, including non-Chicago local news, follow after kids in
+alphabetical order. Missing channels are never added, and
 ordering does not select a different affiliate or stream. Favorites always retain
 the viewer's manual order. Spanish-only US channels are skipped in the country
 grid except sports. Unknown and multilingual channels remain; global search and
 existing Favorites still include channels omitted from that country view.
+Country configuration can also supply preferred stream sources. NBC opens the
+Chicago WMAQ feed by default, with Bay Area KNTV available through Source. The
+worldwide M3U remains the catalog foundation; source overrides apply to both the
+saved catalog and a refreshed one.
 UK uses the main England Freeview/DTT lineup. Regional alternatives remain
 available after the matched lineup; this does not select a region-specific stream
 or merge separate timeshift channels.

@@ -200,7 +200,7 @@
     "US": {
       "source": {
         "type": "curated",
-        "description": "Continuous US browsing order; explicit channel placement followed by genre metadata. Not broadcast channel numbers.",
+        "description": "Familiar networks in focused US groups; all remaining channels follow alphabetically. Not broadcast channel numbers.",
         "languageFilter": {
           "feeds": "https://iptv-org.github.io/api/feeds.json",
           "language": "spa",
@@ -227,16 +227,6 @@
           }
         }
       },
-      "categoryPriority": [
-        "kids",
-        "sports",
-        "news",
-        "music",
-        "factual",
-        "movies",
-        "shows",
-        "mainstream"
-      ],
       "groups": [
         {
           "key": "mainstream",
@@ -246,10 +236,7 @@
             "ABC.us",
             "Fox.us",
             "PBS.us",
-            "TheCW.us",
-            "Univision.us",
-            "Telemundo.us",
-            "UniMas.us"
+            "TheCW.us"
           ]
         },
         {
@@ -264,26 +251,32 @@
             "NBCNewsNOW.us",
             "NewsmaxTV.us",
             "CNBC.us",
-            "BloombergTV.us"
-          ],
-          "categories": [
-            "news",
-            "business",
-            "weather"
+            "BloombergTV.us",
+            "FoxBusinessNetwork.us",
+            "CNNInternational.us",
+            "ReutersTV.us",
+            "TheWeatherChannel.us",
+            "LiveNOWfromFOX.us",
+            "CBSNewsChicago.us",
+            "WLSDT1247News.us",
+            "WGNTV91.us"
           ]
         },
         {
           "key": "movies",
           "ids": [
             "HBO.us",
+            "HBO2.us",
             "Cinemax.us",
             "Showtime.us",
+            "Showtime2.us",
             "Starz.us",
+            "StarzEncore.us",
             "TCM.us",
-            "AMC.us"
-          ],
-          "categories": [
-            "movies"
+            "AMC.us",
+            "FXMovieChannel.us",
+            "LifetimeMovies.us",
+            "HallmarkMoviesMysteries.us"
           ]
         },
         {
@@ -297,16 +290,21 @@
             "Bravo.us",
             "E.us",
             "ComedyCentral.us",
-            "TVLand.us"
-          ],
-          "categories": [
-            "series",
-            "entertainment",
-            "comedy",
-            "classic",
-            "family",
-            "general",
-            "animation"
+            "TVLand.us",
+            "FXX.us",
+            "Freeform.us",
+            "SYFY.us",
+            "Lifetime.us",
+            "HallmarkChannel.us",
+            "IONTV.us",
+            "MeTV.us",
+            "AntennaTV.us",
+            "AdultSwim.us",
+            "GameShowNetwork.us",
+            "truTV.us",
+            "OxygenTrueCrime.us",
+            "BET.us",
+            "WeTV.us"
           ]
         },
         {
@@ -314,10 +312,9 @@
           "ids": [
             "MTV.us",
             "VH1.us",
-            "CMT.us"
-          ],
-          "categories": [
-            "music"
+            "CMT.us",
+            "MTV2.us",
+            "MTVClassic.us"
           ]
         },
         {
@@ -332,18 +329,14 @@
             "FoodNetwork.us",
             "TravelChannel.us",
             "TLC.us",
-            "AE.us"
-          ],
-          "categories": [
-            "documentary",
-            "science",
-            "education",
-            "lifestyle",
-            "travel",
-            "cooking",
-            "outdoor",
-            "auto",
-            "culture"
+            "AE.us",
+            "InvestigationDiscovery.us",
+            "NationalGeographicWild.us",
+            "SmithsonianChannel.us",
+            "MagnoliaNetwork.us",
+            "FYI.us",
+            "CookingChannel.us",
+            "MotorTrend.us"
           ]
         },
         {
@@ -351,17 +344,27 @@
           "ids": [
             "ESPN.us",
             "ESPN2.us",
+            "ESPNU.us",
+            "ESPNews.us",
             "FoxSports1.us",
             "FoxSports2.us",
             "NFLNetwork.us",
+            "NFLRedZone.us",
             "NBATV.us",
             "MLBNetwork.us",
             "NHLNetwork.us",
             "GolfChannel.us",
-            "TennisChannel.us"
-          ],
-          "categories": [
-            "sports"
+            "TennisChannel.us",
+            "BigTenNetwork.us",
+            "SECNetwork.us",
+            "ACCNetwork.us",
+            "CBSSportsNetworkUSA.us",
+            "CBSSportsHQ.us",
+            "beINSportsUSA.us",
+            "ESPNDeportes.us",
+            "FoxDeportes.us",
+            "ChicagoSportsNetwork.us",
+            "MarqueeSportsNetwork.us"
           ]
         },
         {
@@ -373,10 +376,12 @@
             "PBSKids.us",
             "NickJr.us",
             "DisneyJunior.us",
-            "Boomerang.us"
-          ],
-          "categories": [
-            "kids"
+            "Boomerang.us",
+            "DisneyXD.us",
+            "TeenNick.us",
+            "Nicktoons.us",
+            "DiscoveryFamily.us",
+            "BabyFirst.us"
           ]
         }
       ],
@@ -786,7 +791,19 @@
       ],
       "retainCategories": [
         "sports"
-      ]
+      ],
+      "sourceOverrides": {
+        "NBC.us": [
+          {
+            "label": "NBC Chicago WMAQ-TV (1080p)",
+            "url": "https://d368vp0qqzvkid.cloudfront.net/11603/88889704/hls/master.m3u8?ads.xumo_channelId=88889704a&ads.xumo_ifaType=&ads.xumo_providerId=3818&ads.xumo_providerName=NBCNCHI"
+          },
+          {
+            "label": "NBC Bay Area KNTV (1080p)",
+            "url": "https://d368vp0qqzvkid.cloudfront.net/11603/88889711/hls/master.m3u8?ads.xumo_channelId=88889711a&ads.xumo_ifaType=&ads.xumo_providerId=3822&ads.xumo_providerName=NBCNBA"
+          }
+        ]
+      }
     },
     "GB": {
       "source": {

@@ -22,6 +22,20 @@ class LibraryStoreTest {
         File(context.filesDir, "library.json").delete()
         context.getSharedPreferences("viewer", Context.MODE_PRIVATE).edit().clear().commit()
     }
+    @Test fun `global refresh and offline cache keep source data while effective NBC uses country override`() {
+        val source = "#EXTM3U\n#EXTINF:-1 tvg-id=\"NBC.us@HD\",NBC\nhttps://example.com/downloaded-nbc"
+        val info = """[{"id":"NBC.us","name":"NBC","country":"US","categories":["general"]}]"""
+        val fetched = mutableListOf<String>()
+        LibraryStore(context) { url -> fetched.add(url); if (url == Source.PLAYLIST) source else info }.refresh()
+        assertEquals(listOf(Source.PLAYLIST, Source.METADATA), fetched)
+        val cached = LibraryStore(context) { error("Offline startup must not download") }.initial()
+        assertEquals(source, cached.source.playlist)
+        assertEquals("https://example.com/downloaded-nbc", cached.channels.single().streams.single().url)
+        val order = CountryChannelOrder.parse(context.assets.open("channel-order.json").bufferedReader().use { it.readText() })
+        val effective = CatalogIndex(cached.channels, order).byId.getValue("NBC.us")
+        assertEquals("NBC Chicago WMAQ-TV (1080p)", effective.streams.first().label)
+        assertEquals(2, effective.streams.size)
+    }
     @Test fun `refresh writes a complete cache and bad refresh preserves it`() {
         val first = LibraryStore(context) { url -> if (url == Source.PLAYLIST) playlist else metadata }
         first.refresh(Library(playlist, metadata))

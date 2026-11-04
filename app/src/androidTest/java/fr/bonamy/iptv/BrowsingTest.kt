@@ -120,6 +120,10 @@ class BrowsingTest {
                 org.junit.Assert.assertEquals(mainstream, ids.take(mainstream.size))
                 org.junit.Assert.assertFalse(ids.contains("Univision.us"))
                 org.junit.Assert.assertTrue(ids.contains("ESPNDeportes.us"))
+                val channels = (it.findViewById<RecyclerView>(R.id.channel_grid).adapter as ChannelAdapter).channels
+                org.junit.Assert.assertEquals("NBC Chicago WMAQ-TV (1080p)", channels.first { channel -> channel.id == "NBC.us" }.streams.first().label)
+                org.junit.Assert.assertTrue(ids.indexOf("CBSNewsChicago.us") < ids.indexOf("CBSNewsNewYork.us"))
+                org.junit.Assert.assertTrue(ids.indexOf("PBSKids.us") < ids.indexOf("FlicksofFury.us"))
                 if ("FX.us" in ids && "CNN.us" in ids) org.junit.Assert.assertTrue(ids.indexOf("CNN.us") < ids.indexOf("FX.us"))
             }
             androidx.test.espresso.Espresso.pressBack(); home(scenario)
