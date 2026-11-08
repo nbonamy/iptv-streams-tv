@@ -123,6 +123,12 @@ class GuideOverlayTest {
             scenario.onActivity { it.findViewById<RecyclerView>(R.id.channel_grid).findViewHolderForAdapterPosition(0)!!.itemView.performClick() }
             await(scenario) { it.findViewById<View>(R.id.tv_guide)?.isShown == true && it.currentFocus?.contentDescription?.toString()?.contains("Fixture TF1") == true }
             capture("guide-page.png")
+            var guideStart = 0L
+            scenario.onActivity { guideStart = it.findViewById<GuideScreen>(R.id.tv_guide).saveState().getLong("start") }
+            key(KeyEvent.KEYCODE_MEDIA_REWIND)
+            scenario.onActivity { assertEquals(guideStart - 10_800_000, it.findViewById<GuideScreen>(R.id.tv_guide).saveState().getLong("start")) }
+            key(KeyEvent.KEYCODE_MEDIA_FAST_FORWARD)
+            scenario.onActivity { assertEquals(guideStart, it.findViewById<GuideScreen>(R.id.tv_guide).saveState().getLong("start")) }
             key(KeyEvent.KEYCODE_BACK)
             scenario.onActivity { it.findViewById<RecyclerView>(R.id.channel_grid).findViewHolderForAdapterPosition(1)!!.itemView.performClick() }
             await(scenario) { player(it.window.decorView)?.isPlaying == true }
@@ -131,6 +137,12 @@ class GuideOverlayTest {
             key(KeyEvent.KEYCODE_LAST_CHANNEL)
             await(scenario) { overlay(it)?.isShown == true && it.currentFocus?.contentDescription?.toString()?.contains("Fixture TF1") == true }
             capture("guide-overlay.png")
+            scenario.onActivity { guideStart = overlay(it)!!.saveState().getLong("start") }
+            key(KeyEvent.KEYCODE_MEDIA_FAST_FORWARD)
+            scenario.onActivity { assertEquals(guideStart + 10_800_000, overlay(it)!!.saveState().getLong("start")); assertSame(engine, player(it.window.decorView)); assertTrue(engine!!.isPlaying) }
+            key(KeyEvent.KEYCODE_MEDIA_REWIND)
+            scenario.onActivity { assertEquals(guideStart, overlay(it)!!.saveState().getLong("start")) }
+            await(scenario) { it.currentFocus?.contentDescription?.toString()?.contains("Fixture TF1") == true }
             key(KeyEvent.KEYCODE_DPAD_DOWN)
             await(scenario) { it.currentFocus?.contentDescription?.toString()?.contains("Fixture France 2") == true }
             await(scenario) { player(it.window.decorView) === engine && engine!!.isPlaying && engine!!.videoDecoderCounters!!.renderedOutputBufferCount > frames + 25 }

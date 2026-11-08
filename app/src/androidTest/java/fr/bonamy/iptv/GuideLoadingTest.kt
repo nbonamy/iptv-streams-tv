@@ -61,6 +61,12 @@ class GuideLoadingTest {
                 instrumentation.uiAutomation.takeScreenshot().compress(Bitmap.CompressFormat.PNG, 100, it)
             }
             scenario.onActivity {
+                val marker = screen.findViewWithTag<View>("guide-now-marker")
+                assertTrue(marker.isShown)
+                (find(screen) { it is android.widget.TextView && it.text == "Earlier" } as View).performClick()
+                assertFalse(marker.isShown)
+                (find(screen) { it is android.widget.TextView && it.text == "Now" } as View).performClick()
+                assertTrue(marker.isShown)
                 screen.loading()
                 assertNotNull(find(screen) { it.isShown && it.contentDescription?.contains("Playing and laughing") == true })
                 screen.failed()

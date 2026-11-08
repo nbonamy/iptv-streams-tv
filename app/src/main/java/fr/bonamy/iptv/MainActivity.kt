@@ -466,6 +466,8 @@ class MainActivity : ComponentActivity() {
     // incorrectly marks the bridge restricted. TV controls need interception before focus dispatch.
     @android.annotation.SuppressLint("RestrictedApi")
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
+        val visibleGuide = guideOverlay?.takeIf { it.isShown } ?: guideScreen?.takeIf { it.isShown }
+        if (visibleGuide?.handlePageKey(event) == true) return true
         if (playerScreen != null && event.keyCode in setOf(KeyEvent.KEYCODE_LAST_CHANNEL, KeyEvent.KEYCODE_GUIDE)) {
             if (event.action == KeyEvent.ACTION_DOWN && event.repeatCount == 0) {
                 if (guideOverlay != null) closeGuideOverlay() else openGuideOverlay()

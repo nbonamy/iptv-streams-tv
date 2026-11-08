@@ -1,7 +1,10 @@
 package fr.bonamy.iptv
 
 import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Paint
 import android.view.Gravity
+import android.view.KeyEvent
 import android.view.View
 import android.widget.*
 import fr.bonamy.iptv.core.*
@@ -30,7 +33,16 @@ internal class GuideScreen(context: Context, private val play: (Channel) -> Unit
         if (overlayMode) contentDescription = "Close TV guide"
     }
     private val period = context.label("", 13f, MUTED).apply { gravity = Gravity.CENTER_VERTICAL }
-    private val detail = context.label("", 15f, MUTED).apply { maxLines = 2 }
+    private val detailTitle = context.label("", 15f).apply { bold(); maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END }
+    private val detailTime = context.label("", 12f, MUTED).apply { maxLines = 1 }
+    private val detailDescription = context.label("", 13f, MUTED).apply { maxLines = 2; ellipsize = android.text.TextUtils.TruncateAt.END }
+    private val detail = context.row().apply {
+        addView(context.column().apply {
+            addView(detailTitle)
+            addView(detailTime, LayoutParams(-1, -2).apply { topMargin = context.dp(3) })
+        }, LayoutParams(0, -2, 1f))
+        addView(detailDescription, LayoutParams(0, -2, 2f).apply { leftMargin = context.dp(24) })
+    }
     private val message = context.label("", 15f, MUTED).apply { visibility = View.GONE }
     private val loadingPane = context.column().apply {
         gravity = Gravity.CENTER
@@ -52,7 +64,20 @@ internal class GuideScreen(context: Context, private val play: (Channel) -> Unit
     }
     private val scroll = ScrollView(context).apply { isFillViewport = true; isFocusable = false }
     private val table = context.column()
+    private val gridContainer = FrameLayout(context)
     private val rulerContainer = FrameLayout(context)
+    private inner class NowMarker(context: Context, private val ruler: Boolean) : View(context) {
+        private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = ACCENT; strokeWidth = context.dp(1).toFloat() }
+        init { importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO }
+        override fun onDraw(canvas: Canvas) {
+            val now = System.currentTimeMillis()
+            if (now < start || now >= start + duration) return
+            val x = context.dp(132) + (now - start).toFloat() / duration * (width - context.dp(132)).coerceAtLeast(context.dp(400))
+            if (ruler) canvas.drawCircle(x, height - context.dp(3).toFloat(), context.dp(3).toFloat(), paint)
+            else canvas.drawLine(x, 0f, x, height.toFloat(), paint)
+        }
+    }
+    private val gridMarker = NowMarker(context, false).apply { tag = "guide-now-marker" }
     private val retryButton = context.headerAction("Retry", retry).apply { visibility = View.GONE }
     init {
         id = if (overlayMode) R.id.tv_guide_overlay else R.id.tv_guide
@@ -68,8 +93,11 @@ internal class GuideScreen(context: Context, private val play: (Channel) -> Unit
         addView(message); addView(retryButton)
         addView(loadingPane, LayoutParams(-1, 0, 1f))
         addView(rulerContainer, LayoutParams(-1, context.dp(32)))
-        scroll.addView(table); addView(scroll, LayoutParams(-1, 0, 1f))
-        addView(detail, LayoutParams(-1, context.dp(40)).apply { topMargin = context.dp(8) })
+        scroll.addView(table)
+        gridContainer.addView(gridMarker, FrameLayout.LayoutParams(-1, -1))
+        gridContainer.addView(scroll, FrameLayout.LayoutParams(-1, -1))
+        addView(gridContainer, LayoutParams(-1, 0, 1f))
+        addView(detail, LayoutParams(-1, context.dp(48)).apply { topMargin = context.dp(8) })
         addOnLayoutChangeListener { _, l, _, r, _, ol, _, or, _ -> if (r - l != or - ol && data != null) render(visibility == View.VISIBLE) }
     }
     private fun nowStart() = System.currentTimeMillis().let { it - it % (30 * 60 * 1000L) }
@@ -78,7 +106,7 @@ internal class GuideScreen(context: Context, private val play: (Channel) -> Unit
         loadingPane.visibility = if (initial) View.VISIBLE else View.GONE
         navigation.visibility = if (initial) View.GONE else View.VISIBLE
         rulerContainer.visibility = if (initial) View.GONE else View.VISIBLE
-        scroll.visibility = if (initial) View.GONE else View.VISIBLE
+        gridContainer.visibility = if (initial) View.GONE else View.VISIBLE
         detail.visibility = if (initial) View.GONE else View.VISIBLE
         message.text = if (initial) "" else "Refreshing guide…"
         message.visibility = if (initial) View.GONE else View.VISIBLE
@@ -89,7 +117,7 @@ internal class GuideScreen(context: Context, private val play: (Channel) -> Unit
     fun show(result: SavedGuide, available: List<Channel>) {
         data = result.guide; channels = available
         loadingPane.visibility = View.GONE; navigation.visibility = View.VISIBLE; rulerContainer.visibility = View.VISIBLE
-        scroll.visibility = View.VISIBLE; detail.visibility = View.VISIBLE
+        gridContainer.visibility = View.VISIBLE; detail.visibility = View.VISIBLE
         if (selected == null || result.guide.programs.none { key(it) == selected }) selectPreferredChannel()
         message.text = if (result.saved) "Saved schedule · Refresh to try again" else ""
         message.visibility = if (result.saved) View.VISIBLE else View.GONE
@@ -104,6 +132,15 @@ internal class GuideScreen(context: Context, private val play: (Channel) -> Unit
         selected = (visible.firstOrNull { it.start <= now && it.end > now } ?: visible.firstOrNull())?.let(::key)
     }
     private fun page(direction: Int) { followsNow = false; start += duration * direction; selected = null; render(true) }
+    fun handlePageKey(event: KeyEvent): Boolean {
+        val direction = when (event.keyCode) {
+            KeyEvent.KEYCODE_MEDIA_REWIND -> -1
+            KeyEvent.KEYCODE_MEDIA_FAST_FORWARD -> 1
+            else -> return false
+        }
+        if (event.action == KeyEvent.ACTION_DOWN && event.repeatCount == 0 && data != null) page(direction)
+        return true
+    }
     private fun key(p: GuideProgram) = "${p.channelId}:${p.start}"
     private fun render(focus: Boolean) {
         val guide = data ?: return
@@ -120,13 +157,20 @@ internal class GuideScreen(context: Context, private val play: (Channel) -> Unit
         ruler.addView(View(context), LayoutParams(context.dp(132), context.dp(32)))
         repeat(6) { index -> ruler.addView(context.label(time.format(Instant.ofEpochMilli(start + index * duration / 6)), 12f, MUTED), LayoutParams(0, context.dp(32), 1f)) }
         rulerContainer.removeAllViews(); rulerContainer.addView(ruler)
+        rulerContainer.addView(NowMarker(context, true), FrameLayout.LayoutParams(-1, -1))
+        gridMarker.visibility = if (now >= start && now < start + duration) View.VISIBLE else View.INVISIBLE
+        gridMarker.invalidate()
         var initial: View? = null; var restored: View? = null
         var nextUpdate = if (followsNow) start + 30 * 60 * 1000L else Long.MAX_VALUE
         val mapped = guide.channels.mapNotNull { gc -> gc.match(channels)?.let { gc to it } }.sortedBy { (_, channel) -> channels.indexOf(channel) }
         val programs = guide.programs.groupBy { it.channelId }
         mapped.forEach { (gc, channel) ->
             val row = context.row()
-            row.addView(context.label(channel.name, 15f).apply { bold(); maxLines = 2; gravity = Gravity.CENTER_VERTICAL; setPadding(0, 0, context.dp(12), 0) }, LayoutParams(context.dp(132), context.dp(84)))
+            row.addView(context.label(channel.name, 15f).apply {
+                bold(); maxLines = 2; gravity = Gravity.CENTER_VERTICAL
+                setPadding(context.dp(10), 0, context.dp(12), 0)
+                background = context.surface(0x9907111d.toInt())
+            }, LayoutParams(context.dp(126), context.dp(84)).apply { rightMargin = context.dp(6) })
             val track = FrameLayout(context)
             val visible = programs[gc.id].orEmpty().filter { it.start < start + duration && it.end > start }
             if (visible.isEmpty()) track.addView(context.label("No schedule available", 14f, MUTED).apply { gravity = Gravity.CENTER_VERTICAL }, FrameLayout.LayoutParams(-1, -1))
@@ -144,7 +188,10 @@ internal class GuideScreen(context: Context, private val play: (Channel) -> Unit
                     contentDescription = "${channel.name}, ${p.title}, ${time.format(Instant.ofEpochMilli(p.start))}"
                     setOnClickListener { if (p.end > System.currentTimeMillis()) play(channel) }
                     isEnabled = p.end > now; isClickable = p.end > now; isFocusable = p.end > now; alpha = if (p.end > now) 1f else 0.45f
-                    setOnFocusChangeListener { _, hasFocus -> if (hasFocus) { selected = key(p); detail.text = "${channel.name} · ${p.title}\n${p.description}" } }
+                    setOnFocusChangeListener { _, hasFocus -> if (hasFocus) { selected = key(p)
+                        detailTitle.text = "${channel.name} · ${p.title}"
+                        detailTime.text = "${time.format(Instant.ofEpochMilli(p.start))}–${time.format(Instant.ofEpochMilli(p.end))}"
+                        detailDescription.text = p.description } }
                 }
                 track.addView(cell, FrameLayout.LayoutParams((right - left - context.dp(3)).coerceAtLeast(1), -1).apply { leftMargin = left })
                 if (initial == null && p.end > now) initial = cell
