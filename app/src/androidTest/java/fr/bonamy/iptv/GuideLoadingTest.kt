@@ -48,6 +48,10 @@ class GuideLoadingTest {
             instrumentation.waitForIdleSync()
             scenario.onActivity {
                 val title = find(screen) { it is android.widget.TextView && it.text == "Evening news\nPlaying and laughing" } as android.widget.TextView
+                val cell = title.parent as ViewGroup
+                val topGap = cell.getChildAt(0).top
+                val bottomGap = cell.height - title.bottom
+                assertTrue("Program content should be vertically centered", kotlin.math.abs(topGap - bottomGap) <= title.context.dp(2))
                 assertEquals(2, title.layout.lineCount)
                 assertTrue("Second-line descenders are clipped", title.layout.getLineBaseline(1) + title.paint.fontMetricsInt.descent <= title.height - title.paddingBottom)
                 assertTrue("Title extends outside the program cell", title.bottom <= (title.parent as View).height - (title.parent as View).paddingBottom)

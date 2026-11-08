@@ -137,7 +137,8 @@ internal class GuideScreen(context: Context, private val play: (Channel) -> Unit
                 val right = ((min(p.end, start + duration) - start).toDouble() / duration * timelineWidth).toInt()
                 val cell = context.column().apply {
                     id = View.generateViewId(); background = context.focusBackground(p.start <= now && p.end > now)
-                    setPadding(context.dp(10), context.dp(10), context.dp(10), context.dp(8))
+                    gravity = Gravity.CENTER_VERTICAL
+                    setPadding(context.dp(10), context.dp(10), context.dp(10), context.dp(10))
                     addView(context.label("${time.format(Instant.ofEpochMilli(p.start))}–${time.format(Instant.ofEpochMilli(p.end))}", 11f, MUTED).apply { maxLines = 1 })
                     addView(context.label(p.title, 15f).apply { bold(); maxLines = 2; includeFontPadding = true; ellipsize = android.text.TextUtils.TruncateAt.END }, LayoutParams(-1, -2).apply { topMargin = context.dp(5) })
                     contentDescription = "${channel.name}, ${p.title}, ${time.format(Instant.ofEpochMilli(p.start))}"
